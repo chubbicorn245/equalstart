@@ -1,0 +1,146 @@
+
+
+  EqualStart x Meteora DBC (localnet, real DBC binary)
+    versions: {
+ "dbcSdk": "1.5.13",
+ "dbcIdl": "0.2.1",
+ "anchorClient": "1.2.1",
+ "solanaCore": "4.3.0",
+ "equalstartProgram": "6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j",
+ "swap2Accounts": [
+  "pool_authority",
+  "config",
+  "pool(w)",
+  "input_token_account(w)",
+  "output_token_account(w)",
+  "base_vault(w)",
+  "quote_vault(w)",
+  "base_mint",
+  "quote_mint",
+  "payer(signer)",
+  "token_base_program",
+  "token_quote_program",
+  "referral_token_account(w)(optional)",
+  "event_authority",
+  "program"
+ ],
+ "swap2Args": "SwapParameters2 { amount_0: u64, amount_1: u64, swap_mode: u8 }"
+}
+    ✔ pins versions and verifies the real DBC + EqualStart programs are deployed (49ms)
+    [OK  ] dbc.create_config (SDK)
+           rcxVV9z8T2eM9bvWpJBKUYVMMa5MZR8SfTeGjkXQ9YgNT8VGCGGRSE53a6fNmyesg3njazRXbjD8wgMkg462mhh
+    config: {"address":"HD9oXEGmW3mGSuZ9i2Mrgh3srwVh7TykwwYuYWc4H8Xv","quoteMint":"So11111111111111111111111111111111111111112","baseFeeMode":0,"enableFirstSwapWithMinFee":0,"tokenType":0,"migrationQuoteThreshold":"72075922005"}
+    ✔ funds wallets and creates a DBC config with first-swap-min-fee and rate limiter disabled (SDK) (15675ms)
+    [OK  ] initialize_batch main
+           3Gd1P8dztdAH4yxHGYQMo7pG9Yvot3CZCrcji5NCFJLkUF9G1BVGz71zGtpBS5e43j5fsPKDmhcExbdztXQBD2cS
+    [OK  ] initialize_batch expiring
+           HFoLb9AxQpZiFg6o9guZex6HSdURaCFbSeSE5vLu62mHn9ySr3SJ2X2C8E5urSzosW9Sa71EtGryUFtJKfYZC4V
+    [OK  ] initialize_batch slippage (min_base_out = u64::MAX/2)
+           8NZMwQAkFsQUtMb3DH6WCK94Bx6wxXQ4Gs18H5SfVZkzFHAWYVAeZjybLWFYAn2AkTm1uyZ3jbkc86iJKk3kpyA
+    [FAIL] ATTACK re-initialize main batch with new terms
+           2RByf1Hh6Qdf8CiRPMAU794bu4C7rdqUNCMLyBLFQzokUXgNYWmWifGWZdnaKp4xdvs5uoLGFWKbGm2otksfL7QU
+    [FAIL] ATTACK initialize_batch with non-DBC config
+           2J1csYVTw88EE9ugv5TnDMWdyQHxSBSZRnkxkNPHToiZCZipjVh43UBfprKGXmzzWvbUEwK1jv8bA7nibhUvnb1F
+    [FAIL] ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold
+           iKoAN5VXvPGnj4FfaVrV3r4DRAPyn2HKc1FDHDuaeQXxiZCA7xUtRcEV41BztpeGyna2Aiqo11kwKBcc4jrKV43
+    ✔ initializes batches with immutable terms; rejects bad config and re-initialization (3098ms)
+    [OK  ] wrap 1 SOL
+           5rBAbvaY9oSKkGoKZ2SVPNBXgM2LzxvsZVExaZu9WaZeTxbXtpbRPMtuv3EB27sNovbHwkWLuf6efJu69G4RAtwP
+    [OK  ] wrap 1 SOL
+           4zMpjH5ewBbU2RaqkV2N3Tai99qLBSJKez5YjDxsQrQR676gUdUxPqNSmyTjo6DMmjZ3gAQaDqhRVhWzJbocmCja
+    [OK  ] wrap 1 SOL
+           6762JFZPWRM8dP7bEPeYSqsS8ig4hAagZn9YWyi6w2mNWRhhBWQCuVCP7NzWApcmPN3bb9AZ7gYudk5SHd1zZzBu
+    [OK  ] deposit alice 0.15 (main)
+           4o368isN4BcHUZX3uFdKoAthcRSz467jB1mu3nwD1UR66AGxRQkyCMMEE3K7KfJeXTLf3L7ZAJta9dyDvoBJmQf3
+    [OK  ] withdraw alice 0.05 before close (main)
+           3dQJeJUK3zV1KFVkhNcG9SwYNRQgxFVUpGJUcXX9yzPUnCUjvGXJBwuwsMBhmeA9YfPPoMgJ2AqLUuK1di7p4Smc
+    [OK  ] deposit bob 0.2 (main)
+           3msUxgZeWk8SkhL7V2NoQjYxcd4exm9yRgKgVHX7qJtvof39m33WdK1bufvcdF5N2u8MSiX1Qy2RmUqUJMEC5Bjs
+    [OK  ] deposit carol 0.3 (main)
+           H2dpco2f4oxU2vLAGjim6HuDQm8JweyGgwtA96FuLgjDLxNfYSfLsUerUJMUKzMdsxG8crj5uSvp9gaUkBR8pBG
+    [OK  ] deposit alice 0.05 (expiring)
+           3mbhwtSMBDwgqcoQPn8H8q9iFu1SuFk5KHyXHT812zxvg2fG5THmsMUpBSyBAtDY9HKNfYvDgPcdy7w7nPRMCFvS
+    [OK  ] deposit bob 0.1 (expiring)
+           2xJ3GE8H7ZAbYM3oSCuLcCrnABpo2NCg5h1FtY5iYmJTh7jfw3DHMe9PjdXaotpRpQHNTTAQE4HzqkbpRKwsSSn4
+    [OK  ] deposit carol 0.15 (expiring)
+           3hZZj4VuqLnfRbqZgmoHHCjdZnvucDcXmNcXPFB6zLR8xhtwcZSRyvsApUvaCcMUyHT42T6xwgk1KwvKbfbxEFD
+    [OK  ] deposit alice 0.1 (slippage)
+           5hKze2S4Vb7ftTPTUQiD4yaaaJB5hw5LGQ2M7V8EnYnJ6Go5NWg8eWv4sJhGP1UbNoMYcvzoXMcvoayNqeNVh4Am
+    [FAIL] ATTACK refund before cancellation
+           3Dd3LtvJPbH1uJ8dv2zPy9V6CJJNrPZLF5HPGS2fZXHfjxPRBSLEcdrKm9q6ZPjocpLd3Dro8HzxaQvQR33N4fKJ
+    [FAIL] ATTACK cancel_expired before expiry
+           rW5vG6uB3r8pDS3rteuH18kH5VEG9h3SsZzS49qB39pC1gWYt4nHT6zoFg1Zoz4sWxLFN4KnV5kHEz997bX2mYG
+    [FAIL] ATTACK carol exceeds per-wallet cap
+           616TGnxJkfwgSBuzjYtxfi7iDcWnREYZcuphM37Sx6p2QQgFL6ZuhGXVGJimufEeaGyCUQJ4q9kt14gSm6ua9ujW
+    [FAIL] ATTACK eve withdraws from alice's contribution
+           2XeE8V2zDLFEFLNqMvrjbKLd4QHUGLkBjjQ1gwbAoTaV8Q29SWEHNwagNDFrukmVyC8Y1natqagJrFvwokkeAGaL
+    [FAIL] ATTACK creator SPL-transfers out of PDA quote vault
+           2CazypCZBFVnk2jLa4qZkvzPqzgAJjF1oPDY55cRLM2kNyE7YLeFytmovtnRBknJ1jBhzjPXEyuM5yGVdsWTkj62
+    [FAIL] ATTACK execute_batch before closes_at (with real pool init)
+           25MZ4iJYBuYrTuiZmEZXghYS8BLHEAD5JDG3EXda8prfceu1MUTGT3DPt8z9Rti5xEzFwz7CNMPZQcgnwoMgJMKL
+    ✔ Alice 0.1, Bob 0.2, Carol 0.3 wSOL deposit with their own signatures; caps/withdraw/theft attempts fail (9145ms)
+    [FAIL] ATTACK execute_batch without pool init
+           352X1rEpDHswGEV3tt9uX4ys8c58Z9iWKj6xGxype9KNepZQbwJuMrHYd4q2cyYMp3Fko6sMz6w2oU3SfY8QhcFf
+    [OK  ] wrap eve 1 SOL
+           4fb5GberYU9uRDkePcxbcGtLxR4tAchfvfo155FxHLe1jVb42YAaB3D4ULpLM7Y9PYpPA2ZqvYDbukqL9sNEjvCV
+    [FAIL] ATTACK init -> eve swap2 first buy -> execute_batch
+           5mHgYN6rjSZJMZ2xYYSQsabSNzcCriM5H7GEAQKTXTWYyXpccwjEF1nXT32WtRnuzWCJb4oEAGTfP6bQeT4PgYna
+    [FAIL] ATTACK init uncommitted pool -> execute_batch against it
+           3aXMrfU56RiSJJoDn6qgZujs1CFU1UzUHTAvdZ2Zk5wUYjAvkAkmrbyhjaDF9gzbtSyAbV4Bt5WY3941y37nRDob
+    ✔ rejects settlements that are not init-immediately-then-execute for the committed pool (16064ms)
+    [FAIL] settlement tx (slippage batch) init + execute_batch
+           4N9RPJN1DQNU1rtBGV7m2vyo8zxoRm4HwrEpiuNfyZ42GRtVJwK7YAv5Zo9k8eCtam3oAzzEE1Saa7SobkG7y5Kh
+    ✔ SLIPPAGE: atomic init+execute reverts entirely when DBC output < committed min_base_out (537ms)
+    simulation: err=null CU=168317 bytes=932/1232 keys=20
+    [OK  ] SETTLEMENT init_pool + execute_batch
+           4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y
+    settlement: {"pool":{"owner":"dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN","config":"HD9oXEGmW3mGSuZ9i2Mrgh3srwVh7TykwwYuYWc4H8Xv","baseMint":"A3vvccFYzzbzUE2b37ZTLVsehCfyDGTdUaNn2Cijtmvr","baseReserve":"980546659223693","quoteReserve":"594000000","hasSwap":1},"quoteVaultBefore":"600000000","quoteVaultAfter":"0","batchBaseVault":"19453340776307","batch":{"phase":"settled","totalQuote":"600000000","quoteSpent":"600000000","baseReceived":"19453340776307"}}
+    ✔ SETTLEMENT: ONE transaction = SDK DBC pool init + EqualStart execute_batch (PDA-signed swap2 CPI) (511ms)
+    [FAIL] ATTACK replay execute_batch alone
+           46BsE9Ckaez1TVMwLRWRLHyikhXAizAsZKtbmZr6LtrAd6xByZwTjvzVAVzEc6Z7h4CfvZPCDjmsQuRpfE7g9zi4
+    [FAIL] ATTACK replay full settlement tx (new blockhash)
+           5k5SBzhKZ8g2uSj7vytmAmv7ULpMgPP2bj2kz5Wh59XodQ3hAQ9qDryVR1m5gnCRw28Gk77cBuRNukFpJ3NAwpG
+    ✔ replay: settlement and execute_batch cannot run again (1055ms)
+    [FAIL] ATTACK creator SPL-transfers out of PDA base vault
+           72aEXjqydBxsXwCEBsyRxVikUiUfyRefwTdP8oabHCo1Hmcoj5fmdzFbxLgHhhYLaHTx19pPpBDPF8NvT2236iG
+    [FAIL] ATTACK eve claims alice's share
+           3mHjexwPdPy4GUxGU1n1GuAdiGsprTCiTyFkHRieFkC9EEDGYAsbJnSPdvjMQmGLWTmHAdFZ46wcwd8cv5evC4c4
+    [FAIL] ATTACK eve claims without contribution
+           64XaeHyvgUxGYj9ubpxUdRRV6zPeeq6HwTqmteYj1dro67fLyUrKGQLbD1b52LUc8ZwQ3F5YhkgS53weCfS1Rm36
+    [FAIL] ATTACK burn_dust before all claims
+           4EsnJXzSHxBajoh3qAxeMCdUv11cyK7NzCitDWoUdFzNqme3WLrbKXh9rXbKSEENmw1hGHym3FZ5Znt228jjZSVC
+    [OK  ] claim carol
+           zN3s5yuuuJd1fTLVFLrt5eZCz19DyNqXii9bWv4SsC8mCuyEPksTTZFFEgY1f4x3v68Ni8mQZbmPGRCaM8EfKXS
+    [OK  ] claim alice
+           3peNJvfowb1fjctbRHyTRTXDas3a74jWwM4bQppiNMg8sthdTNEhYX8m9xvgV5sEV2iD2nZk5JbtSTHcrZB4qctW
+    [OK  ] claim bob
+           5M173WMtxrVjJygxxDzGq8FbCtvtLH3ayoUXWc8rp2XYqjdZ1sztcZdQjcTR3yaEt9baSw5cSBjRAC9mt4JGeLbP
+    [FAIL] ATTACK alice double-claims
+           5pd1sWQTjLa6h5bieusvwAVnrMtT3e5G2ke5ojthKwiiCCoiTv95cfdGV2gjtSXUAjfGMoi3wYukWDeR4VMtTSw7
+    claims: {"baseReceived":"19453340776307","alice":"3242223462717","bob":"6484446925435","carol":"9726670388153","dustBeforeBurn":"2"}
+    [OK  ] burn_dust (permissionless, after all claims)
+           2ghzGYQhwTFpvB5Jj6mK1DzacushbvYCKGhAq37WZEC9bw5JPY9Rp4L77naXVooJm77Detk6pecQ59WNWDA29Mff
+    ✔ independent 1:2:3 claims; double-claim, outsider claim and vault theft fail; dust burn (4798ms)
+    [FAIL] ATTACK execute_batch after expiry
+           4YZuYCCRhY37XnBrQVXpFBKzbWEfjV26pGir7ExNBrQsQYbBJenD376PJTUFNspbEaJQtZxhQa34yw99KjWiXJSX
+    [OK  ] cancel_expired by eve (permissionless)
+           2f3V1NAj7NGMLo6QKXWAHwkKjDasbQRvusUrim41TRj7UKwQB58SQ8HcodUqBiptnxwMKVX7xRfySFswXNMrukP9
+    [FAIL] ATTACK eve refunds alice's deposit to eve
+           3pdd9KM8JYB2RqA4GhTmgwG3myZwqchaMLK6kh5MuTEjzkjRZ2rGnjYhJVnwFdPx1Ad3Bz73A4mFpyjKDjZrYcti
+    [FAIL] ATTACK alice refunds into eve's token account
+           4C55wvyJDCHFPPqNt1xh8XyL9BX68CLswBxhDbwWEoAcqxAe4S4vifMRJC9jTrnqan8eaAo7KyFKtva3v6xaP4zG
+    [OK  ] refund bob
+           3V1xD43owXi8cBTAMinvT7Nk6wsvT2psvFtonEgCy3bdEotp4paWWYe2UfDkCxf6DTSF7JmcNLTnXvHotLacFdMi
+    [OK  ] refund alice
+           5CoJV8bjRwMaKybB1AxT57EXanXzSafjKLowq4XpC7tb9FCcrayr6rVc1gQaHh3MmmsoabsNqJtKFqwimbyD6mfr
+    [OK  ] refund carol
+           3VBNmUujPv7uEKrrpwBCX9P34zSsNFcFENJhMHJJ8PUYk3nPtxKAttzKLnyPju9as5pPFyLQHqK4G8LFrmY9PVQK
+    [FAIL] ATTACK bob double-refund
+           4BeM6hQCBKba5f2ZwetTPq59Wwc7bJwArQKN5KuXYWuRqjL3263i2ftW6C7ZCwagUSRjcXMXGFJhemxofqLppAf3
+    ✔ REFUND: expired batch is cancelled by anyone and refunded 1:1 without creator consent (15019ms)
+
+    evidence written to /Users/j/projects/equalstart_spike/evidence/localnet-dbc-mainnet-binary.json
+
+
+  10 passing (1m)
+

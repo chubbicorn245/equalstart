@@ -1,0 +1,1790 @@
+{
+  "rpc": "http://127.0.0.1:8899",
+  "startedAt": "2026-10-09T01:25:36.905Z",
+  "versions": {
+    "dbcSdk": "1.5.13",
+    "dbcIdl": "0.2.1",
+    "anchorClient": "1.2.1",
+    "solanaCore": "4.3.0",
+    "equalstartProgram": "6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j",
+    "swap2Accounts": [
+      "pool_authority",
+      "config",
+      "pool(w)",
+      "input_token_account(w)",
+      "output_token_account(w)",
+      "base_vault(w)",
+      "quote_vault(w)",
+      "base_mint",
+      "quote_mint",
+      "payer(signer)",
+      "token_base_program",
+      "token_quote_program",
+      "referral_token_account(w)(optional)",
+      "event_authority",
+      "program"
+    ],
+    "swap2Args": "SwapParameters2 { amount_0: u64, amount_1: u64, swap_mode: u8 }"
+  },
+  "transactions": [
+    {
+      "label": "dbc.create_config (SDK)",
+      "signature": "rcxVV9z8T2eM9bvWpJBKUYVMMa5MZR8SfTeGjkXQ9YgNT8VGCGGRSE53a6fNmyesg3njazRXbjD8wgMkg462mhh",
+      "slot": 35,
+      "ok": true,
+      "err": null,
+      "computeUnits": 36564,
+      "txBytes": 631,
+      "logs": [
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: CreateConfig",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 170391 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 164517 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 36564 of 200000 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success"
+      ]
+    },
+    {
+      "label": "initialize_batch main",
+      "signature": "3Gd1P8dztdAH4yxHGYQMo7pG9Yvot3CZCrcji5NCFJLkUF9G1BVGz71zGtpBS5e43j5fsPKDmhcExbdztXQBD2cS",
+      "slot": 36,
+      "ok": true,
+      "err": null,
+      "computeUnits": 39847,
+      "txBytes": 466,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 185281 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: EqualStart batch 8m9csaHFwRcufjqJeL4nAu5x5r4QEL1L6YSDyueYNBsL committed to DBC pool 5UaRbhXb3wJrDPgMidfX2LN9CZ29UW1xVPGPrHfi8nam",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 39847 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "initialize_batch expiring",
+      "signature": "HFoLb9AxQpZiFg6o9guZex6HSdURaCFbSeSE5vLu62mHn9ySr3SJ2X2C8E5urSzosW9Sa71EtGryUFtJKfYZC4V",
+      "slot": 37,
+      "ok": true,
+      "err": null,
+      "computeUnits": 42847,
+      "txBytes": 466,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 177781 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: EqualStart batch 7dT4M8Dm2DzqUaofrDXF7bVhn4esEtM5YMCfsqHNJibn committed to DBC pool CC91eJNWd2sb4GB1sk9eCBCbAzPuBMEnttDJfreLHQDR",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 42847 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "initialize_batch slippage (min_base_out = u64::MAX/2)",
+      "signature": "8NZMwQAkFsQUtMb3DH6WCK94Bx6wxXQ4Gs18H5SfVZkzFHAWYVAeZjybLWFYAn2AkTm1uyZ3jbkc86iJKk3kpyA",
+      "slot": 38,
+      "ok": true,
+      "err": null,
+      "computeUnits": 48847,
+      "txBytes": 466,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 176281 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: EqualStart batch GnEZz4GpRTKXTkDcH15GNxj8XnMtkzHqjAWvSUWsSZBj committed to DBC pool 9YmJwXDRWJczsVrTaL9sp7y7DqR19CHanZDKfcBrGJuQ",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 48847 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK re-initialize main batch with new terms",
+      "signature": "2RByf1Hh6Qdf8CiRPMAU794bu4C7rdqUNCMLyBLFQzokUXgNYWmWifGWZdnaKp4xdvs5uoLGFWKbGm2otksfL7QU",
+      "slot": 39,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 0
+          }
+        ]
+      },
+      "computeUnits": 6064,
+      "txBytes": 466,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Allocate: account Address { address: 8m9csaHFwRcufjqJeL4nAu5x5r4QEL1L6YSDyueYNBsL, base: None } already in use",
+        "Program 11111111111111111111111111111111 failed: custom program error: 0x0",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 6064 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x0"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch with non-DBC config",
+      "signature": "2J1csYVTw88EE9ugv5TnDMWdyQHxSBSZRnkxkNPHToiZCZipjVh43UBfprKGXmzzWvbUEwK1jv8bA7nibhUvnb1F",
+      "slot": 40,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6002
+          }
+        ]
+      },
+      "computeUnits": 36827,
+      "txBytes": 466,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 167281 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:408. Error Code: InvalidDbcConfig. Error Number: 6002. Error Message: DBC config is not a wSOL/SPL config with rate limiter and first-swap-min-fee disabled.",
+        "Program log: Left:",
+        "Program log: 11111111111111111111111111111111",
+        "Program log: Right:",
+        "Program log: dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 36827 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1772"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold",
+      "signature": "iKoAN5VXvPGnj4FfaVrV3r4DRAPyn2HKc1FDHDuaeQXxiZCA7xUtRcEV41BztpeGyna2Aiqo11kwKBcc4jrKV43",
+      "slot": 41,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6001
+          }
+        ]
+      },
+      "computeUnits": 16848,
+      "txBytes": 466,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 186781 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:425. Error Code: BadTerms. Error Number: 6001. Error Message: Launch terms are zero or inconsistent.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 16848 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1771"
+      ]
+    },
+    {
+      "label": "wrap 1 SOL",
+      "signature": "5rBAbvaY9oSKkGoKZ2SVPNBXgM2LzxvsZVExaZu9WaZeTxbXtpbRPMtuv3EB27sNovbHwkWLuf6efJu69G4RAtwP",
+      "slot": 42,
+      "ok": true,
+      "err": null,
+      "computeUnits": 13764,
+      "txBytes": 328,
+      "logs": [
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 397649 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 392560 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 390099 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 403000 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 389437 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "wrap 1 SOL",
+      "signature": "4zMpjH5ewBbU2RaqkV2N3Tai99qLBSJKez5YjDxsQrQR676gUdUxPqNSmyTjo6DMmjZ3gAQaDqhRVhWzJbocmCja",
+      "slot": 43,
+      "ok": true,
+      "err": null,
+      "computeUnits": 13764,
+      "txBytes": 328,
+      "logs": [
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 397649 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 392560 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 390099 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 403000 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 389437 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "wrap 1 SOL",
+      "signature": "6762JFZPWRM8dP7bEPeYSqsS8ig4hAagZn9YWyi6w2mNWRhhBWQCuVCP7NzWApcmPN3bb9AZ7gYudk5SHd1zZzBu",
+      "slot": 44,
+      "ok": true,
+      "err": null,
+      "computeUnits": 13764,
+      "txBytes": 328,
+      "logs": [
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 397649 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 392560 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 390099 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 403000 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 389437 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "deposit alice 0.15 (main)",
+      "signature": "4o368isN4BcHUZX3uFdKoAthcRSz467jB1mu3nwD1UR66AGxRQkyCMMEE3K7KfJeXTLf3L7ZAJta9dyDvoBJmQf3",
+      "slot": 45,
+      "ok": true,
+      "err": null,
+      "computeUnits": 17976,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 183912 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17976 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "withdraw alice 0.05 before close (main)",
+      "signature": "3dQJeJUK3zV1KFVkhNcG9SwYNRQgxFVUpGJUcXX9yzPUnCUjvGXJBwuwsMBhmeA9YfPPoMgJ2AqLUuK1di7p4Smc",
+      "slot": 46,
+      "ok": true,
+      "err": null,
+      "computeUnits": 12711,
+      "txBytes": 386,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Withdraw",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 189137 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 12711 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit bob 0.2 (main)",
+      "signature": "3msUxgZeWk8SkhL7V2NoQjYxcd4exm9yRgKgVHX7qJtvof39m33WdK1bufvcdF5N2u8MSiX1Qy2RmUqUJMEC5Bjs",
+      "slot": 47,
+      "ok": true,
+      "err": null,
+      "computeUnits": 16476,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 185412 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 16476 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit carol 0.3 (main)",
+      "signature": "H2dpco2f4oxU2vLAGjim6HuDQm8JweyGgwtA96FuLgjDLxNfYSfLsUerUJMUKzMdsxG8crj5uSvp9gaUkBR8pBG",
+      "slot": 48,
+      "ok": true,
+      "err": null,
+      "computeUnits": 19476,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 182412 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19476 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit alice 0.05 (expiring)",
+      "signature": "3mbhwtSMBDwgqcoQPn8H8q9iFu1SuFk5KHyXHT812zxvg2fG5THmsMUpBSyBAtDY9HKNfYvDgPcdy7w7nPRMCFvS",
+      "slot": 49,
+      "ok": true,
+      "err": null,
+      "computeUnits": 20976,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 180912 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 20976 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit bob 0.1 (expiring)",
+      "signature": "2xJ3GE8H7ZAbYM3oSCuLcCrnABpo2NCg5h1FtY5iYmJTh7jfw3DHMe9PjdXaotpRpQHNTTAQE4HzqkbpRKwsSSn4",
+      "slot": 50,
+      "ok": true,
+      "err": null,
+      "computeUnits": 17976,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 183912 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17976 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit carol 0.15 (expiring)",
+      "signature": "3hZZj4VuqLnfRbqZgmoHHCjdZnvucDcXmNcXPFB6zLR8xhtwcZSRyvsApUvaCcMUyHT42T6xwgk1KwvKbfbxEFD",
+      "slot": 51,
+      "ok": true,
+      "err": null,
+      "computeUnits": 16476,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 185412 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 16476 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit alice 0.1 (slippage)",
+      "signature": "5hKze2S4Vb7ftTPTUQiD4yaaaJB5hw5LGQ2M7V8EnYnJ6Go5NWg8eWv4sJhGP1UbNoMYcvzoXMcvoayNqeNVh4Am",
+      "slot": 52,
+      "ok": true,
+      "err": null,
+      "computeUnits": 16476,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 185412 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 16476 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK refund before cancellation",
+      "signature": "3Dd3LtvJPbH1uJ8dv2zPy9V6CJJNrPZLF5HPGS2fZXHfjxPRBSLEcdrKm9q6ZPjocpLd3Dro8HzxaQvQR33N4fKJ",
+      "slot": 53,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6023
+          }
+        ]
+      },
+      "computeUnits": 9061,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:338. Error Code: NotCancelled. Error Number: 6023. Error Message: Batch is not cancelled.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9061 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1787"
+      ]
+    },
+    {
+      "label": "ATTACK cancel_expired before expiry",
+      "signature": "rW5vG6uB3r8pDS3rteuH18kH5VEG9h3SsZzS49qB39pC1gWYt4nHT6zoFg1Zoz4sWxLFN4KnV5kHEz997bX2mYG",
+      "slot": 54,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6022
+          }
+        ]
+      },
+      "computeUnits": 3614,
+      "txBytes": 212,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:331. Error Code: NotExpired. Error Number: 6022. Error Message: Batch has not expired.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 3614 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1786"
+      ]
+    },
+    {
+      "label": "ATTACK carol exceeds per-wallet cap",
+      "signature": "616TGnxJkfwgSBuzjYtxfi7iDcWnREYZcuphM37Sx6p2QQgFL6ZuhGXVGJimufEeaGyCUQJ4q9kt14gSm6ua9ujW",
+      "slot": 55,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6006
+          }
+        ]
+      },
+      "computeUnits": 15621,
+      "txBytes": 419,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:155. Error Code: WalletCapExceeded. Error Number: 6006. Error Message: Per-wallet cap exceeded.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 15621 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1776"
+      ]
+    },
+    {
+      "label": "ATTACK eve withdraws from alice's contribution",
+      "signature": "2XeE8V2zDLFEFLNqMvrjbKLd4QHUGLkBjjQ1gwbAoTaV8Q29SWEHNwagNDFrukmVyC8Y1natqagJrFvwokkeAGaL",
+      "slot": 56,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 2006
+          }
+        ]
+      },
+      "computeUnits": 10815,
+      "txBytes": 386,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Withdraw",
+        "Program log: AnchorError caused by account: contribution. Error Code: ConstraintSeeds. Error Number: 2006. Error Message: A seeds constraint was violated.",
+        "Program log: Left:",
+        "Program log: GaYTEjfpPoKfqy6N64YkANgn6S4QBRGnP5WjizrcFjNn",
+        "Program log: Right:",
+        "Program log: nQ7MpTvCaqMKHPj1KjSKhHby8hwvTabgnLTgCBoy8zS",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10815 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7d6"
+      ]
+    },
+    {
+      "label": "ATTACK creator SPL-transfers out of PDA quote vault",
+      "signature": "2CazypCZBFVnk2jLa4qZkvzPqzgAJjF1oPDY55cRLM2kNyE7YLeFytmovtnRBknJ1jBhzjPXEyuM5yGVdsWTkj62",
+      "slot": 57,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          3,
+          {
+            "Custom": 4
+          }
+        ]
+      },
+      "computeUnits": 13963,
+      "txBytes": 375,
+      "logs": [
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 597649 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 592560 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 590099 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 603000 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 589437 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program log: Error: owner does not match",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 199 of 589236 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA failed: custom program error: 0x4"
+      ]
+    },
+    {
+      "label": "ATTACK execute_batch before closes_at (with real pool init)",
+      "signature": "25MZ4iJYBuYrTuiZmEZXghYS8BLHEAD5JDG3EXda8prfceu1MUTGT3DPt8z9Rti5xEzFwz7CNMPZQcgnwoMgJMKL",
+      "slot": 58,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6010
+          }
+        ]
+      },
+      "computeUnits": 124301,
+      "txBytes": 932,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 389755 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 373356 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 364829 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 39442 of 359067 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 317396 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 299906 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 298143 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 295112 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 106190 of 399850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 280933 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:207. Error Code: NotInSettlementWindow. Error Number: 6010. Error Message: Outside the settlement window.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17961 of 293660 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177a"
+      ]
+    },
+    {
+      "label": "ATTACK execute_batch without pool init",
+      "signature": "352X1rEpDHswGEV3tt9uX4ys8c58Z9iWKj6xGxype9KNepZQbwJuMrHYd4q2cyYMp3Fko6sMz6w2oU3SfY8QhcFf",
+      "slot": 85,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 3012
+          }
+        ]
+      },
+      "computeUnits": 7328,
+      "txBytes": 675,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program log: AnchorError caused by account: base_mint. Error Code: AccountNotInitialized. Error Number: 3012. Error Message: The program expected this account to be already initialized.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 7328 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0xbc4"
+      ]
+    },
+    {
+      "label": "wrap eve 1 SOL",
+      "signature": "4fb5GberYU9uRDkePcxbcGtLxR4tAchfvfo155FxHLe1jVb42YAaB3D4ULpLM7Y9PYpPA2ZqvYDbukqL9sNEjvCV",
+      "slot": 86,
+      "ok": true,
+      "err": null,
+      "computeUnits": 16764,
+      "txBytes": 328,
+      "logs": [
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 394649 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 389560 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 387099 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 16413 of 403000 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 386437 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "ATTACK init -> eve swap2 first buy -> execute_batch",
+      "signature": "5mHgYN6rjSZJMZ2xYYSQsabSNzcCriM5H7GEAQKTXTWYyXpccwjEF1nXT32WtRnuzWCJb4oEAGTfP6bQeT4PgYna",
+      "slot": 87,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          4,
+          {
+            "Custom": 6013
+          }
+        ]
+      },
+      "computeUnits": 179960,
+      "txBytes": 1177,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 589755 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 573356 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 564829 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 39442 of 559067 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 517396 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 499906 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 498143 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 495112 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 106190 of 599850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 479313 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 474224 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 471765 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 22411 of 493660 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: Swap2",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 451755 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 449606 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 446644 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 442983 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 29585 of 471249 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 428937 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:447. Error Code: PoolNotCreatedAtomically. Error Number: 6013. Error Message: Previous instruction must initialize the committed DBC pool in this transaction.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 21624 of 441664 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177d"
+      ]
+    },
+    {
+      "label": "ATTACK init uncommitted pool -> execute_batch against it",
+      "signature": "3aXMrfU56RiSJJoDn6qgZujs1CFU1UzUHTAvdZ2Zk5wUYjAvkAkmrbyhjaDF9gzbtSyAbV4Bt5WY3941y37nRDob",
+      "slot": 88,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 2012
+          }
+        ]
+      },
+      "computeUnits": 116353,
+      "txBytes": 932,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 389755 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 376356 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 369329 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 36442 of 363567 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 324896 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 307406 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 305643 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 302612 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 98690 of 399850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 288433 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError caused by account: base_mint. Error Code: ConstraintAddress. Error Number: 2012. Error Message: An address constraint was violated.",
+        "Program log: Left:",
+        "Program log: 8aFiRfGzknznL5xfakpf3wnZexNgeS4U4T1EbXHuMU6C",
+        "Program log: Right:",
+        "Program log: A3vvccFYzzbzUE2b37ZTLVsehCfyDGTdUaNn2Cijtmvr",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17513 of 301160 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7dc"
+      ]
+    },
+    {
+      "label": "settlement tx (slippage batch) init + execute_batch",
+      "signature": "4N9RPJN1DQNU1rtBGV7m2vyo8zxoRm4HwrEpiuNfyZ42GRtVJwK7YAv5Zo9k8eCtam3oAzzEE1Saa7SobkG7y5Kh",
+      "slot": 89,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6002
+          }
+        ]
+      },
+      "computeUnits": 145359,
+      "txBytes": 932,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 389755 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 371856 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 364829 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 37942 of 359067 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 318896 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 301406 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 299643 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 296612 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 104690 of 399850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 283933 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: Swap2",
+        "Program log: AnchorError thrown in programs/dynamic-bonding-curve/src/instructions/swap/swap_exact_in.rs:29. Error Code: ExceededSlippage. Error Number: 6002. Error Message: Exceeded slippage tolerance.",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 19514 of 274155 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN failed: custom program error: 0x1772",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 40519 of 295160 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1772"
+      ]
+    },
+    {
+      "label": "SETTLEMENT init_pool + execute_batch",
+      "signature": "4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y",
+      "slot": 90,
+      "ok": true,
+      "err": null,
+      "computeUnits": 168317,
+      "txBytes": 932,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 191736 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 175337 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 166810 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 39442 of 161048 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 119377 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 101887 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 100124 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 97093 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 106190 of 201831 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 82914 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: Swap2",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 53631 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 51482 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 48520 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 44859 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 29596 of 73136 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program log: EqualStart settled: quote_spent=600000000 base_received=19453340776307 pool=5UaRbhXb3wJrDPgMidfX2LN9CZ29UW1xVPGPrHfi8nam",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 61977 of 95641 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK replay execute_batch alone",
+      "signature": "46BsE9Ckaez1TVMwLRWRLHyikhXAizAsZKtbmZr6LtrAd6xByZwTjvzVAVzEc6Z7h4CfvZPCDjmsQuRpfE7g9zi4",
+      "slot": 91,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 0
+          }
+        ]
+      },
+      "computeUnits": 10743,
+      "txBytes": 675,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Allocate: account Address { address: 5g6ysf9pMM4v3v5bg4pb8A2ughNdqwf6u9taYmUTthpr, base: None } already in use",
+        "Program 11111111111111111111111111111111 failed: custom program error: 0x0",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10743 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x0"
+      ]
+    },
+    {
+      "label": "ATTACK replay full settlement tx (new blockhash)",
+      "signature": "5k5SBzhKZ8g2uSj7vytmAmv7ULpMgPP2bj2kz5Wh59XodQ3hAQ9qDryVR1m5gnCRw28Gk77cBuRNukFpJ3NAwpG",
+      "slot": 92,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 0
+          }
+        ]
+      },
+      "computeUnits": 8084,
+      "txBytes": 932,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Allocate: account Address { address: A3vvccFYzzbzUE2b37ZTLVsehCfyDGTdUaNn2Cijtmvr, base: None } already in use",
+        "Program 11111111111111111111111111111111 failed: custom program error: 0x0",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 7934 of 399850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN failed: custom program error: 0x0"
+      ]
+    },
+    {
+      "label": "ATTACK creator SPL-transfers out of PDA base vault",
+      "signature": "72aEXjqydBxsXwCEBsyRxVikUiUfyRefwTdP8oabHCo1Hmcoj5fmdzFbxLgHhhYLaHTx19pPpBDPF8NvT2236iG",
+      "slot": 93,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 4
+          }
+        ]
+      },
+      "computeUnits": 13616,
+      "txBytes": 353,
+      "logs": [
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 394649 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 389560 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 387099 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13417 of 400000 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program log: Error: owner does not match",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 199 of 386583 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA failed: custom program error: 0x4"
+      ]
+    },
+    {
+      "label": "ATTACK eve claims alice's share",
+      "signature": "3mHjexwPdPy4GUxGU1n1GuAdiGsprTCiTyFkHRieFkC9EEDGYAsbJnSPdvjMQmGLWTmHAdFZ46wcwd8cv5evC4c4",
+      "slot": 94,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 2006
+          }
+        ]
+      },
+      "computeUnits": 57675,
+      "txBytes": 444,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 169225 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 164136 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 161675 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 22409 of 183568 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: AnchorError caused by account: contribution. Error Code: ConstraintSeeds. Error Number: 2006. Error Message: A seeds constraint was violated.",
+        "Program log: Left:",
+        "Program log: GaYTEjfpPoKfqy6N64YkANgn6S4QBRGnP5WjizrcFjNn",
+        "Program log: Right:",
+        "Program log: nQ7MpTvCaqMKHPj1KjSKhHby8hwvTabgnLTgCBoy8zS",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 57675 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7d6"
+      ]
+    },
+    {
+      "label": "ATTACK eve claims without contribution",
+      "signature": "64XaeHyvgUxGYj9ubpxUdRRV6zPeeq6HwTqmteYj1dro67fLyUrKGQLbD1b52LUc8ZwQ3F5YhkgS53weCfS1Rm36",
+      "slot": 95,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 3012
+          }
+        ]
+      },
+      "computeUnits": 4998,
+      "txBytes": 444,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program log: AnchorError caused by account: contribution. Error Code: AccountNotInitialized. Error Number: 3012. Error Message: The program expected this account to be already initialized.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 4998 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0xbc4"
+      ]
+    },
+    {
+      "label": "ATTACK burn_dust before all claims",
+      "signature": "4EsnJXzSHxBajoh3qAxeMCdUv11cyK7NzCitDWoUdFzNqme3WLrbKXh9rXbKSEENmw1hGHym3FZ5Znt228jjZSVC",
+      "slot": 96,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6026
+          }
+        ]
+      },
+      "computeUnits": 5577,
+      "txBytes": 311,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: BurnDust",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:357. Error Code: ClaimsOutstanding. Error Number: 6026. Error Message: Not every participant has claimed.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 5577 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x178a"
+      ]
+    },
+    {
+      "label": "claim carol",
+      "signature": "zN3s5yuuuJd1fTLVFLrt5eZCz19DyNqXii9bWv4SsC8mCuyEPksTTZFFEgY1f4x3v68Ni8mQZbmPGRCaM8EfKXS",
+      "slot": 97,
+      "ok": true,
+      "err": null,
+      "computeUnits": 39609,
+      "txBytes": 444,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 187225 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 182136 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 179675 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13409 of 192568 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: EqualStart claim: participant=578muhysFeB6Poev1yBsmzd5o3NxtSgxiVP5oRgWZ2b8 share=9726670388153",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 162314 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 39609 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "claim alice",
+      "signature": "3peNJvfowb1fjctbRHyTRTXDas3a74jWwM4bQppiNMg8sthdTNEhYX8m9xvgV5sEV2iD2nZk5JbtSTHcrZB4qctW",
+      "slot": 98,
+      "ok": true,
+      "err": null,
+      "computeUnits": 44109,
+      "txBytes": 444,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 184225 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 179136 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 176675 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 14909 of 191068 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: EqualStart claim: participant=FHQ8vNWk1k5HibQZTXKox15YeDJYXr6Ado866CJS412G share=3242223462717",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 157814 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 44109 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "claim bob",
+      "signature": "5M173WMtxrVjJygxxDzGq8FbCtvtLH3ayoUXWc8rp2XYqjdZ1sztcZdQjcTR3yaEt9baSw5cSBjRAC9mt4JGeLbP",
+      "slot": 99,
+      "ok": true,
+      "err": null,
+      "computeUnits": 53130,
+      "txBytes": 444,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 178225 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 173136 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 170675 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 17909 of 188068 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: EqualStart claim: participant=H7gYdBdfhDWwSmW8ePp98eLvS4GDfqGp1mNd1M8Ngovq share=6484446925435",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 148793 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 53130 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK alice double-claims",
+      "signature": "5pd1sWQTjLa6h5bieusvwAVnrMtT3e5G2ke5ojthKwiiCCoiTv95cfdGV2gjtSXUAjfGMoi3wYukWDeR4VMtTSw7",
+      "slot": 100,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6021
+          }
+        ]
+      },
+      "computeUnits": 15382,
+      "txBytes": 444,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:300. Error Code: AlreadyClaimed. Error Number: 6021. Error Message: Already claimed.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 15382 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1785"
+      ]
+    },
+    {
+      "label": "burn_dust (permissionless, after all claims)",
+      "signature": "2ghzGYQhwTFpvB5Jj6mK1DzacushbvYCKGhAq37WZEC9bw5JPY9Rp4L77naXVooJm77Detk6pecQ59WNWDA29Mff",
+      "slot": 101,
+      "ok": true,
+      "err": null,
+      "computeUnits": 5591,
+      "txBytes": 311,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: BurnDust",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 131 of 194801 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 5591 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK execute_batch after expiry",
+      "signature": "4YZuYCCRhY37XnBrQVXpFBKzbWEfjV26pGir7ExNBrQsQYbBJenD376PJTUFNspbEaJQtZxhQa34yw99KjWiXJSX",
+      "slot": 122,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6010
+          }
+        ]
+      },
+      "computeUnits": 121303,
+      "txBytes": 932,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 389755 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 374856 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 367829 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 40942 of 362067 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 318896 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 301406 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 299643 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 296612 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 104690 of 399850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: ExecuteBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 283933 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:207. Error Code: NotInSettlementWindow. Error Number: 6010. Error Message: Outside the settlement window.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 16463 of 295160 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177a"
+      ]
+    },
+    {
+      "label": "cancel_expired by eve (permissionless)",
+      "signature": "2f3V1NAj7NGMLo6QKXWAHwkKjDasbQRvusUrim41TRj7UKwQB58SQ8HcodUqBiptnxwMKVX7xRfySFswXNMrukP9",
+      "slot": 123,
+      "ok": true,
+      "err": null,
+      "computeUnits": 2909,
+      "txBytes": 212,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 2909 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK eve refunds alice's deposit to eve",
+      "signature": "3pdd9KM8JYB2RqA4GhTmgwG3myZwqchaMLK6kh5MuTEjzkjRZ2rGnjYhJVnwFdPx1Ad3Bz73A4mFpyjKDjZrYcti",
+      "slot": 124,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 2006
+          }
+        ]
+      },
+      "computeUnits": 8965,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError caused by account: contribution. Error Code: ConstraintSeeds. Error Number: 2006. Error Message: A seeds constraint was violated.",
+        "Program log: Left:",
+        "Program log: 67Vo4588qEw6p3XGHqvjwCS6Y4QyxkTg3JJVv77v9oRG",
+        "Program log: Right:",
+        "Program log: CsNGap1Wt5vXza97FaJFbvS2XJnJQ1UgH3uvVnfFk257",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 8965 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7d6"
+      ]
+    },
+    {
+      "label": "ATTACK alice refunds into eve's token account",
+      "signature": "4C55wvyJDCHFPPqNt1xh8XyL9BX68CLswBxhDbwWEoAcqxAe4S4vifMRJC9jTrnqan8eaAo7KyFKtva3v6xaP4zG",
+      "slot": 125,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 2015
+          }
+        ]
+      },
+      "computeUnits": 8991,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError caused by account: participant_quote. Error Code: ConstraintTokenOwner. Error Number: 2015. Error Message: A token owner constraint was violated.",
+        "Program log: Left:",
+        "Program log: 9K9FUoFmNoatnmXyWeY7hBaKurJ5ShyMuh3NNmBoxnaq",
+        "Program log: Right:",
+        "Program log: FHQ8vNWk1k5HibQZTXKox15YeDJYXr6Ado866CJS412G",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 8991 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7df"
+      ]
+    },
+    {
+      "label": "refund bob",
+      "signature": "3V1xD43owXi8cBTAMinvT7Nk6wsvT2psvFtonEgCy3bdEotp4paWWYe2UfDkCxf6DTSF7JmcNLTnXvHotLacFdMi",
+      "slot": 126,
+      "ok": true,
+      "err": null,
+      "computeUnits": 9673,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 191171 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9673 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "refund alice",
+      "signature": "5CoJV8bjRwMaKybB1AxT57EXanXzSafjKLowq4XpC7tb9FCcrayr6rVc1gQaHh3MmmsoabsNqJtKFqwimbyD6mfr",
+      "slot": 127,
+      "ok": true,
+      "err": null,
+      "computeUnits": 9673,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 191171 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9673 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "refund carol",
+      "signature": "3VBNmUujPv7uEKrrpwBCX9P34zSsNFcFENJhMHJJ8PUYk3nPtxKAttzKLnyPju9as5pPFyLQHqK4G8LFrmY9PVQK",
+      "slot": 128,
+      "ok": true,
+      "err": null,
+      "computeUnits": 9673,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 191171 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9673 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK bob double-refund",
+      "signature": "4BeM6hQCBKba5f2ZwetTPq59Wwc7bJwArQKN5KuXYWuRqjL3263i2ftW6C7ZCwagUSRjcXMXGFJhemxofqLppAf3",
+      "slot": 129,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 6025
+          }
+        ]
+      },
+      "computeUnits": 9064,
+      "txBytes": 378,
+      "logs": [
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:341. Error Code: AlreadyRefunded. Error Number: 6025. Error Message: Already refunded.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9064 of 200000 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1789"
+      ]
+    }
+  ],
+  "balances": {
+    "claims": {
+      "baseReceived": "19453340776307",
+      "alice": "3242223462717",
+      "bob": "6484446925435",
+      "carol": "9726670388153",
+      "dustBeforeBurn": "2"
+    },
+    "refunds": {
+      "alice": "50000000",
+      "bob": "100000000",
+      "carol": "150000000"
+    }
+  },
+  "dbcConfig": {
+    "address": "HD9oXEGmW3mGSuZ9i2Mrgh3srwVh7TykwwYuYWc4H8Xv",
+    "quoteMint": "So11111111111111111111111111111111111111112",
+    "baseFeeMode": 0,
+    "enableFirstSwapWithMinFee": 0,
+    "tokenType": 0,
+    "migrationQuoteThreshold": "72075922005"
+  },
+  "mainBatch": {
+    "batch": "8m9csaHFwRcufjqJeL4nAu5x5r4QEL1L6YSDyueYNBsL",
+    "pool": "5UaRbhXb3wJrDPgMidfX2LN9CZ29UW1xVPGPrHfi8nam",
+    "baseMint": "A3vvccFYzzbzUE2b37ZTLVsehCfyDGTdUaNn2Cijtmvr",
+    "quoteVault": "4omu1eKo5L1uP2QG5kcS918g8VgLFR5RXqhWkVPNYiHg",
+    "baseVault": "5g6ysf9pMM4v3v5bg4pb8A2ughNdqwf6u9taYmUTthpr"
+  },
+  "settlementSimulation": {
+    "err": null,
+    "unitsConsumed": 168317,
+    "txBytes": 932,
+    "txByteLimit": 1232,
+    "accountKeys": 20,
+    "logs": [
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+      "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+      "Program 11111111111111111111111111111111 invoke [2]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 1389755 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program 11111111111111111111111111111111 invoke [2]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [2]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 1373356 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program 11111111111111111111111111111111 invoke [2]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 1364829 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program log: create token metadata",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+      "Program log: IX: Create Metadata Accounts v3",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program log: Allocate space for the account",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program log: Assign the account to the owning program",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 39442 of 1359067 compute units",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [2]",
+      "Program log: IX: Update Metadata Accounts v2",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15556 of 1317396 compute units",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 1299906 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 1298143 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 1295112 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 106190 of 1399850 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+      "Program log: Instruction: ExecuteBatch",
+      "Program 11111111111111111111111111111111 invoke [2]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 1280933 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+      "Program log: Instruction: Swap2",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 1251650 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 1249501 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 1246539 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 643 of 1242878 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 29596 of 1271155 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program log: EqualStart settled: quote_spent=600000000 base_received=19453340776307 pool=5UaRbhXb3wJrDPgMidfX2LN9CZ29UW1xVPGPrHfi8nam",
+      "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 61977 of 1293660 compute units",
+      "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+    ]
+  },
+  "settlementSignature": "4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y",
+  "settlement": {
+    "pool": {
+      "owner": "dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN",
+      "config": "HD9oXEGmW3mGSuZ9i2Mrgh3srwVh7TykwwYuYWc4H8Xv",
+      "baseMint": "A3vvccFYzzbzUE2b37ZTLVsehCfyDGTdUaNn2Cijtmvr",
+      "baseReserve": "980546659223693",
+      "quoteReserve": "594000000",
+      "hasSwap": 1
+    },
+    "quoteVaultBefore": "600000000",
+    "quoteVaultAfter": "0",
+    "batchBaseVault": "19453340776307",
+    "batch": {
+      "phase": "settled",
+      "totalQuote": "600000000",
+      "quoteSpent": "600000000",
+      "baseReceived": "19453340776307"
+    }
+  },
+  "poolSuccessfulSignatures": [
+    "4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y"
+  ],
+  "finishedAt": "2026-10-09T01:26:42.894Z"
+}

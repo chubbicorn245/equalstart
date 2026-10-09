@@ -1,0 +1,15 @@
+# Secrets: never commit keypairs
+keys/
+*keypair*.json
+id.json
+.env*
+
+# Build artifacts / deps
+node_modules/
+onchain/target/
+onchain/.anchor/
+test-ledger/
+**/*.rs.bk
+.surfpool/
+.yarn/
+.DS_Store
