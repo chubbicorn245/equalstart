@@ -15,3 +15,4 @@ test-ledger/
 .DS_Store
 app/dist/
 .env
+!.env.example

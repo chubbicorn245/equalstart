@@ -20,3 +20,4 @@ solana program show -u "$RPC" "$(solana address -k $PROGRAM_KP)"
 RPC_URL="$RPC" CLUSTER=devnet FUNDER_KEYPAIR="$DEPLOYER" EVIDENCE_NAME=devnet-run.json \
   NODE_OPTIONS=--no-experimental-strip-types \
   npx ts-mocha -p ./tsconfig.json -t 3000000 tests/equalstart.ts 2>&1 | tee ../evidence/devnet-run.txt
+node scripts/verification.mjs ../evidence/devnet-run.json > ../VERIFICATION.md && echo "wrote VERIFICATION.md"
