@@ -1,6 +1,8 @@
 # EqualStart: onchain results (updated 2026-10-08)
 
-**Verdict: permissionless atomic settlement is feasible and PASSES on localnet with the real Meteora DBC program binaries (mainnet and devnet builds). Public devnet run: NOT yet performed (faucet refuses airdrops; `keys/deployer.json` has 0 SOL). The run is scripted: `onchain/scripts/devnet.sh`.**
+**Verdict: permissionless atomic settlement is feasible and PASSES on public devnet against Meteora's live DBC program (10/10, 2026-10-09; explorer links in [`VERIFICATION.md`](VERIFICATION.md)), and on localnet against the mainnet and devnet DBC binaries.**
+
+Devnet settlement: [`3mPebdq9…tkN7t`](https://explorer.solana.com/tx/3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t?cluster=devnet), 218,120 CU, signed only by a wallet with no role in the launch. Deployed program bytes match the local build (sha256 `75df8dc1…01d3`).
 
 ## What changed since the first proof (commit 204524f)
 
@@ -207,12 +209,13 @@ Every `ATTACK` was sent with `skipPreflight` so it landed on-chain as a failed t
 
 ## Verified vs. unverified
 
-**Passed on a real ledger:** `solana-test-validator` 4.3.0, running the exact DBC bytecode from mainnet, and separately the bytecode from devnet, plus Metaplex Token Metadata.
+**Passed on public devnet** (live Meteora DBC, `evidence/devnet-run.{json,txt}`, `VERIFICATION.md`): all 10 test groups, the same suite as below, including creator abandonment, expiry refunds, commitment checks and 1:2:3 claims.
+
+**Passed on a local ledger:** `solana-test-validator` 4.3.0, running the exact DBC bytecode from mainnet, and separately the bytecode from devnet, plus Metaplex Token Metadata.
 - Everything in the two tables above, 10/10 test groups on each binary.
 - The offchain accounting tests still pass (`npm test`, 12/12).
 
 **Not verified yet:**
-- Public devnet deployment and explorer links. Blocked on funding; see "Reproduce".
 - Configs with `collect_fee_mode = OutputToken`, dynamic fee enabled, or a non-zero `pool_creation_fee`. The code handles them, but no test uses one.
 - Fee-scheduler configs at real settlement time. Tests use a flat 1% config for settlement and check the 5% config only at initialize.
 - Token-2022 base tokens are rejected by design and not supported.

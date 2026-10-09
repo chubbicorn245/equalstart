@@ -1,15 +1,64 @@
-# EqualStart: experimental feasibility bundle
+# EqualStart
 
-**Updated:** October 8, 2026. **Onchain tests:** permissionless atomic settlement (EqualStart creates the DBC pool and makes the batch buy via CPI in one instruction) PASSES on localnet against the real Meteora DBC binaries (Anchor program in `onchain/`, results in `ONCHAIN_RESULTS.md`). Public devnet run scripted (`onchain/scripts/devnet.sh`) but not yet performed: needs devnet SOL.
+**Pool SOL into one opening buy, shared equally.**
 
-This bundle contains:
-- `settlement.mjs`: minimal fee-free accounting model using raw integer token units (`BigInt`), independent claims/refunds, and explicit atomicity/slippage preconditions.
-- `settlement.test.mjs`: twelve tests, including 1000 deterministic randomized rounding trials.
-- `CHAIN_FEASIBILITY.md`: verified DBC documentation and the proposed actual Anchor integration, plus strict pass/fail gates.
-- `CLAUDE_TASK.md`: handoff for networked Claude Code environment to test real onchain CPIs.
+Participants deposit SOL into a program-owned escrow before the token exists. When the deposit window closes, anyone can settle. One EqualStart instruction then:
+1. creates the Meteora Dynamic Bonding Curve (DBC) pool, and
+2. spends the whole batch on its very first buy.
 
-Run with Node 20+: `npm test`.
+Nobody can trade ahead of the batch. Everyone in it gets the same average price and claims tokens in proportion to their deposit. If nobody settles before the deadline, anyone can cancel the launch and every participant gets a full refund. The creator has no special power after committing the terms.
 
-**Do not deploy this JS model or trust it with funds.** It is neither an onchain escrow nor a complete security model. CPI compatibility, signer flags, current program data, first-swap context, transaction limits and actual onchain devnet behavior remain unverified.
+> **Status:** hackathon prototype, deployed on Solana **devnet** only. **Unaudited.** Do not use with real funds. Any mainnet use requires independent security review first.
 
-The prototype assumes a standard SPL Token WSOL quote mint and normal DBC base SPL Token, same one-batch effective blended price, no fee-on-transfer token, no oversubscription, no partial fill, and zero new buys interleaved before the batched purchase.
+## Verify it yourself
+
+| What | Where |
+|---|---|
+| Public devnet run (10/10), with explorer links for every deposit, the settlement, the claims, the refunds and each rejected attack | [`VERIFICATION.md`](VERIFICATION.md) |
+| Settlement transaction (devnet), signed by a wallet with no role in the launch | [`3mPebdq9…`](https://explorer.solana.com/tx/3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t?cluster=devnet) |
+| Program (devnet) | [`6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j`](https://explorer.solana.com/address/6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j?cluster=devnet); the deployed bytes match the local build |
+| Design, guarantees, test matrix, limitations | [`ONCHAIN_RESULTS.md`](ONCHAIN_RESULTS.md) |
+| Raw evidence: signatures, full logs, compute units, balances | [`evidence/`](evidence/) |
+
+## How the opening batch works
+
+```
+initialize_batch   creator commits terms (immutable): DBC config, deadlines, caps, fee ceiling, minimum price, bounty
+deposit/withdraw   participants move wSOL into a PDA vault (withdrawals allowed only until close)
+settle             ANYONE, once deposits close:
+                     DBC InitializeVirtualPoolWithSplToken   (mint and creator are EqualStart PDAs, so nobody else can create this pool)
+                     DBC Swap2 ExactIn (whole batch)         (the first trade the pool ever sees)
+                     DBC TransferPoolCreator -> creator
+                     settler receives the creator-funded bounty
+claim              each participant: floor(tokens_received × deposit ÷ total)
+cancel_expired     ANYONE, after expiry if unsettled → refund: each participant gets back exactly what they deposited
+```
+
+## Repository
+
+| Path | Contents |
+|---|---|
+| `onchain/programs/equalstart/src/lib.rs` | Anchor program |
+| `onchain/tests/equalstart.ts` | On-chain test suite: runs on localnet with the real DBC binaries, or on public devnet |
+| `onchain/scripts/devnet.sh` | Deploys to devnet, runs the suite and writes `VERIFICATION.md` |
+| `app/` | Web app: create a launch, deposit, watch progress, settle, claim, refund (`npm run dev`) |
+| `settlement.mjs`, `CHAIN_FEASIBILITY.md` | Original offchain accounting model (12 tests, `npm test`) and feasibility notes |
+
+## Run
+
+```bash
+# Program + tests (Agave 4.3.0, anchor-cli 1.2.1, Node 22)
+cd onchain && npm install && anchor build
+scripts/localnet.sh &     # local validator loaded with Meteora's mainnet DBC bytecode
+NODE_OPTIONS=--no-experimental-strip-types npx ts-mocha -p ./tsconfig.json -t 1000000 tests/equalstart.ts
+
+# App (devnet by default; set VITE_CLUSTER=localnet and VITE_RPC_URL for local)
+cd app && npm install && npm run dev
+```
+
+## Known limitations
+
+- **Unaudited.** This is a prototype.
+- **Upgrade authority.** The devnet program is upgradeable by a throwaway key, which could change its behaviour. A trustless deployment needs the authority revoked, or held by a disclosed multisig with a timelock.
+- **Depends on Meteora DBC.** EqualStart hard-codes DBC's instruction layouts and account byte offsets from IDL 0.2.1. Meteora can upgrade DBC; a layout change could break or mislead the checks. While settling, the escrow's address signs for DBC, so a malicious DBC upgrade is outside EqualStart's control. Balance checks before and after the swap limit the damage but can't rule it out.
+- More detail is under "Remaining security concerns" in `ONCHAIN_RESULTS.md`.

@@ -15,7 +15,7 @@ if [ "${SKIP_DEPLOY:-0}" != 1 ]; then
   solana program deploy -u "$RPC" -k "$DEPLOYER" --program-id "$PROGRAM_KP" \
     --upgrade-authority "$DEPLOYER" target/deploy/equalstart.so
 fi
-solana program show -u "$RPC" "$(solana address -k $PROGRAM_KP)"
+solana program show -u "$RPC" -k "$DEPLOYER" "$(solana address -k $PROGRAM_KP)"
 
 RPC_URL="$RPC" CLUSTER=devnet FUNDER_KEYPAIR="$DEPLOYER" EVIDENCE_NAME=devnet-run.json \
   NODE_OPTIONS=--no-experimental-strip-types \

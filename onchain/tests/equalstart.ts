@@ -58,7 +58,7 @@ const METADATA_PROGRAM_ID = new PublicKey("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt
 const SOL = LAMPORTS_PER_SOL;
 const BOUNTY = 0.05 * SOL;
 // Timing: public clusters need more slack between deadlines than localnet.
-const SLACK = Number(process.env.DEADLINE_SLACK ?? (CLUSTER === "localnet" ? 1 : 3));
+const SLACK = Number(process.env.DEADLINE_SLACK ?? (CLUSTER === "localnet" ? 1 : 8));
 
 const connection = new Connection(RPC, "confirmed");
 const dbc = new DynamicBondingCurveClient(connection, "confirmed");
@@ -66,7 +66,16 @@ const evidence: any = { cluster: CLUSTER, rpc: RPC.replace(/api-key=[^&]+/, "api
 
 // Wallets. On public clusters a funded FUNDER keypair seeds the others.
 const kp = () => Keypair.generate();
-const partner = kp(), creator = kp(), alice = kp(), bob = kp(), carol = kp(), eve = kp();
+// On public clusters the role wallets are saved (keys/ is gitignored) so reruns reuse and only top them up.
+const WALLETS_FILE = path.resolve(__dirname, `../../keys/${CLUSTER}-test-wallets.json`);
+function roleWallets(): Keypair[] {
+  if (CLUSTER === "localnet") return Array.from({ length: 6 }, kp);
+  if (fs.existsSync(WALLETS_FILE)) return JSON.parse(fs.readFileSync(WALLETS_FILE, "utf8")).map((k: number[]) => Keypair.fromSecretKey(Uint8Array.from(k)));
+  const ws = Array.from({ length: 6 }, kp);
+  fs.writeFileSync(WALLETS_FILE, JSON.stringify(ws.map((w) => Array.from(w.secretKey))), { mode: 0o600 });
+  return ws;
+}
+const [partner, creator, alice, bob, carol, eve] = roleWallets();
 const funder = process.env.FUNDER_KEYPAIR
   ? Keypair.fromSecretKey(Uint8Array.from(JSON.parse(fs.readFileSync(process.env.FUNDER_KEYPAIR, "utf8"))))
   : null;
@@ -85,13 +94,30 @@ async function waitUntilChainTime(t: number) {
 const explorer = (sig: string) =>
   CLUSTER === "localnet" ? null : `https://explorer.solana.com/tx/${sig}?cluster=${CLUSTER}`;
 
+// Public clusters: small priority fee, rebroadcast until confirmed, fresh blockhash if it expires.
+const PRIORITY_IX = CLUSTER === "localnet" ? [] : [ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 20_000 })];
+
+async function sendAndConfirm(ixs: TransactionInstruction[], signers: Keypair[]) {
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash("confirmed");
+    const msg = new TransactionMessage({ payerKey: signers[0].publicKey, recentBlockhash: blockhash, instructions: [...PRIORITY_IX, ...ixs] }).compileToV0Message();
+    const tx = new VersionedTransaction(msg);
+    tx.sign(signers);
+    const raw = tx.serialize();
+    const sig = await connection.sendRawTransaction(raw, { skipPreflight: true, maxRetries: 0 });
+    for (let i = 1; (await connection.getBlockHeight("confirmed")) <= lastValidBlockHeight; i++) {
+      await sleep(400);
+      const st = (await connection.getSignatureStatuses([sig])).value[0];
+      if (st && (st.confirmationStatus === "confirmed" || st.confirmationStatus === "finalized")) return { sig, bytes: raw.length };
+      if (i % 5 === 0) await connection.sendRawTransaction(raw, { skipPreflight: true, maxRetries: 0 }).catch(() => {});
+    }
+    console.log(`           (attempt ${attempt + 1} expired, retrying with a new blockhash)`);
+  }
+  throw new Error("transaction did not confirm after 4 attempts");
+}
+
 async function landTx(label: string, ixs: TransactionInstruction[], signers: Keypair[], expectErr?: RegExp) {
-  const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash("confirmed");
-  const msg = new TransactionMessage({ payerKey: signers[0].publicKey, recentBlockhash: blockhash, instructions: ixs }).compileToV0Message();
-  const tx = new VersionedTransaction(msg);
-  tx.sign(signers);
-  const sig = await connection.sendRawTransaction(tx.serialize(), { skipPreflight: true });
-  await connection.confirmTransaction({ signature: sig, blockhash, lastValidBlockHeight }, "confirmed");
+  const { sig, bytes } = await sendAndConfirm(ixs, signers);
   let res = null;
   for (let i = 0; i < 20 && !res; i++) {
     res = await connection.getTransaction(sig, { commitment: "confirmed", maxSupportedTransactionVersion: 0 });
@@ -106,7 +132,7 @@ async function landTx(label: string, ixs: TransactionInstruction[], signers: Key
     ok: res?.meta?.err === null,
     err: res?.meta?.err ?? null,
     computeUnits: res?.meta?.computeUnitsConsumed,
-    txBytes: tx.serialize().length,
+    txBytes: bytes,
     logs,
   };
   evidence.transactions.push(entry);
@@ -122,6 +148,9 @@ async function landTx(label: string, ixs: TransactionInstruction[], signers: Key
 
 async function fund(pk: PublicKey, sol: number) {
   if (funder) {
+    const have = await connection.getBalance(pk, "confirmed");
+    if (have >= sol * SOL) return;
+    sol = (sol * SOL - have) / SOL;
     await landTx(`fund ${pk.toBase58().slice(0, 6)} ${sol} SOL`, [SystemProgram.transfer({ fromPubkey: funder.publicKey, toPubkey: pk, lamports: Math.round(sol * SOL) })], [funder]);
   } else {
     const sig = await connection.requestAirdrop(pk, sol * SOL);
@@ -419,7 +448,7 @@ describe(`EqualStart x Meteora DBC (${CLUSTER}, real DBC binary, permissionless 
   });
 
   it("funds wallets and creates DBC configs (SDK): good, high opening fee, first-swap-min-fee", async () => {
-    for (const [w, sol] of [[partner, 0.2], [creator, 0.6], [alice, 0.8], [bob, 0.8], [carol, 0.8], [eve, 0.5]] as [Keypair, number][]) {
+    for (const [w, sol] of [[partner, 0.15], [creator, 0.45], [alice, 0.6], [bob, 0.6], [carol, 0.6], [eve, 0.4]] as [Keypair, number][]) {
       await fund(w.publicKey, CLUSTER === "localnet" ? 10 : sol);
     }
     evidence.wallets = Object.fromEntries(Object.entries({ partner, creator, alice, bob, carol, eve }).map(([k, v]) => [k, v.publicKey.toBase58()]));
@@ -498,7 +527,7 @@ describe(`EqualStart x Meteora DBC (${CLUSTER}, real DBC binary, permissionless 
   });
 
   it("Alice 0.1, Bob 0.2, Carol 0.3 deposit with their own signatures; caps, theft and premature settlement fail", async () => {
-    for (const w of [alice, bob, carol]) await landTx(`wrap 0.7 SOL`, wrapIxs(w.publicKey, 0.7 * SOL), [w]);
+    for (const w of [alice, bob, carol]) await landTx(`wrap 0.5 SOL`, wrapIxs(w.publicKey, 0.5 * SOL), [w]);
     await landTx(`wrap eve 0.01 SOL`, wrapIxs(eve.publicKey, 0.01 * SOL), [eve]);
     await landTx("deposit alice 0.15 (main)", [await depositIx(main, alice, 0.15 * SOL)], [alice]);
     await landTx("withdraw alice 0.05 before close (main)", [await withdrawIx(main, alice, 0.05 * SOL)], [alice]);

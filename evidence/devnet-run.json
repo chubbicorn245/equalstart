@@ -1,0 +1,2297 @@
+{
+  "cluster": "devnet",
+  "rpc": "https://api.devnet.solana.com",
+  "startedAt": "2026-10-09T06:12:18.021Z",
+  "versions": {
+    "dbcSdk": "1.5.13",
+    "dbcIdl": "0.2.1",
+    "anchorClient": "1.2.1",
+    "solanaCore": "4.4.0-beta.0",
+    "equalstartProgram": "6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j",
+    "dbcProgramDataSlot": 508712305
+  },
+  "transactions": [
+    {
+      "label": "fund HhaNrs 0.15 SOL",
+      "signature": "3w8SVinztfynTaosu1nkfDxhwKo5WVSQzGRhtWojZuydtgWbsxT7rKw9U2bG9ZVnQJYJSn4TqKf34BXNQS41WM5g",
+      "explorer": "https://explorer.solana.com/tx/3w8SVinztfynTaosu1nkfDxhwKo5WVSQzGRhtWojZuydtgWbsxT7rKw9U2bG9ZVnQJYJSn4TqKf34BXNQS41WM5g?cluster=devnet",
+      "slot": 509084132,
+      "ok": true,
+      "err": null,
+      "computeUnits": 300,
+      "txBytes": 261,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "fund CiYuBF 0.45 SOL",
+      "signature": "66c5HeSY9e2fAGjqEQQLoxBsz1iW1A8Joe3LgwkGBmQb6H2kS9ae639dud5v2yvewvtXdrYUfqKaqQHTbExGAasW",
+      "explorer": "https://explorer.solana.com/tx/66c5HeSY9e2fAGjqEQQLoxBsz1iW1A8Joe3LgwkGBmQb6H2kS9ae639dud5v2yvewvtXdrYUfqKaqQHTbExGAasW?cluster=devnet",
+      "slot": 509084139,
+      "ok": true,
+      "err": null,
+      "computeUnits": 300,
+      "txBytes": 261,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "fund 8f9EBZ 0.6 SOL",
+      "signature": "5Jzq7r3C3qbnqqzMmeS4WinMWDXmPsLCW9WBtdUUmcUKcqpgJ1jCRMAUEDaxqRa5chuCUkso4D6R3rVwq9R1STo6",
+      "explorer": "https://explorer.solana.com/tx/5Jzq7r3C3qbnqqzMmeS4WinMWDXmPsLCW9WBtdUUmcUKcqpgJ1jCRMAUEDaxqRa5chuCUkso4D6R3rVwq9R1STo6?cluster=devnet",
+      "slot": 509084145,
+      "ok": true,
+      "err": null,
+      "computeUnits": 300,
+      "txBytes": 261,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "fund AE8PNP 0.6 SOL",
+      "signature": "3HT2oj9mW5dHvGTvnysAqj87rNhCfZ2M7RVzKqSofAdzPttmCecqfqYKQNtXUBb88KLNQYn3JaaH8EfBoU8wXr59",
+      "explorer": "https://explorer.solana.com/tx/3HT2oj9mW5dHvGTvnysAqj87rNhCfZ2M7RVzKqSofAdzPttmCecqfqYKQNtXUBb88KLNQYn3JaaH8EfBoU8wXr59?cluster=devnet",
+      "slot": 509084151,
+      "ok": true,
+      "err": null,
+      "computeUnits": 300,
+      "txBytes": 261,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "fund 5xjvuv 0.6 SOL",
+      "signature": "2iAXH6LoDCzeDigT84yWD8j3ELsvAMRWmr68w5nKLYwFp66nLABiZzcXfZd5HAahFqoMCwo1CWVfZEsXFtUKsXhw",
+      "explorer": "https://explorer.solana.com/tx/2iAXH6LoDCzeDigT84yWD8j3ELsvAMRWmr68w5nKLYwFp66nLABiZzcXfZd5HAahFqoMCwo1CWVfZEsXFtUKsXhw?cluster=devnet",
+      "slot": 509084161,
+      "ok": true,
+      "err": null,
+      "computeUnits": 300,
+      "txBytes": 261,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "fund CHNW5b 0.4 SOL",
+      "signature": "27Ed51cTQJF6YkeGYQAvKBdTBXSiCfwgTForFt1qwL6TofcxmHVBDf8rWHTbzdrAGydsNZYQ5Hm2TuXezRKpu8Q6",
+      "explorer": "https://explorer.solana.com/tx/27Ed51cTQJF6YkeGYQAvKBdTBXSiCfwgTForFt1qwL6TofcxmHVBDf8rWHTbzdrAGydsNZYQ5Hm2TuXezRKpu8Q6?cluster=devnet",
+      "slot": 509084171,
+      "ok": true,
+      "err": null,
+      "computeUnits": 300,
+      "txBytes": 261,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "dbc.create_config good (flat 1%) (SDK)",
+      "signature": "3pVaz2VbtJyoK4viPxB4mKJs4Gz7HQzMioebGqXYQqiYBQ5XpBRrrxryMwqsJmn7RPjXPjBSWvbTsx55fHksw1Gy",
+      "explorer": "https://explorer.solana.com/tx/3pVaz2VbtJyoK4viPxB4mKJs4Gz7HQzMioebGqXYQqiYBQ5XpBRrrxryMwqsJmn7RPjXPjBSWvbTsx55fHksw1Gy?cluster=devnet",
+      "slot": 509084192,
+      "ok": true,
+      "err": null,
+      "computeUnits": 36280,
+      "txBytes": 675,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: CreateConfig",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 173448 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 167807 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 36130 of 202850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success"
+      ]
+    },
+    {
+      "label": "dbc.create_config high-fee (5% -> 1%) (SDK)",
+      "signature": "4EB6detmq9SqEhk9mJMgSfQZboC2rqBTvhp8nSKsk2LHDEi3xTr4snD3JkxXkzfveRSZirqXg5VNShdNbN67Cozm",
+      "explorer": "https://explorer.solana.com/tx/4EB6detmq9SqEhk9mJMgSfQZboC2rqBTvhp8nSKsk2LHDEi3xTr4snD3JkxXkzfveRSZirqXg5VNShdNbN67Cozm?cluster=devnet",
+      "slot": 509084199,
+      "ok": true,
+      "err": null,
+      "computeUnits": 36280,
+      "txBytes": 675,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: CreateConfig",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 173448 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 167807 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 36130 of 202850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success"
+      ]
+    },
+    {
+      "label": "dbc.create_config first-swap-min-fee (SDK)",
+      "signature": "3rZrgTCwYMFaNfdtSx9qSxMWqdUsz3jgD4DNowgVcW6oAH5ERWWDQ7a81uS7ZHoiC14NYLM6skhon7CtiDh95ucg",
+      "explorer": "https://explorer.solana.com/tx/3rZrgTCwYMFaNfdtSx9qSxMWqdUsz3jgD4DNowgVcW6oAH5ERWWDQ7a81uS7ZHoiC14NYLM6skhon7CtiDh95ucg?cluster=devnet",
+      "slot": 509084208,
+      "ok": true,
+      "err": null,
+      "computeUnits": 36279,
+      "txBytes": 675,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: CreateConfig",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 173449 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 167808 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 36129 of 202850 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success"
+      ]
+    },
+    {
+      "label": "initialize_batch main",
+      "signature": "4eiaBFnDpoeZRLuXFY3qR49R7wcn4ZgfUiuws8kvAatsbSYHz8gJfqyR7tqnwaNJxwjspg52UaJuRyzPqE1WDidm",
+      "explorer": "https://explorer.solana.com/tx/4eiaBFnDpoeZRLuXFY3qR49R7wcn4ZgfUiuws8kvAatsbSYHz8gJfqyR7tqnwaNJxwjspg52UaJuRyzPqE1WDidm?cluster=devnet",
+      "slot": 509084236,
+      "ok": true,
+      "err": null,
+      "computeUnits": 64405,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 186184 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: EqualStart batch 8F8fx1WzLjdcXr1xYnp6BeC3o67zSKsgM8LPoknBaGQH committed to DBC pool 6dkC8V4dgCnzbGPv2h3LaYuMNpA4C199Y1hPbMJLiQL9 base mint GHAR3Nrqm4MqX7zZ7vBRgPtyj75eYkhhXVoDsUP6B658",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 64255 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "initialize_batch abandoned",
+      "signature": "2AkvbTGfJjzJ1CpDDjFhjgC7EFdfqbTBHhAR4CkfTV7QsaevDbj5jJCmoqXx4SLWAEWd23HGTJvYNKtF2NgBwDKG",
+      "explorer": "https://explorer.solana.com/tx/2AkvbTGfJjzJ1CpDDjFhjgC7EFdfqbTBHhAR4CkfTV7QsaevDbj5jJCmoqXx4SLWAEWd23HGTJvYNKtF2NgBwDKG?cluster=devnet",
+      "slot": 509084243,
+      "ok": true,
+      "err": null,
+      "computeUnits": 59882,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 183184 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: EqualStart batch 9KKfEkSPKzVhtd8XB8yrghEQh9RqVNVs62Psr6bq7aQY committed to DBC pool 8oXQ4xTfpmfKr2R5pukGbeCTB9117xmwmkAaUUJzFBti base mint 6KPGhgP2A9jh8A5tvc1QURsgfJEYFjZMs2LLq7FDPSmi",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 59732 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "initialize_batch slippage (min 1e18 base per SOL)",
+      "signature": "3EXEwffVM5byYCFayNSVJ8FHg3gEqj76H9ctdxAeP4YtTNgdjiCrJ35oUrjn5V2gE1qiqxNmNnGEaeLd3c6pBacS",
+      "explorer": "https://explorer.solana.com/tx/3EXEwffVM5byYCFayNSVJ8FHg3gEqj76H9ctdxAeP4YtTNgdjiCrJ35oUrjn5V2gE1qiqxNmNnGEaeLd3c6pBacS?cluster=devnet",
+      "slot": 509084248,
+      "ok": true,
+      "err": null,
+      "computeUnits": 49404,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 187684 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: EqualStart batch 8LgdmuyjtAoCJLkSNkJVSuuH4Vaa2iFher8wqwdkXNRS committed to DBC pool 3P198vN7edfh1f9rCADQ7uLpZN8YDagYAMPrjjxP4RoA base mint 8VMGTGA1ujWtsjkP7rTKTWTshpM6dpexzpujq5JkG9sq",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 49254 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "initialize_batch underfunded (min raise 0.5 SOL)",
+      "signature": "2jZddXr1wbGKHzd88iPtLKe4EzzLFa1LMkEZUYDVvxb4WWomvGwZ4QuhR3DwNKmRhVsPNDMTbso1JcQu9t1m1HQS",
+      "explorer": "https://explorer.solana.com/tx/2jZddXr1wbGKHzd88iPtLKe4EzzLFa1LMkEZUYDVvxb4WWomvGwZ4QuhR3DwNKmRhVsPNDMTbso1JcQu9t1m1HQS?cluster=devnet",
+      "slot": 509084255,
+      "ok": true,
+      "err": null,
+      "computeUnits": 52382,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 187684 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: EqualStart batch 7rcvDr9nTtJDy1Yqo7Goxmxi4Bvgy4zo4LVWb48wTG4D committed to DBC pool B6DoDXtYcUgvietBRoVLvx4kJVbcATgzsPrZWXxXuGre base mint ACF3tUHXuqrTrtrJht9E5MXewerMwsU7vaEUuUSbJXJ8",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 52232 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK re-initialize main batch with new terms",
+      "signature": "4ZMSjXoYsCyj1tWapzB4t3RDncPUEMvuSuR1gGt8aWS7zyBWEkMPXvB3tKuRhoEHSnBKqrqq96z3mqR4tE5BUrvE",
+      "explorer": "https://explorer.solana.com/tx/4ZMSjXoYsCyj1tWapzB4t3RDncPUEMvuSuR1gGt8aWS7zyBWEkMPXvB3tKuRhoEHSnBKqrqq96z3mqR4tE5BUrvE?cluster=devnet",
+      "slot": 509084269,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 0
+          }
+        ]
+      },
+      "computeUnits": 9474,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Allocate: account Address { address: 8F8fx1WzLjdcXr1xYnp6BeC3o67zSKsgM8LPoknBaGQH, base: None } already in use",
+        "Program 11111111111111111111111111111111 failed: custom program error: 0x0",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9324 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x0"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch with non-DBC config",
+      "signature": "43kmc6uFCxhXj6QKNcban3WQaJwpF2U8eSe3hJ1M1nXVrNLgKMYVuGYmFWZZ5x1V5mdexsrkcEFtVrBqhpDYMKAe",
+      "explorer": "https://explorer.solana.com/tx/43kmc6uFCxhXj6QKNcban3WQaJwpF2U8eSe3hJ1M1nXVrNLgKMYVuGYmFWZZ5x1V5mdexsrkcEFtVrBqhpDYMKAe?cluster=devnet",
+      "slot": 509084280,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6002
+          }
+        ]
+      },
+      "computeUnits": 21134,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 186184 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:601. Error Code: InvalidDbcConfig. Error Number: 6002. Error Message: DBC config is not a wSOL/SPL config with rate limiter and first-swap-min-fee disabled.",
+        "Program log: Left:",
+        "Program log: 11111111111111111111111111111111",
+        "Program log: Right:",
+        "Program log: dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 20984 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1772"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch with first-swap-min-fee config",
+      "signature": "5nqJBcr4WWEEZvnyv68dxfMT1wtAwuTL3MX6Ma4mJuB45ny4ozx57PLFy5suMNksHeiZ2dfT9vouWLiN9vpUczho",
+      "explorer": "https://explorer.solana.com/tx/5nqJBcr4WWEEZvnyv68dxfMT1wtAwuTL3MX6Ma4mJuB45ny4ozx57PLFy5suMNksHeiZ2dfT9vouWLiN9vpUczho?cluster=devnet",
+      "slot": 509084285,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6002
+          }
+        ]
+      },
+      "computeUnits": 19212,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 187684 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:617. Error Code: InvalidDbcConfig. Error Number: 6002. Error Message: DBC config is not a wSOL/SPL config with rate limiter and first-swap-min-fee disabled.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19062 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1772"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch: config opening fee 5% > committed 1%",
+      "signature": "7DeoAmtYp24ggcs4WpFx7xXh9J74bTjzesDqecdWQTrEJXRQZRYfqJMTbLiK5WPjJDLvaXUHVxsaUHiqQqZs4qt",
+      "explorer": "https://explorer.solana.com/tx/7DeoAmtYp24ggcs4WpFx7xXh9J74bTjzesDqecdWQTrEJXRQZRYfqJMTbLiK5WPjJDLvaXUHVxsaUHiqQqZs4qt?cluster=devnet",
+      "slot": 509084295,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6012
+          }
+        ]
+      },
+      "computeUnits": 19297,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 187684 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:627. Error Code: OpeningFeeTooHigh. Error Number: 6012. Error Message: DBC fee on the opening buy exceeds the committed ceiling.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19147 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177c"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold",
+      "signature": "3u3PRa2cqH6w7M1NNYPevrMqci21rMqnupnCh6qjLaXcaH5Fq7eXnRaVFmTzqLweKUGT1ZY3WKCgLiP4ZpvCTPrp",
+      "explorer": "https://explorer.solana.com/tx/3u3PRa2cqH6w7M1NNYPevrMqci21rMqnupnCh6qjLaXcaH5Fq7eXnRaVFmTzqLweKUGT1ZY3WKCgLiP4ZpvCTPrp?cluster=devnet",
+      "slot": 509084301,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6001
+          }
+        ]
+      },
+      "computeUnits": 20771,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 186184 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:631. Error Code: BadTerms. Error Number: 6001. Error Message: Launch terms are zero or inconsistent.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 20621 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1771"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch: min_base_per_sol overflows u64 at max raise",
+      "signature": "pcJsywZH6757aqsu7fKMGyTMRsgw55zowmNTtA1TGGLGHN18mWwGkW2e4aeCGXP5eTZM4oHK1WABpG8Po5HvcDU",
+      "explorer": "https://explorer.solana.com/tx/pcJsywZH6757aqsu7fKMGyTMRsgw55zowmNTtA1TGGLGHN18mWwGkW2e4aeCGXP5eTZM4oHK1WABpG8Po5HvcDU?cluster=devnet",
+      "slot": 509084307,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6005
+          }
+        ]
+      },
+      "computeUnits": 18387,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 187684 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError occurred. Error Code: Overflow. Error Number: 6005. Error Message: Arithmetic overflow.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 18237 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1775"
+      ]
+    },
+    {
+      "label": "ATTACK initialize_batch with expiry before close",
+      "signature": "2tUbcLhhSkyRdSboY77kmFygJG1xWvuV4RirHuHN4au4JUz2ojoSj9Nqiw9KhGgD6qRxKXcYLdbqQ5PrJYXKpDNV",
+      "explorer": "https://explorer.solana.com/tx/2tUbcLhhSkyRdSboY77kmFygJG1xWvuV4RirHuHN4au4JUz2ojoSj9Nqiw9KhGgD6qRxKXcYLdbqQ5PrJYXKpDNV?cluster=devnet",
+      "slot": 509084314,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6000
+          }
+        ]
+      },
+      "computeUnits": 18904,
+      "txBytes": 551,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: InitializeBatch",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 187684 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:126. Error Code: BadDeadlines. Error Number: 6000. Error Message: Deadlines must satisfy now < closes_at < expires_at.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 18754 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1770"
+      ]
+    },
+    {
+      "label": "wrap 0.5 SOL",
+      "signature": "2adgQuYaLpZXF3XF9MCvqfi82utcavgk9G6XUGp8pZQ2Kuju3TK19iAG95iLkHmx23YAaQMKRohezhWDX1q9LU8m",
+      "explorer": "https://explorer.solana.com/tx/2adgQuYaLpZXF3XF9MCvqfi82utcavgk9G6XUGp8pZQ2Kuju3TK19iAG95iLkHmx23YAaQMKRohezhWDX1q9LU8m?cluster=devnet",
+      "slot": 509084324,
+      "ok": true,
+      "err": null,
+      "computeUnits": 15414,
+      "txBytes": 372,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 398999 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 393910 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 391449 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 14913 of 405850 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 390787 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "wrap 0.5 SOL",
+      "signature": "3nGWurT1TXd5KyZCUywdnkzJaazhdEaouE8Ge5EbqS24feJHdNoNjMoafvugYLf6TF4akyTeHDNcDCoQhszCbPNK",
+      "explorer": "https://explorer.solana.com/tx/3nGWurT1TXd5KyZCUywdnkzJaazhdEaouE8Ge5EbqS24feJHdNoNjMoafvugYLf6TF4akyTeHDNcDCoQhszCbPNK?cluster=devnet",
+      "slot": 509084329,
+      "ok": true,
+      "err": null,
+      "computeUnits": 13923,
+      "txBytes": 372,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 400499 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 395401 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 392940 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13422 of 405850 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 392278 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "wrap 0.5 SOL",
+      "signature": "2dV67uqZ3Jvyida8Xz8r2iChEE2UZyXkVo1b3ub6whD1XHJPa9NEJUJZouWixK79PLEBgZRJBDAgbLuZdmHbs4fG",
+      "explorer": "https://explorer.solana.com/tx/2dV67uqZ3Jvyida8Xz8r2iChEE2UZyXkVo1b3ub6whD1XHJPa9NEJUJZouWixK79PLEBgZRJBDAgbLuZdmHbs4fG?cluster=devnet",
+      "slot": 509084336,
+      "ok": true,
+      "err": null,
+      "computeUnits": 13914,
+      "txBytes": 372,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 400499 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 395410 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 392949 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 405850 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 392287 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "wrap eve 0.01 SOL",
+      "signature": "ATdTP3ZoViy5hCwRmvTMWEjA2aqM7qfN6FVQVV2nGLoZJSCH4ocPYc3Rb9GrwpuoYGztTymvt1rQapZDaJXmG6k",
+      "explorer": "https://explorer.solana.com/tx/ATdTP3ZoViy5hCwRmvTMWEjA2aqM7qfN6FVQVV2nGLoZJSCH4ocPYc3Rb9GrwpuoYGztTymvt1rQapZDaJXmG6k?cluster=devnet",
+      "slot": 509084346,
+      "ok": true,
+      "err": null,
+      "computeUnits": 13914,
+      "txBytes": 372,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 400499 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 395410 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 392949 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 405850 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 392287 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+      ]
+    },
+    {
+      "label": "deposit alice 0.15 (main)",
+      "signature": "ARZWMsNj5gbvKz95j2GRfykV1k9XvEaage53Hfdp6H3bjJHXJUdugfk2KQurAi8DHwr8ahBDkMjUAAkv3P4pTJx",
+      "explorer": "https://explorer.solana.com/tx/ARZWMsNj5gbvKz95j2GRfykV1k9XvEaage53Hfdp6H3bjJHXJUdugfk2KQurAi8DHwr8ahBDkMjUAAkv3P4pTJx?cluster=devnet",
+      "slot": 509084352,
+      "ok": true,
+      "err": null,
+      "computeUnits": 17777,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 187517 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17627 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "withdraw alice 0.05 before close (main)",
+      "signature": "49YjikfaipYQhMkP4PdFHLvTnJCXqPBtrDCzNQX77Yo6twdB5JaXawb73BRyAzoRiK61ZZtJn4e6mREQB2AHQRd5",
+      "explorer": "https://explorer.solana.com/tx/49YjikfaipYQhMkP4PdFHLvTnJCXqPBtrDCzNQX77Yo6twdB5JaXawb73BRyAzoRiK61ZZtJn4e6mREQB2AHQRd5?cluster=devnet",
+      "slot": 509084359,
+      "ok": true,
+      "err": null,
+      "computeUnits": 14082,
+      "txBytes": 430,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Withdraw",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 191172 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 13932 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit bob 0.2 (main)",
+      "signature": "2q9tUr4jGb6MSfyWU1i5LsSrYtx4UawL2YjrHCH2e3Jx6uFpsEYf7wexQ8thDn2Hqjy1sfUiqktjMsuBZb6qKocp",
+      "explorer": "https://explorer.solana.com/tx/2q9tUr4jGb6MSfyWU1i5LsSrYtx4UawL2YjrHCH2e3Jx6uFpsEYf7wexQ8thDn2Hqjy1sfUiqktjMsuBZb6qKocp?cluster=devnet",
+      "slot": 509084369,
+      "ok": true,
+      "err": null,
+      "computeUnits": 19277,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 186017 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19127 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit carol 0.3 (main)",
+      "signature": "4v6oRG9P1ZYzkPE3gX3H8oU6KNWM6jutYndkdQwEWrPs8mfMc4Qmy7qZouxUYq19iHb42z9MBHuQW8gQx3so3fri",
+      "explorer": "https://explorer.solana.com/tx/4v6oRG9P1ZYzkPE3gX3H8oU6KNWM6jutYndkdQwEWrPs8mfMc4Qmy7qZouxUYq19iHb42z9MBHuQW8gQx3so3fri?cluster=devnet",
+      "slot": 509084375,
+      "ok": true,
+      "err": null,
+      "computeUnits": 17777,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 187517 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17627 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit alice 0.05 (abandoned)",
+      "signature": "5uFifFP4etYG4HsFChGGVVhY1YGNUUkdWm43GwbrSQKbZPwAqf1882Ju4RHtE75BbHZwkSN8YKHqhqkNTxYQLnF1",
+      "explorer": "https://explorer.solana.com/tx/5uFifFP4etYG4HsFChGGVVhY1YGNUUkdWm43GwbrSQKbZPwAqf1882Ju4RHtE75BbHZwkSN8YKHqhqkNTxYQLnF1?cluster=devnet",
+      "slot": 509084382,
+      "ok": true,
+      "err": null,
+      "computeUnits": 17840,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 187454 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17690 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit bob 0.1 (abandoned)",
+      "signature": "Y5dDDCBZVYk8UJaxJwvknzMdiBpNVRuFZqQGbzgS7DkwzgzQxRCbcgAGnMqYSudGjQwh5GLQ6VD4es1hpobL9Uo",
+      "explorer": "https://explorer.solana.com/tx/Y5dDDCBZVYk8UJaxJwvknzMdiBpNVRuFZqQGbzgS7DkwzgzQxRCbcgAGnMqYSudGjQwh5GLQ6VD4es1hpobL9Uo?cluster=devnet",
+      "slot": 509084391,
+      "ok": true,
+      "err": null,
+      "computeUnits": 19277,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 186017 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19127 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit carol 0.15 (abandoned)",
+      "signature": "4zrksYLtuF7rQJ2juYqgCVv8Vakf9jf5wmZHrNZPCt3eAPJejVnNaMbKLEuMd96Q6D1M3h4HXp9jLt4CJdc599gy",
+      "explorer": "https://explorer.solana.com/tx/4zrksYLtuF7rQJ2juYqgCVv8Vakf9jf5wmZHrNZPCt3eAPJejVnNaMbKLEuMd96Q6D1M3h4HXp9jLt4CJdc599gy?cluster=devnet",
+      "slot": 509084397,
+      "ok": true,
+      "err": null,
+      "computeUnits": 19277,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 186017 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19127 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit alice 0.1 (slippage)",
+      "signature": "97iah9WUVYTEAJB9YF9DhCSBVcYfRHnCaRw3cd4UAq2jXBXuss4kLFmxivvBrh2sWhawDKcu42Mzeyt3ZqVG6Ys",
+      "explorer": "https://explorer.solana.com/tx/97iah9WUVYTEAJB9YF9DhCSBVcYfRHnCaRw3cd4UAq2jXBXuss4kLFmxivvBrh2sWhawDKcu42Mzeyt3ZqVG6Ys?cluster=devnet",
+      "slot": 509084404,
+      "ok": true,
+      "err": null,
+      "computeUnits": 17796,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 187498 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 17646 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "deposit bob 0.1 (underfunded)",
+      "signature": "CmwStK2pG7FrQ3e1vpt8H4WuYD5w47DiFiMY7cWwPvtfUZMgVSkKbsZHD61p4ExBjZNrMNRLYnypE2A616iRGzK",
+      "explorer": "https://explorer.solana.com/tx/CmwStK2pG7FrQ3e1vpt8H4WuYD5w47DiFiMY7cWwPvtfUZMgVSkKbsZHD61p4ExBjZNrMNRLYnypE2A616iRGzK?cluster=devnet",
+      "slot": 509084414,
+      "ok": true,
+      "err": null,
+      "computeUnits": 19277,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 186017 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 19127 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK refund before cancellation",
+      "signature": "4fiScSRtoB5fAfaVreUcPzcjXDCuhSano8Q2vaex53QxXaPpUqL1DFcCWfeXtbHRcLNVcz99Vnrv7RDQTkNcYNPx",
+      "explorer": "https://explorer.solana.com/tx/4fiScSRtoB5fAfaVreUcPzcjXDCuhSano8Q2vaex53QxXaPpUqL1DFcCWfeXtbHRcLNVcz99Vnrv7RDQTkNcYNPx?cluster=devnet",
+      "slot": 509084420,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6022
+          }
+        ]
+      },
+      "computeUnits": 10056,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:502. Error Code: NotCancelled. Error Number: 6022. Error Message: Batch is not cancelled.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9906 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1786"
+      ]
+    },
+    {
+      "label": "ATTACK cancel_expired before expiry",
+      "signature": "4u8MTwpvJVwAMNLCi4twwE3UchauLDNuytHgPBqHpWBbA16VgxThK732GEsMjftteHPdPBpF5DGSBc2gpstxUxfo",
+      "explorer": "https://explorer.solana.com/tx/4u8MTwpvJVwAMNLCi4twwE3UchauLDNuytHgPBqHpWBbA16VgxThK732GEsMjftteHPdPBpF5DGSBc2gpstxUxfo?cluster=devnet",
+      "slot": 509084426,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6021
+          }
+        ]
+      },
+      "computeUnits": 4989,
+      "txBytes": 289,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:491. Error Code: NotExpired. Error Number: 6021. Error Message: Batch has not expired.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 4839 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1785"
+      ]
+    },
+    {
+      "label": "ATTACK carol exceeds per-wallet cap",
+      "signature": "549oVSg8xaJqHFiTz7mTuW4GqAUVvdBCJAgu3khpmHrJ5u73mcpHeoBuxA4g61JW9HoS5yNWi6iUaN8gX4t5vF9J",
+      "explorer": "https://explorer.solana.com/tx/549oVSg8xaJqHFiTz7mTuW4GqAUVvdBCJAgu3khpmHrJ5u73mcpHeoBuxA4g61JW9HoS5yNWi6iUaN8gX4t5vF9J?cluster=devnet",
+      "slot": 509084444,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6006
+          }
+        ]
+      },
+      "computeUnits": 13515,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:206. Error Code: WalletCapExceeded. Error Number: 6006. Error Message: Per-wallet cap exceeded.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 13365 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1776"
+      ]
+    },
+    {
+      "label": "ATTACK eve withdraws from alice's contribution",
+      "signature": "Aaju15rnzGLPxJxz2oU8npVe5YUj36itiSmcqd2qJF1gGXtfJcdePideoihuVGi9KBwLH3A9iKNJMP7UFtXNFzX",
+      "explorer": "https://explorer.solana.com/tx/Aaju15rnzGLPxJxz2oU8npVe5YUj36itiSmcqd2qJF1gGXtfJcdePideoihuVGi9KBwLH3A9iKNJMP7UFtXNFzX?cluster=devnet",
+      "slot": 509084468,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 2006
+          }
+        ]
+      },
+      "computeUnits": 11833,
+      "txBytes": 430,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Withdraw",
+        "Program log: AnchorError caused by account: contribution. Error Code: ConstraintSeeds. Error Number: 2006. Error Message: A seeds constraint was violated.",
+        "Program log: Left:",
+        "Program log: EzLWNBKvHgw3oRGq5jmWgC8F6X6o39LATtDddXf7ajDh",
+        "Program log: Right:",
+        "Program log: 45Q27fwdAQsdjNmEnfE1hHLwxGqKfgVjznpPpUcjf2gt",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 11683 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7d6"
+      ]
+    },
+    {
+      "label": "ATTACK creator SPL-transfers out of PDA quote vault",
+      "signature": "4KZyKXjYumDwA5yhVAh5VYdWDTnxKvvXh9Y8NQqzrsQ3YL1EFL7fhpECkTKh9sL5KiznBUXU1XU3h4JjayJgF6M5",
+      "explorer": "https://explorer.solana.com/tx/4KZyKXjYumDwA5yhVAh5VYdWDTnxKvvXh9Y8NQqzrsQ3YL1EFL7fhpECkTKh9sL5KiznBUXU1XU3h4JjayJgF6M5?cluster=devnet",
+      "slot": 509084491,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          4,
+          {
+            "Custom": 4
+          }
+        ]
+      },
+      "computeUnits": 14113,
+      "txBytes": 419,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 600499 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 595410 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 592949 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13413 of 605850 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 592287 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program log: Error: owner does not match",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 199 of 592086 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA failed: custom program error: 0x4"
+      ]
+    },
+    {
+      "label": "ATTACK settle before closes_at",
+      "signature": "6zH5DtLuq5az6ZcUqgdgTP1xJeXhGjsS8XPswJjF6RnRuDSEEJofJASJVupZEywsnMn9Ssx51KGdmMhzW4tBQZs",
+      "explorer": "https://explorer.solana.com/tx/6zH5DtLuq5az6ZcUqgdgTP1xJeXhGjsS8XPswJjF6RnRuDSEEJofJASJVupZEywsnMn9Ssx51KGdmMhzW4tBQZs?cluster=devnet",
+      "slot": 509084498,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6010
+          }
+        ]
+      },
+      "computeUnits": 11480,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:261. Error Code: NotInSettlementWindow. Error Number: 6010. Error Message: Outside the settlement window.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 11180 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177a"
+      ]
+    },
+    {
+      "label": "ATTACK deposit after closes_at",
+      "signature": "8CyN4P55cMVgHxLpSkvBQDuWx3vPmCwpcZvuzvPWdavLCw5JeWsaD7PoYVGDQdM7gDksS16r7Q51h24V7QtAF83",
+      "explorer": "https://explorer.solana.com/tx/8CyN4P55cMVgHxLpSkvBQDuWx3vPmCwpcZvuzvPWdavLCw5JeWsaD7PoYVGDQdM7gDksS16r7Q51h24V7QtAF83?cluster=devnet",
+      "slot": 509085081,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6003
+          }
+        ]
+      },
+      "computeUnits": 13507,
+      "txBytes": 463,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Deposit",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:196. Error Code: DepositClosed. Error Number: 6003. Error Message: Deposits and withdrawals are closed.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 13357 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1773"
+      ]
+    },
+    {
+      "label": "ATTACK eve creates the committed DBC pool directly (front-run)",
+      "signature": "5VezLppoGWmckmXsdJMS4fSCirvQRu421ZEFVXTBVnvLRXqWqzoC2jfYoL4dpyMJcGSpMBd11dCjAJGxZqKJMLq5",
+      "explorer": "https://explorer.solana.com/tx/5VezLppoGWmckmXsdJMS4fSCirvQRu421ZEFVXTBVnvLRXqWqzoC2jfYoL4dpyMJcGSpMBd11dCjAJGxZqKJMLq5?cluster=devnet",
+      "slot": 509085089,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          "PrivilegeEscalation"
+        ]
+      },
+      "computeUnits": 8703,
+      "txBytes": 684,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [1]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "GHAR3Nrqm4MqX7zZ7vBRgPtyj75eYkhhXVoDsUP6B658's signer privilege escalated",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 8403 of 399700 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN failed: Cross-program invocation with unauthorized signer or writable account"
+      ]
+    },
+    {
+      "label": "GRIEF eve pre-funds mint, pool, vaults and metadata addresses",
+      "signature": "gHYUsgQ3gBYJP452iMezwFQhbG5vbYqPoao6TwZUePcMo5SFDYuAnpEb2gqfa4d4e99XYHCBRs7NaHXnEfooouw",
+      "explorer": "https://explorer.solana.com/tx/gHYUsgQ3gBYJP452iMezwFQhbG5vbYqPoao6TwZUePcMo5SFDYuAnpEb2gqfa4d4e99XYHCBRs7NaHXnEfooouw?cluster=devnet",
+      "slot": 509085096,
+      "ok": true,
+      "err": null,
+      "computeUnits": 1050,
+      "txBytes": 506,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ]
+    },
+    {
+      "label": "ATTACK settle naming eve as the creator (steal DBC creator role)",
+      "signature": "2mE6CiS9oGGqNFbborfgfnSs3RshYDriuhpJeR3kLPJTcwwx6ti1WjMs2X9aUXckx2mvdupmqEsfAZS6zWqKD1Uc",
+      "explorer": "https://explorer.solana.com/tx/2mE6CiS9oGGqNFbborfgfnSs3RshYDriuhpJeR3kLPJTcwwx6ti1WjMs2X9aUXckx2mvdupmqEsfAZS6zWqKD1Uc?cluster=devnet",
+      "slot": 509085102,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 2012
+          }
+        ]
+      },
+      "computeUnits": 10911,
+      "txBytes": 794,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program log: AnchorError caused by account: creator. Error Code: ConstraintAddress. Error Number: 2012. Error Message: An address constraint was violated.",
+        "Program log: Left:",
+        "Program log: CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+        "Program log: Right:",
+        "Program log: CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10611 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7dc"
+      ]
+    },
+    {
+      "label": "ATTACK settle routing the buy into eve's token account",
+      "signature": "2EuG4XpFF6JQXqPwoNUvALtayXrBSYJQ1CaLUSf5rG3DzdSfKtzQuhfWWW76vSRd8f74LVG2ZVRuJnHoVQcbVuCX",
+      "explorer": "https://explorer.solana.com/tx/2EuG4XpFF6JQXqPwoNUvALtayXrBSYJQ1CaLUSf5rG3DzdSfKtzQuhfWWW76vSRd8f74LVG2ZVRuJnHoVQcbVuCX?cluster=devnet",
+      "slot": 509085108,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 2012
+          }
+        ]
+      },
+      "computeUnits": 11163,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program log: AnchorError caused by account: base_vault. Error Code: ConstraintAddress. Error Number: 2012. Error Message: An address constraint was violated.",
+        "Program log: Left:",
+        "Program log: 8Fp4gsPP5EU4RyqNG4z2CmdgrT3MDNwaVZR5Rcr9MgcR",
+        "Program log: Right:",
+        "Program log: CN6HwrWUD874SZZLNYyWzTBuVwYjE6L2JwmGtmRoaKkC",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10863 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7dc"
+      ]
+    },
+    {
+      "label": "ATTACK settle underfunded batch (min raise not met)",
+      "signature": "4QkgamSmBiEVFUyy5kQYKK2v58jYnRCLCmfKQ4tMRz1dzurF3Y8Ld24ZCirvDtXp1Lrfn7kbPfTGkLnm2qt43bh",
+      "explorer": "https://explorer.solana.com/tx/4QkgamSmBiEVFUyy5kQYKK2v58jYnRCLCmfKQ4tMRz1dzurF3Y8Ld24ZCirvDtXp1Lrfn7kbPfTGkLnm2qt43bh?cluster=devnet",
+      "slot": 509085124,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6011
+          }
+        ]
+      },
+      "computeUnits": 11470,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:262. Error Code: MinRaiseNotMet. Error Number: 6011. Error Message: Minimum raise not met.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 11170 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177b"
+      ]
+    },
+    {
+      "label": "settle slippage batch",
+      "signature": "5VAuNp7yHk2F8daLkXDEXE5jiHN12KFskEMECtvg6hj7SnVpZivzVMJYeAmn4CmFEJEdovRwSVnf9P3RYWxAm8a1",
+      "explorer": "https://explorer.solana.com/tx/5VAuNp7yHk2F8daLkXDEXE5jiHN12KFskEMECtvg6hj7SnVpZivzVMJYeAmn4CmFEJEdovRwSVnf9P3RYWxAm8a1?cluster=devnet",
+      "slot": 509085134,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6002
+          }
+        ]
+      },
+      "computeUnits": 155532,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 576554 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 558654 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 551627 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [3]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [4]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [4]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [4]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 34880 of 545857 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [3]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15552 of 508748 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 491261 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 489498 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 486470 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 101859 of 586844 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 475879 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 470790 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 468327 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13518 of 481308 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: Swap2",
+        "Program log: AnchorError thrown in programs/dynamic-bonding-curve/src/instructions/swap/swap_exact_in.rs:38. Error Code: ExceededSlippage. Error Number: 6002. Error Message: Exceeded slippage tolerance.",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 19749 of 464217 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN failed: custom program error: 0x1772",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 155232 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1772"
+      ]
+    },
+    {
+      "label": "SETTLEMENT settle by eve (permissionless)",
+      "signature": "3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t",
+      "explorer": "https://explorer.solana.com/tx/3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t?cluster=devnet",
+      "slot": 509085149,
+      "ok": true,
+      "err": null,
+      "computeUnits": 218270,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 235350 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 217313 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 205732 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program log: create token metadata",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [3]",
+        "Program log: IX: Create Metadata Accounts v3",
+        "Program 11111111111111111111111111111111 invoke [4]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Allocate space for the account",
+        "Program 11111111111111111111111111111111 invoke [4]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Assign the account to the owning program",
+        "Program 11111111111111111111111111111111 invoke [4]",
+        "Program 11111111111111111111111111111111 success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 39380 of 199962 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [3]",
+        "Program log: IX: Update Metadata Accounts v2",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15552 of 158353 compute units",
+        "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 140866 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 139103 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 136075 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 113998 of 248588 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 116484 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 108314 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 105851 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 21099 of 126413 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: Swap2",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 82080 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 79933 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 76955 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 73287 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 69985 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 33078 of 101741 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+        "Program log: Instruction: TransferPoolCreator",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 61487 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 5737 of 66246 compute units",
+        "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+        "Program log: EqualStart settled: quote_spent=600000000 base_received=19453340776307 min_base_out=18000000000000 opening_fee=6000000 pool=6dkC8V4dgCnzbGPv2h3LaYuMNpA4C199Y1hPbMJLiQL9 settler=CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 217970 of 261444 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK replay settle",
+      "signature": "a55yHogzXFrm3dSVFQBhxXXf3aaVT6rr8nMhFX8XCcHCAL8ti225VfgJKqFAZjd8TUuokVZ2pKrbV7PbU4zTx1K",
+      "explorer": "https://explorer.solana.com/tx/a55yHogzXFrm3dSVFQBhxXXf3aaVT6rr8nMhFX8XCcHCAL8ti225VfgJKqFAZjd8TUuokVZ2pKrbV7PbU4zTx1K?cluster=devnet",
+      "slot": 509085167,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6009
+          }
+        ]
+      },
+      "computeUnits": 11354,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:260. Error Code: NotOpen. Error Number: 6009. Error Message: Batch is not open.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 11054 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1779"
+      ]
+    },
+    {
+      "label": "ATTACK creator SPL-transfers out of PDA base vault",
+      "signature": "4f6tbTUFeXmNt6ZJBk69AhDFv4Mca5p6MYBZJDC9jHFpUmidAwo4K7wJRKWGS5c2tQ6PdzWHnNQCb7753RmSZBen",
+      "explorer": "https://explorer.solana.com/tx/4f6tbTUFeXmNt6ZJBk69AhDFv4Mca5p6MYBZJDC9jHFpUmidAwo4K7wJRKWGS5c2tQ6PdzWHnNQCb7753RmSZBen?cluster=devnet",
+      "slot": 509085171,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 4
+          }
+        ]
+      },
+      "computeUnits": 13766,
+      "txBytes": 397,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+        "Program log: CreateIdempotent",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 397499 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [2]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 392410 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 389949 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13417 of 402850 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+        "Program log: Error: owner does not match",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 199 of 389433 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA failed: custom program error: 0x4"
+      ]
+    },
+    {
+      "label": "ATTACK eve claims alice's share",
+      "signature": "4rHJBZD1w28XnEahUYwxFzRMUi1TLoPs2Bo4Ebpa1dqxt8RQQCLTYFNwuyhRoX7jihEfAnHz56jsSMryjCrNUiFo",
+      "explorer": "https://explorer.solana.com/tx/4rHJBZD1w28XnEahUYwxFzRMUi1TLoPs2Bo4Ebpa1dqxt8RQQCLTYFNwuyhRoX7jihEfAnHz56jsSMryjCrNUiFo?cluster=devnet",
+      "slot": 509085180,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 2006
+          }
+        ]
+      },
+      "computeUnits": 36211,
+      "txBytes": 488,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 186184 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 181095 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 178634 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 14909 of 193027 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: AnchorError caused by account: contribution. Error Code: ConstraintSeeds. Error Number: 2006. Error Message: A seeds constraint was violated.",
+        "Program log: Left:",
+        "Program log: EzLWNBKvHgw3oRGq5jmWgC8F6X6o39LATtDddXf7ajDh",
+        "Program log: Right:",
+        "Program log: 45Q27fwdAQsdjNmEnfE1hHLwxGqKfgVjznpPpUcjf2gt",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 36061 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7d6"
+      ]
+    },
+    {
+      "label": "ATTACK eve claims without contribution",
+      "signature": "r4G5CwcLRKo9RqDD6mXS3kED3oBGQ5CWA15XbuUPe86nZqtyhLPLdvdvwFeoxmFkP2cQwfVdjvHZFYg1oxLWW2U",
+      "explorer": "https://explorer.solana.com/tx/r4G5CwcLRKo9RqDD6mXS3kED3oBGQ5CWA15XbuUPe86nZqtyhLPLdvdvwFeoxmFkP2cQwfVdjvHZFYg1oxLWW2U?cluster=devnet",
+      "slot": 509085189,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 3012
+          }
+        ]
+      },
+      "computeUnits": 6039,
+      "txBytes": 488,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program log: AnchorError caused by account: contribution. Error Code: AccountNotInitialized. Error Number: 3012. Error Message: The program expected this account to be already initialized.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 5889 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0xbc4"
+      ]
+    },
+    {
+      "label": "ATTACK burn_dust before all claims",
+      "signature": "4qt1Bkd1721mpb7TowUPTqAxndk6BJKU7FcwFm2VyeYpWZ2m3HQpDzLfveDzbJM99qUghuHGriZAk7aZdo5682eX",
+      "explorer": "https://explorer.solana.com/tx/4qt1Bkd1721mpb7TowUPTqAxndk6BJKU7FcwFm2VyeYpWZ2m3HQpDzLfveDzbJM99qUghuHGriZAk7aZdo5682eX?cluster=devnet",
+      "slot": 509085199,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6025
+          }
+        ]
+      },
+      "computeUnits": 6590,
+      "txBytes": 355,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: BurnDust",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:521. Error Code: ClaimsOutstanding. Error Number: 6025. Error Message: Not every participant has claimed.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 6440 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1789"
+      ]
+    },
+    {
+      "label": "claim carol",
+      "signature": "jjQMVsuWUiu7vkEK3QGka5amNuvJUzMiaeY5QPPBu82CzbWudvMeySkwvaDeCmTGsKjqrHVpgV2QcTuZ29f3van",
+      "explorer": "https://explorer.solana.com/tx/jjQMVsuWUiu7vkEK3QGka5amNuvJUzMiaeY5QPPBu82CzbWudvMeySkwvaDeCmTGsKjqrHVpgV2QcTuZ29f3van?cluster=devnet",
+      "slot": 509085208,
+      "ok": true,
+      "err": null,
+      "computeUnits": 54483,
+      "txBytes": 488,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 180184 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 175095 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 172634 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 17909 of 190027 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: EqualStart claim: participant=5xjvuvnJneYTxHxfdMMy3ZsoexkZ3K461EtUdC2gXZBk share=9726670388153",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 150846 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 54333 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "claim alice",
+      "signature": "5yLgdMDHoNpdALHRAPXtu4T2Y4xCpdBaxruAtdWBV6pBbVUJEwTpKxa3ZyGes4py7yhZYa9GZfnAMSxvYJwmj9AK",
+      "explorer": "https://explorer.solana.com/tx/5yLgdMDHoNpdALHRAPXtu4T2Y4xCpdBaxruAtdWBV6pBbVUJEwTpKxa3ZyGes4py7yhZYa9GZfnAMSxvYJwmj9AK?cluster=devnet",
+      "slot": 509085219,
+      "ok": true,
+      "err": null,
+      "computeUnits": 40983,
+      "txBytes": 488,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 189184 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 184095 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 181634 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13409 of 194527 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: EqualStart claim: participant=8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3 share=3242223462717",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 164346 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 40833 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "claim bob",
+      "signature": "2HoyxxUkiatcvpK1QersHhHcLh9X1iVs99jwvrnLg9pRDNmaLKm3R9rY7UfnTu3a8riisnHACLmsTXD89zgG3SMW",
+      "explorer": "https://explorer.solana.com/tx/2HoyxxUkiatcvpK1QersHhHcLh9X1iVs99jwvrnLg9pRDNmaLKm3R9rY7UfnTu3a8riisnHACLmsTXD89zgG3SMW?cluster=devnet",
+      "slot": 509085228,
+      "ok": true,
+      "err": null,
+      "computeUnits": 40983,
+      "txBytes": 488,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+        "Program log: Create",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 189184 compute units",
+        "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program log: Initialize the associated token account",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 184095 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 181634 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13409 of 194527 compute units",
+        "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+        "Program log: EqualStart claim: participant=AE8PNPazT7rhcktWxTMDSojQTc1aXwDpAGZ7bgD5GxnV share=6484446925435",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 164346 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 40833 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK alice double-claims",
+      "signature": "5YKy4n7HBqodWWp6wjtf4zachxyUsF7AnXYuSC5aahq2uhZi2xVztmRWfhehnm6Z3YVtjJtCrTiWzxSJMBApdTCp",
+      "explorer": "https://explorer.solana.com/tx/5YKy4n7HBqodWWp6wjtf4zachxyUsF7AnXYuSC5aahq2uhZi2xVztmRWfhehnm6Z3YVtjJtCrTiWzxSJMBApdTCp?cluster=devnet",
+      "slot": 509085237,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6020
+          }
+        ]
+      },
+      "computeUnits": 14849,
+      "txBytes": 488,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Claim",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:458. Error Code: AlreadyClaimed. Error Number: 6020. Error Message: Already claimed.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 14699 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1784"
+      ]
+    },
+    {
+      "label": "burn_dust (permissionless, after all claims)",
+      "signature": "4jZ8Lw7JMerMC2bwi7qBejqrYuKFvTNsQwtMy4AQH7yVct4Jg8iWzyNfJTsg2uA1WkizusYdpyYEftwD3wTBdmkK",
+      "explorer": "https://explorer.solana.com/tx/4jZ8Lw7JMerMC2bwi7qBejqrYuKFvTNsQwtMy4AQH7yVct4Jg8iWzyNfJTsg2uA1WkizusYdpyYEftwD3wTBdmkK?cluster=devnet",
+      "slot": 509085248,
+      "ok": true,
+      "err": null,
+      "computeUnits": 6605,
+      "txBytes": 355,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: BurnDust",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 131 of 196787 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 6455 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK settle after expiry",
+      "signature": "4AJ8DCnYgobHErssqknDUJF72efRuyi25eq5JnqMguxw18C46UVBAyAZpaXC2gKZrfwPadTqLdYpWJuQ3dbTgJWT",
+      "explorer": "https://explorer.solana.com/tx/4AJ8DCnYgobHErssqknDUJF72efRuyi25eq5JnqMguxw18C46UVBAyAZpaXC2gKZrfwPadTqLdYpWJuQ3dbTgJWT?cluster=devnet",
+      "slot": 509085761,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          2,
+          {
+            "Custom": 6010
+          }
+        ]
+      },
+      "computeUnits": 11482,
+      "txBytes": 826,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Settle",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:261. Error Code: NotInSettlementWindow. Error Number: 6010. Error Message: Outside the settlement window.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 11182 of 599700 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x177a"
+      ]
+    },
+    {
+      "label": "ATTACK cancel_expired sending bounty to eve",
+      "signature": "2TZYxYASuNaqMgc5aDabFHA6bDu17dsZj4V7Vj81wKVRJH2yNmoAEQKErinEqoXuHhTtxtstfk8cY6CuSmcuXWjZ",
+      "explorer": "https://explorer.solana.com/tx/2TZYxYASuNaqMgc5aDabFHA6bDu17dsZj4V7Vj81wKVRJH2yNmoAEQKErinEqoXuHhTtxtstfk8cY6CuSmcuXWjZ?cluster=devnet",
+      "slot": 509085768,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 2012
+          }
+        ]
+      },
+      "computeUnits": 5002,
+      "txBytes": 257,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program log: AnchorError caused by account: creator. Error Code: ConstraintAddress. Error Number: 2012. Error Message: An address constraint was violated.",
+        "Program log: Left:",
+        "Program log: CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+        "Program log: Right:",
+        "Program log: CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 4852 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7dc"
+      ]
+    },
+    {
+      "label": "cancel_expired abandoned by eve (permissionless)",
+      "signature": "2tFy9bvbrZyN3DvxiprPs8prNq9FFy6VDCdguu1wpp7SPzRHeAKVEqJkHNPK5s7DRXxVPUKxP5PiqroCEKjMofzH",
+      "explorer": "https://explorer.solana.com/tx/2tFy9bvbrZyN3DvxiprPs8prNq9FFy6VDCdguu1wpp7SPzRHeAKVEqJkHNPK5s7DRXxVPUKxP5PiqroCEKjMofzH?cluster=devnet",
+      "slot": 509085776,
+      "ok": true,
+      "err": null,
+      "computeUnits": 4851,
+      "txBytes": 289,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 4701 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK cancel_expired twice",
+      "signature": "37nPG9VHJD97nEgMHnhc1MauA1MvigzUMQMv1oELjpbBcB2AfVJ4rfDCRaZJFrBKY4pDTD19eT7K1oyPp3aJyPRQ",
+      "explorer": "https://explorer.solana.com/tx/37nPG9VHJD97nEgMHnhc1MauA1MvigzUMQMv1oELjpbBcB2AfVJ4rfDCRaZJFrBKY4pDTD19eT7K1oyPp3aJyPRQ?cluster=devnet",
+      "slot": 509085783,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6009
+          }
+        ]
+      },
+      "computeUnits": 4979,
+      "txBytes": 289,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:490. Error Code: NotOpen. Error Number: 6009. Error Message: Batch is not open.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 4829 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1779"
+      ]
+    },
+    {
+      "label": "ATTACK eve refunds alice's deposit to eve",
+      "signature": "SevK3oUXxnz1NtxbJKpPoaStSmoVX9WvmYqpKn1hd6exF634yT4y3bdbcMQGf6swGsan6s74jka1Q1MhgCz2WRr",
+      "explorer": "https://explorer.solana.com/tx/SevK3oUXxnz1NtxbJKpPoaStSmoVX9WvmYqpKn1hd6exF634yT4y3bdbcMQGf6swGsan6s74jka1Q1MhgCz2WRr?cluster=devnet",
+      "slot": 509085789,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 2006
+          }
+        ]
+      },
+      "computeUnits": 9501,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError caused by account: contribution. Error Code: ConstraintSeeds. Error Number: 2006. Error Message: A seeds constraint was violated.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9351 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7d6"
+      ]
+    },
+    {
+      "label": "ATTACK alice refunds into eve's token account",
+      "signature": "3JViqc5QXewyYPEkw9S2KWi9nkwm2H5994fTFp98EdxHff8bch7TvvqE3n4YF8Sg9oK1cDcNKXdS43SmspWrioKV",
+      "explorer": "https://explorer.solana.com/tx/3JViqc5QXewyYPEkw9S2KWi9nkwm2H5994fTFp98EdxHff8bch7TvvqE3n4YF8Sg9oK1cDcNKXdS43SmspWrioKV?cluster=devnet",
+      "slot": 509085806,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 2015
+          }
+        ]
+      },
+      "computeUnits": 10017,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError caused by account: participant_quote. Error Code: ConstraintTokenOwner. Error Number: 2015. Error Message: A token owner constraint was violated.",
+        "Program log: Left:",
+        "Program log: CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+        "Program log: Right:",
+        "Program log: 8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9867 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x7df"
+      ]
+    },
+    {
+      "label": "refund bob",
+      "signature": "XaE4rmonGkqzDwCnv7k2asUj3BKphcuGxiVTUw3yE4Z1AgTLf3P4zaNDxLWhLBmVTFPEGXJgKdodcodtL81VRtZ",
+      "explorer": "https://explorer.solana.com/tx/XaE4rmonGkqzDwCnv7k2asUj3BKphcuGxiVTUw3yE4Z1AgTLf3P4zaNDxLWhLBmVTFPEGXJgKdodcodtL81VRtZ?cluster=devnet",
+      "slot": 509085812,
+      "ok": true,
+      "err": null,
+      "computeUnits": 10646,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 193198 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10496 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "refund alice",
+      "signature": "2yM3nncPUHiuofcbkbGiNisHCq9NXWG5oYeEEmPRseFRX2mXGYfLN8H3YqV5F9BtprHyZJmNXqUoJFAbREHnWJv5",
+      "explorer": "https://explorer.solana.com/tx/2yM3nncPUHiuofcbkbGiNisHCq9NXWG5oYeEEmPRseFRX2mXGYfLN8H3YqV5F9BtprHyZJmNXqUoJFAbREHnWJv5?cluster=devnet",
+      "slot": 509085838,
+      "ok": true,
+      "err": null,
+      "computeUnits": 10667,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 193177 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10517 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "refund carol",
+      "signature": "2LJhCig3hB1F8hwaK2RFezbaiC18kDkN4XF6smCN4DMxYxxwkKLnGKrzYKZhYwEUyDcLyw6S8kCMfjheTenC2KFX",
+      "explorer": "https://explorer.solana.com/tx/2LJhCig3hB1F8hwaK2RFezbaiC18kDkN4XF6smCN4DMxYxxwkKLnGKrzYKZhYwEUyDcLyw6S8kCMfjheTenC2KFX?cluster=devnet",
+      "slot": 509085844,
+      "ok": true,
+      "err": null,
+      "computeUnits": 10646,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 193198 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10496 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "ATTACK bob double-refund",
+      "signature": "4JB9YtomxKcYQSvKAUqZaTeKvRHaHNFX1mVPS6g9W85hQi9SJLn8WGT563S4nuPecMoBJw57pnAJhPBXo49L6Gn4",
+      "explorer": "https://explorer.solana.com/tx/4JB9YtomxKcYQSvKAUqZaTeKvRHaHNFX1mVPS6g9W85hQi9SJLn8WGT563S4nuPecMoBJw57pnAJhPBXo49L6Gn4?cluster=devnet",
+      "slot": 509085851,
+      "ok": false,
+      "err": {
+        "InstructionError": [
+          1,
+          {
+            "Custom": 6024
+          }
+        ]
+      },
+      "computeUnits": 10038,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program log: AnchorError thrown in programs/equalstart/src/lib.rs:505. Error Code: AlreadyRefunded. Error Number: 6024. Error Message: Already refunded.",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 9888 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j failed: custom program error: 0x1788"
+      ]
+    },
+    {
+      "label": "cancel_expired underfunded by eve",
+      "signature": "4F622BWdqenYFWLVLtF6zX16hJXCJdyLPUsaGSC85kKXfJn5QPQP9NTx34nknCjRgQz7Vxg5wbPRo41igz1wcAKW",
+      "explorer": "https://explorer.solana.com/tx/4F622BWdqenYFWLVLtF6zX16hJXCJdyLPUsaGSC85kKXfJn5QPQP9NTx34nknCjRgQz7Vxg5wbPRo41igz1wcAKW?cluster=devnet",
+      "slot": 509085858,
+      "ok": true,
+      "err": null,
+      "computeUnits": 4851,
+      "txBytes": 289,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: CancelExpired",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 4701 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    },
+    {
+      "label": "refund bob (underfunded)",
+      "signature": "4SVc8MSX8Aqj86zqkRgcPC9UPX5qSz9nGhThyArbaHci5f3cbWxttoRe5n8fYa1fL7rVf2G9DrrUcPFH8xUJxZ8q",
+      "explorer": "https://explorer.solana.com/tx/4SVc8MSX8Aqj86zqkRgcPC9UPX5qSz9nGhThyArbaHci5f3cbWxttoRe5n8fYa1fL7rVf2G9DrrUcPFH8xUJxZ8q?cluster=devnet",
+      "slot": 509085871,
+      "ok": true,
+      "err": null,
+      "computeUnits": 10646,
+      "txBytes": 422,
+      "logs": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+        "Program log: Instruction: Refund",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 193198 compute units",
+        "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 10496 of 202850 compute units",
+        "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+      ]
+    }
+  ],
+  "balances": {
+    "claims": {
+      "baseReceived": "19453340776307",
+      "alice": "3242223462717",
+      "bob": "6484446925435",
+      "carol": "9726670388153",
+      "dustBeforeBurn": "2"
+    },
+    "refunds": {
+      "alice": "50000000",
+      "bob": "200000000",
+      "carol": "150000000"
+    }
+  },
+  "wallets": {
+    "partner": "HhaNrsGLPeTSK2kerP1CdGoFC6sVtmXc6m9SdZggXT5j",
+    "creator": "CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR",
+    "alice": "8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3",
+    "bob": "AE8PNPazT7rhcktWxTMDSojQTc1aXwDpAGZ7bgD5GxnV",
+    "carol": "5xjvuvnJneYTxHxfdMMy3ZsoexkZ3K461EtUdC2gXZBk",
+    "eve": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk"
+  },
+  "dbcConfigs": {
+    "good": {
+      "address": "8jKDyRT7t5sGwZpT1gmzcwxgHEyoouN1hrD65PNxFuFq",
+      "cliffFeeNumerator": "10000000",
+      "baseFeeMode": 0,
+      "collectFeeMode": 0,
+      "enableFirstSwapWithMinFee": 0,
+      "tokenType": 0,
+      "migrationQuoteThreshold": "72075922005"
+    },
+    "highFee": {
+      "address": "BFsPsDLRjrSqpbDCRyNB1epth66knFLpmbHWpHjPHaRX",
+      "cliffFeeNumerator": "50000000",
+      "baseFeeMode": 0,
+      "collectFeeMode": 0,
+      "enableFirstSwapWithMinFee": 0,
+      "tokenType": 0,
+      "migrationQuoteThreshold": "72075922005"
+    },
+    "minFee": {
+      "address": "AD3TbYPusrastijHWM4onm4yCfAkhDtA7DY6vmGcVKhV",
+      "cliffFeeNumerator": "50000000",
+      "baseFeeMode": 0,
+      "collectFeeMode": 0,
+      "enableFirstSwapWithMinFee": 1,
+      "tokenType": 0,
+      "migrationQuoteThreshold": "72075922005"
+    }
+  },
+  "mainBatch": {
+    "batch": "8F8fx1WzLjdcXr1xYnp6BeC3o67zSKsgM8LPoknBaGQH",
+    "pool": "6dkC8V4dgCnzbGPv2h3LaYuMNpA4C199Y1hPbMJLiQL9",
+    "baseMint": "GHAR3Nrqm4MqX7zZ7vBRgPtyj75eYkhhXVoDsUP6B658",
+    "quoteVault": "24g7XRvcNbr6rLFLPixchE3mpteSRoypYshpfhLgiVXM",
+    "baseVault": "CN6HwrWUD874SZZLNYyWzTBuVwYjE6L2JwmGtmRoaKkC",
+    "batchLamports": "53672840",
+    "creatorSpentOnInit": "220681360"
+  },
+  "settlementSimulation": {
+    "err": null,
+    "unitsConsumed": 218120,
+    "txBytes": 814,
+    "txByteLimit": 1232,
+    "accountKeys": 21,
+    "logs": [
+      "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+      "Program ComputeBudget111111111111111111111111111111 success",
+      "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j invoke [1]",
+      "Program log: Instruction: Settle",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+      "Program log: Instruction: InitializeVirtualPoolWithSplToken",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 202 of 1373756 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 1355719 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 229 of 1344138 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program log: create token metadata",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [3]",
+      "Program log: IX: Create Metadata Accounts v3",
+      "Program 11111111111111111111111111111111 invoke [4]",
+      "Program 11111111111111111111111111111111 success",
+      "Program log: Allocate space for the account",
+      "Program 11111111111111111111111111111111 invoke [4]",
+      "Program 11111111111111111111111111111111 success",
+      "Program log: Assign the account to the owning program",
+      "Program 11111111111111111111111111111111 invoke [4]",
+      "Program 11111111111111111111111111111111 success",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 39380 of 1338368 compute units",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s invoke [3]",
+      "Program log: IX: Update Metadata Accounts v2",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s consumed 15552 of 1296759 compute units",
+      "Program metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 120 of 1279272 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 115 of 1277509 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 1274481 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 113998 of 1386994 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [2]",
+      "Program log: CreateIdempotent",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 179 of 1254890 compute units",
+      "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program 11111111111111111111111111111111 invoke [3]",
+      "Program 11111111111111111111111111111111 success",
+      "Program log: Initialize the associated token account",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 37 of 1246720 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 233 of 1244257 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 21099 of 1264819 compute units",
+      "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+      "Program log: Instruction: Swap2",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 1220486 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 1218339 compute units",
+      "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 1215361 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 1211693 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 1208391 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 33078 of 1240147 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [2]",
+      "Program log: Instruction: TransferPoolCreator",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN invoke [3]",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 646 of 1199893 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN consumed 5737 of 1204652 compute units",
+      "Program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN success",
+      "Program log: EqualStart settled: quote_spent=600000000 base_received=19453340776307 min_base_out=18000000000000 opening_fee=6000000 pool=6dkC8V4dgCnzbGPv2h3LaYuMNpA4C199Y1hPbMJLiQL9 settler=CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+      "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j consumed 217970 of 1399850 compute units",
+      "Program 6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j success"
+    ]
+  },
+  "settlementSignature": "3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t",
+  "settlement": {
+    "pool": {
+      "owner": "dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN",
+      "config": "8jKDyRT7t5sGwZpT1gmzcwxgHEyoouN1hrD65PNxFuFq",
+      "creator": "CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR",
+      "baseMint": "GHAR3Nrqm4MqX7zZ7vBRgPtyj75eYkhhXVoDsUP6B658",
+      "baseReserve": "980546659223693",
+      "quoteReserve": "594000000",
+      "totalProtocolQuoteFee": "1200000",
+      "totalTradingQuoteFee": "4800000",
+      "hasSwap": 1
+    },
+    "batchBaseVault": "19453340776307",
+    "quoteVaultAfter": "0",
+    "batch": {
+      "phase": "settled",
+      "totalQuote": "600000000",
+      "quoteSpent": "600000000",
+      "baseReceived": "19453340776307",
+      "settlerBounty": "0"
+    },
+    "minBaseOut": "18000000000000",
+    "openingFee": "6000000",
+    "settlerNetLamports": "32919685",
+    "creatorLamportDelta": "0"
+  },
+  "poolSuccessfulSignatures": [
+    "3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t",
+    "gHYUsgQ3gBYJP452iMezwFQhbG5vbYqPoao6TwZUePcMo5SFDYuAnpEb2gqfa4d4e99XYHCBRs7NaHXnEfooouw"
+  ],
+  "finishedAt": "2026-10-09T06:19:13.551Z"
+}

@@ -11,8 +11,11 @@ const find = (re) => e.transactions.filter((t) => re.test(t.label));
 const sh = (c) => { try { return execSync(c, { encoding: "utf8" }).trim(); } catch (err) { return `(failed: ${c})`; } };
 const reason = (t) => t.ok ? "✅ succeeded" : `❌ rejected: ${(t.logs.join("\n").match(/Error Code: (\w+)/) || t.logs.join("\n").match(/(owner does not match|already in use|unauthorized signer|ExceededSlippage)/) || [, "?"])[1]}`;
 const programId = e.versions.equalstartProgram;
-const show = sh(`solana program show -u ${cluster} ${programId}`);
+const show = sh(`solana program show -u ${cluster} -k ../keys/deployer.json ${programId}`);
 const localHash = sh(`shasum -a 256 target/deploy/equalstart.so | cut -d' ' -f1`);
+const dumpPath = `${process.env.TMPDIR ?? "/tmp"}/equalstart-${cluster}-dump.so`;
+sh(`solana program dump -u ${cluster} -k ../keys/deployer.json ${programId} ${dumpPath}`);
+const deployedHash = sh(`shasum -a 256 ${dumpPath} | cut -d' ' -f1`);
 
 const rows = (list) => list.map((t) => `| ${t.label} | ${reason(t)} | ${tx(t.signature)} |`).join("\n");
 const s = e.settlement;
@@ -28,6 +31,7 @@ Every link below opens the transaction or account on the public Solana Explorer.
 | EqualStart program | ${addr(programId)} |
 | Meteora DBC program (Meteora's live deployment) | ${addr("dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN")} |
 | Local build sha256 (\`onchain/target/deploy/equalstart.so\`) | \`${localHash}\` |
+| Deployed program sha256 (\`solana program dump\`) | \`${deployedHash}\` ${deployedHash === localHash ? "(matches the local build)" : "(DOES NOT MATCH the local build)"} |
 | DBC SDK / IDL / Anchor / validator | ${e.versions.dbcSdk} / ${e.versions.dbcIdl} / ${e.versions.anchorClient} / ${e.versions.solanaCore} |
 
 \`\`\`

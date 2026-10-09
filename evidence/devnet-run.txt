@@ -1,0 +1,220 @@
+
+
+  EqualStart x Meteora DBC (devnet, real DBC binary, permissionless settlement)
+    versions: {"dbcSdk":"1.5.13","dbcIdl":"0.2.1","anchorClient":"1.2.1","solanaCore":"4.4.0-beta.0","equalstartProgram":"6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j","dbcProgramDataSlot":508712305}
+    ✔ pins versions and verifies the real DBC + EqualStart programs are deployed (1390ms)
+    [OK  ] fund HhaNrs 0.15 SOL
+           3w8SVinztfynTaosu1nkfDxhwKo5WVSQzGRhtWojZuydtgWbsxT7rKw9U2bG9ZVnQJYJSn4TqKf34BXNQS41WM5g
+    [OK  ] fund CiYuBF 0.45 SOL
+           66c5HeSY9e2fAGjqEQQLoxBsz1iW1A8Joe3LgwkGBmQb6H2kS9ae639dud5v2yvewvtXdrYUfqKaqQHTbExGAasW
+    [OK  ] fund 8f9EBZ 0.6 SOL
+           5Jzq7r3C3qbnqqzMmeS4WinMWDXmPsLCW9WBtdUUmcUKcqpgJ1jCRMAUEDaxqRa5chuCUkso4D6R3rVwq9R1STo6
+    [OK  ] fund AE8PNP 0.6 SOL
+           3HT2oj9mW5dHvGTvnysAqj87rNhCfZ2M7RVzKqSofAdzPttmCecqfqYKQNtXUBb88KLNQYn3JaaH8EfBoU8wXr59
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] fund 5xjvuv 0.6 SOL
+           2iAXH6LoDCzeDigT84yWD8j3ELsvAMRWmr68w5nKLYwFp66nLABiZzcXfZd5HAahFqoMCwo1CWVfZEsXFtUKsXhw
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+    [OK  ] fund CHNW5b 0.4 SOL
+           27Ed51cTQJF6YkeGYQAvKBdTBXSiCfwgTForFt1qwL6TofcxmHVBDf8rWHTbzdrAGydsNZYQ5Hm2TuXezRKpu8Q6
+    [OK  ] dbc.create_config good (flat 1%) (SDK)
+           3pVaz2VbtJyoK4viPxB4mKJs4Gz7HQzMioebGqXYQqiYBQ5XpBRrrxryMwqsJmn7RPjXPjBSWvbTsx55fHksw1Gy
+    [OK  ] dbc.create_config high-fee (5% -> 1%) (SDK)
+           4EB6detmq9SqEhk9mJMgSfQZboC2rqBTvhp8nSKsk2LHDEi3xTr4snD3JkxXkzfveRSZirqXg5VNShdNbN67Cozm
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+    [OK  ] dbc.create_config first-swap-min-fee (SDK)
+           3rZrgTCwYMFaNfdtSx9qSxMWqdUsz3jgD4DNowgVcW6oAH5ERWWDQ7a81uS7ZHoiC14NYLM6skhon7CtiDh95ucg
+    configs: {"good":{"address":"8jKDyRT7t5sGwZpT1gmzcwxgHEyoouN1hrD65PNxFuFq","cliffFeeNumerator":"10000000","baseFeeMode":0,"collectFeeMode":0,"enableFirstSwapWithMinFee":0,"tokenType":0,"migrationQuoteThreshold":"72075922005"},"highFee":{"address":"BFsPsDLRjrSqpbDCRyNB1epth66knFLpmbHWpHjPHaRX","cliffFeeNumerator":"50000000","baseFeeMode":0,"collectFeeMode":0,"enableFirstSwapWithMinFee":0,"tokenType":0,"migrationQuoteThreshold":"72075922005"},"minFee":{"address":"AD3TbYPusrastijHWM4onm4yCfAkhDtA7DY6vmGcVKhV","cliffFeeNumerator":"50000000","baseFeeMode":0,"collectFeeMode":0,"enableFirstSwapWithMinFee":1,"tokenType":0,"migrationQuoteThreshold":"72075922005"}}
+    ✔ funds wallets and creates DBC configs (SDK): good, high opening fee, first-swap-min-fee (25043ms)
+    [OK  ] initialize_batch main
+           4eiaBFnDpoeZRLuXFY3qR49R7wcn4ZgfUiuws8kvAatsbSYHz8gJfqyR7tqnwaNJxwjspg52UaJuRyzPqE1WDidm
+    [OK  ] initialize_batch abandoned
+           2AkvbTGfJjzJ1CpDDjFhjgC7EFdfqbTBHhAR4CkfTV7QsaevDbj5jJCmoqXx4SLWAEWd23HGTJvYNKtF2NgBwDKG
+    [OK  ] initialize_batch slippage (min 1e18 base per SOL)
+           3EXEwffVM5byYCFayNSVJ8FHg3gEqj76H9ctdxAeP4YtTNgdjiCrJ35oUrjn5V2gE1qiqxNmNnGEaeLd3c6pBacS
+    [OK  ] initialize_batch underfunded (min raise 0.5 SOL)
+           2jZddXr1wbGKHzd88iPtLKe4EzzLFa1LMkEZUYDVvxb4WWomvGwZ4QuhR3DwNKmRhVsPNDMTbso1JcQu9t1m1HQS
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK re-initialize main batch with new terms
+           4ZMSjXoYsCyj1tWapzB4t3RDncPUEMvuSuR1gGt8aWS7zyBWEkMPXvB3tKuRhoEHSnBKqrqq96z3mqR4tE5BUrvE
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK initialize_batch with non-DBC config
+           43kmc6uFCxhXj6QKNcban3WQaJwpF2U8eSe3hJ1M1nXVrNLgKMYVuGYmFWZZ5x1V5mdexsrkcEFtVrBqhpDYMKAe
+    [FAIL] ATTACK initialize_batch with first-swap-min-fee config
+           5nqJBcr4WWEEZvnyv68dxfMT1wtAwuTL3MX6Ma4mJuB45ny4ozx57PLFy5suMNksHeiZ2dfT9vouWLiN9vpUczho
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK initialize_batch: config opening fee 5% > committed 1%
+           7DeoAmtYp24ggcs4WpFx7xXh9J74bTjzesDqecdWQTrEJXRQZRYfqJMTbLiK5WPjJDLvaXUHVxsaUHiqQqZs4qt
+    [FAIL] ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold
+           3u3PRa2cqH6w7M1NNYPevrMqci21rMqnupnCh6qjLaXcaH5Fq7eXnRaVFmTzqLweKUGT1ZY3WKCgLiP4ZpvCTPrp
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK initialize_batch: min_base_per_sol overflows u64 at max raise
+           pcJsywZH6757aqsu7fKMGyTMRsgw55zowmNTtA1TGGLGHN18mWwGkW2e4aeCGXP5eTZM4oHK1WABpG8Po5HvcDU
+    [FAIL] ATTACK initialize_batch with expiry before close
+           2tUbcLhhSkyRdSboY77kmFygJG1xWvuV4RirHuHN4au4JUz2ojoSj9Nqiw9KhGgD6qRxKXcYLdbqQ5PrJYXKpDNV
+    ✔ initializes batches with immutable terms; rejects invalid configs, bad terms and re-initialization (20398ms)
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] wrap 0.5 SOL
+           2adgQuYaLpZXF3XF9MCvqfi82utcavgk9G6XUGp8pZQ2Kuju3TK19iAG95iLkHmx23YAaQMKRohezhWDX1q9LU8m
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] wrap 0.5 SOL
+           3nGWurT1TXd5KyZCUywdnkzJaazhdEaouE8Ge5EbqS24feJHdNoNjMoafvugYLf6TF4akyTeHDNcDCoQhszCbPNK
+    [OK  ] wrap 0.5 SOL
+           2dV67uqZ3Jvyida8Xz8r2iChEE2UZyXkVo1b3ub6whD1XHJPa9NEJUJZouWixK79PLEBgZRJBDAgbLuZdmHbs4fG
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] wrap eve 0.01 SOL
+           ATdTP3ZoViy5hCwRmvTMWEjA2aqM7qfN6FVQVV2nGLoZJSCH4ocPYc3Rb9GrwpuoYGztTymvt1rQapZDaJXmG6k
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] deposit alice 0.15 (main)
+           ARZWMsNj5gbvKz95j2GRfykV1k9XvEaage53Hfdp6H3bjJHXJUdugfk2KQurAi8DHwr8ahBDkMjUAAkv3P4pTJx
+    [OK  ] withdraw alice 0.05 before close (main)
+           49YjikfaipYQhMkP4PdFHLvTnJCXqPBtrDCzNQX77Yo6twdB5JaXawb73BRyAzoRiK61ZZtJn4e6mREQB2AHQRd5
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] deposit bob 0.2 (main)
+           2q9tUr4jGb6MSfyWU1i5LsSrYtx4UawL2YjrHCH2e3Jx6uFpsEYf7wexQ8thDn2Hqjy1sfUiqktjMsuBZb6qKocp
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] deposit carol 0.3 (main)
+           4v6oRG9P1ZYzkPE3gX3H8oU6KNWM6jutYndkdQwEWrPs8mfMc4Qmy7qZouxUYq19iHb42z9MBHuQW8gQx3so3fri
+    [OK  ] deposit alice 0.05 (abandoned)
+           5uFifFP4etYG4HsFChGGVVhY1YGNUUkdWm43GwbrSQKbZPwAqf1882Ju4RHtE75BbHZwkSN8YKHqhqkNTxYQLnF1
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] deposit bob 0.1 (abandoned)
+           Y5dDDCBZVYk8UJaxJwvknzMdiBpNVRuFZqQGbzgS7DkwzgzQxRCbcgAGnMqYSudGjQwh5GLQ6VD4es1hpobL9Uo
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] deposit carol 0.15 (abandoned)
+           4zrksYLtuF7rQJ2juYqgCVv8Vakf9jf5wmZHrNZPCt3eAPJejVnNaMbKLEuMd96Q6D1M3h4HXp9jLt4CJdc599gy
+    [OK  ] deposit alice 0.1 (slippage)
+           97iah9WUVYTEAJB9YF9DhCSBVcYfRHnCaRw3cd4UAq2jXBXuss4kLFmxivvBrh2sWhawDKcu42Mzeyt3ZqVG6Ys
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] deposit bob 0.1 (underfunded)
+           CmwStK2pG7FrQ3e1vpt8H4WuYD5w47DiFiMY7cWwPvtfUZMgVSkKbsZHD61p4ExBjZNrMNRLYnypE2A616iRGzK
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK refund before cancellation
+           4fiScSRtoB5fAfaVreUcPzcjXDCuhSano8Q2vaex53QxXaPpUqL1DFcCWfeXtbHRcLNVcz99Vnrv7RDQTkNcYNPx
+    [FAIL] ATTACK cancel_expired before expiry
+           4u8MTwpvJVwAMNLCi4twwE3UchauLDNuytHgPBqHpWBbA16VgxThK732GEsMjftteHPdPBpF5DGSBc2gpstxUxfo
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+    [FAIL] ATTACK carol exceeds per-wallet cap
+           549oVSg8xaJqHFiTz7mTuW4GqAUVvdBCJAgu3khpmHrJ5u73mcpHeoBuxA4g61JW9HoS5yNWi6iUaN8gX4t5vF9J
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+    [FAIL] ATTACK eve withdraws from alice's contribution
+           Aaju15rnzGLPxJxz2oU8npVe5YUj36itiSmcqd2qJF1gGXtfJcdePideoihuVGi9KBwLH3A9iKNJMP7UFtXNFzX
+    [FAIL] ATTACK creator SPL-transfers out of PDA quote vault
+           4KZyKXjYumDwA5yhVAh5VYdWDTnxKvvXh9Y8NQqzrsQ3YL1EFL7fhpECkTKh9sL5KiznBUXU1XU3h4JjayJgF6M5
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+    [FAIL] ATTACK settle before closes_at
+           6zH5DtLuq5az6ZcUqgdgTP1xJeXhGjsS8XPswJjF6RnRuDSEEJofJASJVupZEywsnMn9Ssx51KGdmMhzW4tBQZs
+    ✔ Alice 0.1, Bob 0.2, Carol 0.3 deposit with their own signatures; caps, theft and premature settlement fail (45879ms)
+    [FAIL] ATTACK deposit after closes_at
+           8CyN4P55cMVgHxLpSkvBQDuWx3vPmCwpcZvuzvPWdavLCw5JeWsaD7PoYVGDQdM7gDksS16r7Q51h24V7QtAF83
+    [FAIL] ATTACK eve creates the committed DBC pool directly (front-run)
+           5VezLppoGWmckmXsdJMS4fSCirvQRu421ZEFVXTBVnvLRXqWqzoC2jfYoL4dpyMJcGSpMBd11dCjAJGxZqKJMLq5
+    [OK  ] GRIEF eve pre-funds mint, pool, vaults and metadata addresses
+           gHYUsgQ3gBYJP452iMezwFQhbG5vbYqPoao6TwZUePcMo5SFDYuAnpEb2gqfa4d4e99XYHCBRs7NaHXnEfooouw
+    [FAIL] ATTACK settle naming eve as the creator (steal DBC creator role)
+           2mE6CiS9oGGqNFbborfgfnSs3RshYDriuhpJeR3kLPJTcwwx6ti1WjMs2X9aUXckx2mvdupmqEsfAZS6zWqKD1Uc
+    [FAIL] ATTACK settle routing the buy into eve's token account
+           2EuG4XpFF6JQXqPwoNUvALtayXrBSYJQ1CaLUSf5rG3DzdSfKtzQuhfWWW76vSRd8f74LVG2ZVRuJnHoVQcbVuCX
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+    [FAIL] ATTACK settle underfunded batch (min raise not met)
+           4QkgamSmBiEVFUyy5kQYKK2v58jYnRCLCmfKQ4tMRz1dzurF3Y8Ld24ZCirvDtXp1Lrfn7kbPfTGkLnm2qt43bh
+    ✔ nobody but EqualStart can create the committed pool; griefing and unauthorized settlement inputs fail (146531ms)
+    [FAIL] settle slippage batch
+           5VAuNp7yHk2F8daLkXDEXE5jiHN12KFskEMECtvg6hj7SnVpZivzVMJYeAmn4CmFEJEdovRwSVnf9P3RYWxAm8a1
+    ✔ SLIPPAGE: settle reverts entirely (pool creation included) when output < minimum from the actual total (1774ms)
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    simulation: err=null CU=218120 bytes=814/1232 keys=21
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] SETTLEMENT settle by eve (permissionless)
+           3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    settlement: {"pool":{"owner":"dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN","config":"8jKDyRT7t5sGwZpT1gmzcwxgHEyoouN1hrD65PNxFuFq","creator":"CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR","baseMint":"GHAR3Nrqm4MqX7zZ7vBRgPtyj75eYkhhXVoDsUP6B658","baseReserve":"980546659223693","quoteReserve":"594000000","totalProtocolQuoteFee":"1200000","totalTradingQuoteFee":"4800000","hasSwap":1},"batchBaseVault":"19453340776307","quoteVaultAfter":"0","batch":{"phase":"settled","totalQuote":"600000000","quoteSpent":"600000000","baseReceived":"19453340776307","settlerBounty":"0"},"minBaseOut":"18000000000000","openingFee":"6000000","settlerNetLamports":"32919685","creatorLamportDelta":"0"}
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    ✔ SETTLEMENT: creator absent; unrelated wallet settles in ONE instruction (DBC init + swap2 + creator handoff via CPI) (6239ms)
+    [FAIL] ATTACK replay settle
+           a55yHogzXFrm3dSVFQBhxXXf3aaVT6rr8nMhFX8XCcHCAL8ti225VfgJKqFAZjd8TUuokVZ2pKrbV7PbU4zTx1K
+    ✔ replay: settle cannot run again (871ms)
+    [FAIL] ATTACK creator SPL-transfers out of PDA base vault
+           4f6tbTUFeXmNt6ZJBk69AhDFv4Mca5p6MYBZJDC9jHFpUmidAwo4K7wJRKWGS5c2tQ6PdzWHnNQCb7753RmSZBen
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK eve claims alice's share
+           4rHJBZD1w28XnEahUYwxFzRMUi1TLoPs2Bo4Ebpa1dqxt8RQQCLTYFNwuyhRoX7jihEfAnHz56jsSMryjCrNUiFo
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK eve claims without contribution
+           r4G5CwcLRKo9RqDD6mXS3kED3oBGQ5CWA15XbuUPe86nZqtyhLPLdvdvwFeoxmFkP2cQwfVdjvHZFYg1oxLWW2U
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK burn_dust before all claims
+           4qt1Bkd1721mpb7TowUPTqAxndk6BJKU7FcwFm2VyeYpWZ2m3HQpDzLfveDzbJM99qUghuHGriZAk7aZdo5682eX
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] claim carol
+           jjQMVsuWUiu7vkEK3QGka5amNuvJUzMiaeY5QPPBu82CzbWudvMeySkwvaDeCmTGsKjqrHVpgV2QcTuZ29f3van
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] claim alice
+           5yLgdMDHoNpdALHRAPXtu4T2Y4xCpdBaxruAtdWBV6pBbVUJEwTpKxa3ZyGes4py7yhZYa9GZfnAMSxvYJwmj9AK
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] claim bob
+           2HoyxxUkiatcvpK1QersHhHcLh9X1iVs99jwvrnLg9pRDNmaLKm3R9rY7UfnTu3a8riisnHACLmsTXD89zgG3SMW
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK alice double-claims
+           5YKy4n7HBqodWWp6wjtf4zachxyUsF7AnXYuSC5aahq2uhZi2xVztmRWfhehnm6Z3YVtjJtCrTiWzxSJMBApdTCp
+    claims: {"baseReceived":"19453340776307","alice":"3242223462717","bob":"6484446925435","carol":"9726670388153","dustBeforeBurn":"2"}
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [OK  ] burn_dust (permissionless, after all claims)
+           4jZ8Lw7JMerMC2bwi7qBejqrYuKFvTNsQwtMy4AQH7yVct4Jg8iWzyNfJTsg2uA1WkizusYdpyYEftwD3wTBdmkK
+    ✔ independent 1:2:3 claims; double-claim, outsider claim and vault theft fail; dust burn (19891ms)
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+    [FAIL] ATTACK settle after expiry
+           4AJ8DCnYgobHErssqknDUJF72efRuyi25eq5JnqMguxw18C46UVBAyAZpaXC2gKZrfwPadTqLdYpWJuQ3dbTgJWT
+    [FAIL] ATTACK cancel_expired sending bounty to eve
+           2TZYxYASuNaqMgc5aDabFHA6bDu17dsZj4V7Vj81wKVRJH2yNmoAEQKErinEqoXuHhTtxtstfk8cY6CuSmcuXWjZ
+    [OK  ] cancel_expired abandoned by eve (permissionless)
+           2tFy9bvbrZyN3DvxiprPs8prNq9FFy6VDCdguu1wpp7SPzRHeAKVEqJkHNPK5s7DRXxVPUKxP5PiqroCEKjMofzH
+    [FAIL] ATTACK cancel_expired twice
+           37nPG9VHJD97nEgMHnhc1MauA1MvigzUMQMv1oELjpbBcB2AfVJ4rfDCRaZJFrBKY4pDTD19eT7K1oyPp3aJyPRQ
+    [FAIL] ATTACK eve refunds alice's deposit to eve
+           SevK3oUXxnz1NtxbJKpPoaStSmoVX9WvmYqpKn1hd6exF634yT4y3bdbcMQGf6swGsan6s74jka1Q1MhgCz2WRr
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+    [FAIL] ATTACK alice refunds into eve's token account
+           3JViqc5QXewyYPEkw9S2KWi9nkwm2H5994fTFp98EdxHff8bch7TvvqE3n4YF8Sg9oK1cDcNKXdS43SmspWrioKV
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+    [OK  ] refund bob
+           XaE4rmonGkqzDwCnv7k2asUj3BKphcuGxiVTUw3yE4Z1AgTLf3P4zaNDxLWhLBmVTFPEGXJgKdodcodtL81VRtZ
+    [OK  ] refund alice
+           2yM3nncPUHiuofcbkbGiNisHCq9NXWG5oYeEEmPRseFRX2mXGYfLN8H3YqV5F9BtprHyZJmNXqUoJFAbREHnWJv5
+    [OK  ] refund carol
+           2LJhCig3hB1F8hwaK2RFezbaiC18kDkN4XF6smCN4DMxYxxwkKLnGKrzYKZhYwEUyDcLyw6S8kCMfjheTenC2KFX
+    [FAIL] ATTACK bob double-refund
+           4JB9YtomxKcYQSvKAUqZaTeKvRHaHNFX1mVPS6g9W85hQi9SJLn8WGT563S4nuPecMoBJw57pnAJhPBXo49L6Gn4
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+    [OK  ] cancel_expired underfunded by eve
+           4F622BWdqenYFWLVLtF6zX16hJXCJdyLPUsaGSC85kKXfJn5QPQP9NTx34nknCjRgQz7Vxg5wbPRo41igz1wcAKW
+    [OK  ] refund bob (underfunded)
+           4SVc8MSX8Aqj86zqkRgcPC9UPX5qSz9nGhThyArbaHci5f3cbWxttoRe5n8fYa1fL7rVf2G9DrrUcPFH8xUJxZ8q
+    ✔ CREATOR ABANDONMENT + REFUND RECOVERY: unsettled batch expires, anyone cancels, everyone is refunded 1:1, bounty returns to creator (147459ms)
+
+    evidence written to /Users/j/projects/equalstart_spike/evidence/devnet-run.json
+
+
+  10 passing (7m)
+
