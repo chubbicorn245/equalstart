@@ -8,7 +8,7 @@ export const CLUSTER: string = import.meta.env.VITE_CLUSTER ?? "devnet";
 export const RPC_URL: string = import.meta.env.VITE_RPC_URL ?? (CLUSTER === "localnet" ? "http://127.0.0.1:8899" : "https://api.devnet.solana.com");
 
 /** The launch featured on the home page (the real-wallet demo); other launches are listed separately. */
-export const FEATURED_BATCH: string = import.meta.env.VITE_FEATURED_BATCH ?? "8F8fx1WzLjdcXr1xYnp6BeC3o67zSKsgM8LPoknBaGQH";
+export const FEATURED_BATCH: string = import.meta.env.VITE_FEATURED_BATCH ?? "BJDWdVWwgxrAjxabZdWXm2jyqkJwQBTAoduC2ToR5BXV";
 
 export function useProgram() {
   const { connection } = useConnection();
@@ -54,8 +54,11 @@ function explain(err: unknown, logs?: string[] | null): string {
   }
   const anchorMsg = text.match(/Error Message: ([^\n.]+)/);
   if (anchorMsg) return anchorMsg[1];
-  if (/User rejected/i.test(text)) return "Transaction was rejected in the wallet";
+  if (/User rejected/i.test(text) || (err as any)?.error?.code === 4001) return "Transaction was rejected in the wallet. Nothing was sent.";
   if (/insufficient (lamports|funds)/i.test(text)) return "Not enough SOL in this wallet";
+  if (/block height exceeded|expired/i.test(text)) return "The transaction expired before it confirmed. Nothing was spent; try again.";
+  if ((err as any)?.name?.startsWith("Wallet"))
+    return `The wallet did not send the transaction (${text.split("\n")[0]}). Nothing was sent. This happens if the approval window is closed or the account is switched before approving; try again.`;
   return text.split("\n")[0].slice(0, 200);
 }
 

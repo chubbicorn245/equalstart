@@ -15,6 +15,7 @@ Nobody can trade ahead of the batch. Everyone in it gets the same average price 
 | What | Where |
 |---|---|
 | Live app (devnet; explore without a wallet) | https://equalstart.vercel.app |
+| Real-wallet run through the app (Phantom): 3 deposits, settle by an unrelated wallet, 3 claims, expiry → cancel → refunds | [`evidence/ui-wallet-run.md`](evidence/ui-wallet-run.md) |
 | Submission: architecture diagram, video script | [`SUBMISSION.md`](SUBMISSION.md) |
 | Public devnet run (10/10), with explorer links for every deposit, the settlement, the claims, the refunds and each rejected attack | [`VERIFICATION.md`](VERIFICATION.md) |
 | Settlement transaction (devnet), signed by a wallet with no role in the launch | [`3mPebdq9…`](https://explorer.solana.com/tx/3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t?cluster=devnet) |

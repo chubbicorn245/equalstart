@@ -98,5 +98,61 @@
  "4eiaBFnDpoeZRLuXFY3qR49R7wcn4ZgfUiuws8kvAatsbSYHz8gJfqyR7tqnwaNJxwjspg52UaJuRyzPqE1WDidm": {
   "instruction": "InitializeBatch",
   "signer": "CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR"
+ },
+ "23f26hBSLRMt4qS8oQpRBht6eH2m8zmXHwqVid9Z9r21XmR7G9tV8n6WWNv1TsbDQZ4G84TSx3uXKxB2XJRc8oqe": {
+  "instruction": "Claim",
+  "signer": "8N1yZs5DemFVwdM4zQ1z425eUAm9BsGYUzNxed8TxZBG"
+ },
+ "4bPnBo41eWnnwmXRtb3SVXEDdX7h43fikCCm8xU6vHuZkJ74WeuTgdeH6eG5ipVUb69S9tB5okhzhS72UTquPhb2": {
+  "instruction": "Claim",
+  "signer": "9FvYgiyz3Zmyb7CrthVcuTw3Z6DFcn4X8yHtA5LeA1rp"
+ },
+ "2FUwsyYZozoJ7NGRBsMAzzWMnjscb6sN5SjCuBoaYY3ewaDyheaf1suRS6MZEZ1VAyPrwZuNKXMkP5QtE3jB5gmT": {
+  "instruction": "Claim",
+  "signer": "6bsT9SHc4R6RYSsgKjo3vYYKK8tLpiS3oQW1Gy7JLyrJ"
+ },
+ "3UZ6nanjMmX5T651n5LAXMHB9rFjHyJaZw1pPUyXJjiUP2Y8Zfvst991EWU7htXvojPQpQXXr5vJTeE1HbmHPhEB": {
+  "instruction": "Settle",
+  "signer": "715B3SUPhreKRxZPxJp5eC2zy71WC3kPRg81V6zPqVyF"
+ },
+ "v5xfbE3Vsu3fQ428NeYdMgDDaj9HjxujadXnrHvHXLZrTrQt1iKN8hWaCZxHozJoVtcafsdWzfr8kFi1nvyoMvf": {
+  "instruction": "Deposit",
+  "signer": "6bsT9SHc4R6RYSsgKjo3vYYKK8tLpiS3oQW1Gy7JLyrJ"
+ },
+ "4GkqrfQX8S4nHmWLk8XRZZKUkVtC5quGJuZpkcT4zjPDkqxr54C66Ak2LhAMet8uwKQ1D2ArJ4MiY1k9V6Lj76MN": {
+  "instruction": "Deposit",
+  "signer": "8N1yZs5DemFVwdM4zQ1z425eUAm9BsGYUzNxed8TxZBG"
+ },
+ "3SA3FFXjk3D2quQRkG7gGBc4HxGsXkquDSkk5Pj6KMXBUFfyD3tYjTQFJuBYfTsYxPxAAwHsdWooZaKdQfVDrdqh": {
+  "instruction": "Deposit",
+  "signer": "9FvYgiyz3Zmyb7CrthVcuTw3Z6DFcn4X8yHtA5LeA1rp"
+ },
+ "67vYxvX8Vyek6MdnAvifZH2KNebsFt2qYf6cjH34X8xxJRbWh72r9nJGLcDivdK2Wag8EoDziUAA1gEkh3WeESt": {
+  "instruction": "InitializeBatch",
+  "signer": "9FvYgiyz3Zmyb7CrthVcuTw3Z6DFcn4X8yHtA5LeA1rp"
+ },
+ "2jpX75ZkeWHN2oQYwtysUu5iLibc2ZCsy9yw54Z7xzgTGwYMx7Sry5SMKiLkZ7t3PcCutPmrPTmc6mXHXQfkKiFV": {
+  "instruction": "Refund",
+  "signer": "9FvYgiyz3Zmyb7CrthVcuTw3Z6DFcn4X8yHtA5LeA1rp"
+ },
+ "5CRDzXfU82STGHKWFKinCNjRPHxva4n26aEHmdD7nk7CbncUHdSkYuQ2XodfhtTAq2e2kAr3GCUTceU6yquJskov": {
+  "instruction": "Refund",
+  "signer": "6bsT9SHc4R6RYSsgKjo3vYYKK8tLpiS3oQW1Gy7JLyrJ"
+ },
+ "3kYimLRWB9KPt8wvDzyiEMcZgvXCTbwvrmwP4PLeEB5QMjiz76z1znWpsqffHDHASRQiJngc5vnMSv6AesxqZL5P": {
+  "instruction": "CancelExpired",
+  "signer": "715B3SUPhreKRxZPxJp5eC2zy71WC3kPRg81V6zPqVyF"
+ },
+ "3HcWNHqbQE3fwBm9CE1jAAGNv7cqbw5jw4Juhes8CqLWztYPZgjPk6VN4czj26nw9iNsgakFuav3Ao5dMMnx5S2P": {
+  "instruction": "Deposit",
+  "signer": "6bsT9SHc4R6RYSsgKjo3vYYKK8tLpiS3oQW1Gy7JLyrJ"
+ },
+ "4kVgJdJt2hd7zKSWm7BUN9rmuphCbZXigFZVdgcMkgyGD3hf86RRa4PkTDRQpe3bhQKtBXtBL6EdCVsBRWzVRHLM": {
+  "instruction": "Deposit",
+  "signer": "9FvYgiyz3Zmyb7CrthVcuTw3Z6DFcn4X8yHtA5LeA1rp"
+ },
+ "2ub1ZN4rYJYQEGzcpLNNGArz7TeGUnVMzKfnCCViE3hymae2TxkmyZLYDzsg9uVmS6G2XCPQNgoZV9tkWhKEHCZj": {
+  "instruction": "InitializeBatch",
+  "signer": "9FvYgiyz3Zmyb7CrthVcuTw3Z6DFcn4X8yHtA5LeA1rp"
  }
 }

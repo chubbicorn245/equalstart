@@ -7,6 +7,7 @@
 | Live app | https://equalstart.vercel.app (no wallet needed to explore) |
 | Repository | https://github.com/chubbicorn245/equalstart (private for now) |
 | Verification record | [`VERIFICATION.md`](VERIFICATION.md): every devnet transaction from the public run, including rejected attacks |
+| Real-wallet run (Phantom, through the app) | [`evidence/ui-wallet-run.md`](evidence/ui-wallet-run.md): featured launch settled by [`3UZ6nanj…`](https://explorer.solana.com/tx/3UZ6nanjMmX5T651n5LAXMHB9rFjHyJaZw1pPUyXJjiUP2Y8Zfvst991EWU7htXvojPQpQXXr5vJTeE1HbmHPhEB?cluster=devnet) |
 | Program (devnet) | [`6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j`](https://explorer.solana.com/address/6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j?cluster=devnet) |
 | Settlement signed by an unrelated wallet | [`3mPebdq9…`](https://explorer.solana.com/tx/3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t?cluster=devnet) (218,120 CU) |
 

@@ -286,7 +286,7 @@ function Commitments({ batch }: { batch: Batch }) {
         <dt>Per-wallet cap</dt><dd>{sol(batch.perWalletCap)} SOL</dd>
         <dt>Opening fee ceiling</dt><dd>{(batch.maxOpeningFeeBps / 100).toFixed(2)}%</dd>
         <dt>Min. tokens per SOL</dt><dd>{tokens(batch.minBasePerSol, 0)}</dd>
-        <dt>Settler bounty</dt><dd>{batch.phase === "open" ? `${sol(batch.settlerBounty)} SOL` : "paid out"}</dd>
+        <dt>Settler bounty</dt><dd>{batch.phase === "open" ? `${sol(batch.settlerBounty)} SOL` : batch.phase === "settled" ? "paid to settler" : "returned to creator"}</dd>
         <dt>Creator</dt><dd>{link(batch.creator)}</dd>
         <dt>Escrow (batch)</dt><dd>{link(batch.address)}</dd>
         <dt>DBC config</dt><dd>{link(batch.dbcConfig)}</dd>

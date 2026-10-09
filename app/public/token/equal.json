@@ -1,0 +1,7 @@
+{
+  "name": "EqualStart Demo",
+  "symbol": "EQUAL",
+  "description": "Demo token for EqualStart on Solana devnet: every participant in the opening batch bought at the same price. Test token with no value. Unaudited prototype.",
+  "image": "https://equalstart.vercel.app/token/equal.png",
+  "external_url": "https://equalstart.vercel.app"
+}

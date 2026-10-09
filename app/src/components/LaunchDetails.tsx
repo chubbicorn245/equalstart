@@ -39,11 +39,14 @@ export function Allocation({ batch, rows }: { batch: Batch; rows: ContributionRo
   const total = batch.totalQuote.isZero() ? new BN(1) : batch.totalQuote;
   const share = (r: ContributionRow) => (Number(r.amount.toString()) / Number(total.toString())) * 100;
   const settled = batch.phase === "settled";
+  const cancelled = batch.phase === "cancelled";
   return (
     <section className="card allocation" aria-labelledby="alloc">
       <h2 id="alloc">Allocation</h2>
       <p className="muted small">
-        {settled
+        {cancelled
+          ? "Nobody settled before the deadline, so the launch was cancelled. Every deposit is refundable in full."
+          : settled
           ? `The batch bought ${tokens(batch.baseReceived, 0)} ${batch.tokenSymbol}. Each wallet's share of the tokens equals its share of the SOL, so everyone paid the same price.`
           : "Each wallet's share of the tokens will equal its share of the SOL in the batch, so everyone pays the same price."}
       </p>
@@ -54,7 +57,7 @@ export function Allocation({ batch, rows }: { batch: Batch; rows: ContributionRo
       </div>
       <table className="alloc-table">
         <thead>
-          <tr><th>Wallet</th><th>Deposit</th><th>Share</th><th>{settled ? batch.tokenSymbol : `${batch.tokenSymbol} (at settlement)`}</th><th /></tr>
+          <tr><th>Wallet</th><th>Deposit</th><th>Share</th><th>{cancelled ? "Refund" : settled ? batch.tokenSymbol : `${batch.tokenSymbol} (at settlement)`}</th><th /></tr>
         </thead>
         <tbody>
           {rows.map((r, i) => (
@@ -62,8 +65,8 @@ export function Allocation({ batch, rows }: { batch: Batch; rows: ContributionRo
               <td><span className="swatch" style={{ background: COLORS[i % COLORS.length] }} /><a href={explorerAddress(r.participant, CLUSTER)} target="_blank" rel="noreferrer"><code>{short(r.participant)}</code></a>{publicKey?.equals(r.participant) && <span className="tag">you</span>}</td>
               <td>{sol(r.amount)} SOL</td>
               <td>{share(r).toFixed(2)}%</td>
-              <td>{settled ? tokens(claimableShare(batch, r), 0) : "pro rata"}</td>
-              <td className="muted small">{r.claimed ? "claimed" : r.refunded ? "refunded" : settled ? "unclaimed" : ""}</td>
+              <td>{cancelled ? `${sol(r.amount)} SOL` : settled ? tokens(claimableShare(batch, r), 0) : "pro rata"}</td>
+              <td className="muted small">{r.claimed ? "claimed" : r.refunded ? "refunded" : settled ? "unclaimed" : cancelled ? "not yet refunded" : ""}</td>
             </tr>
           ))}
         </tbody>

@@ -14,7 +14,8 @@ function Routes() {
   const m = route.match(/^\/launch\/([1-9A-HJ-NP-Za-km-z]{32,44})$/);
   if (m) {
     try {
-      return <LaunchPage address={new PublicKey(m[1])} />;
+      // Keyed so per-launch state (like a transaction notice) resets when switching launches.
+      return <LaunchPage key={m[1]} address={new PublicKey(m[1])} />;
     } catch {
       /* fall through */
     }
