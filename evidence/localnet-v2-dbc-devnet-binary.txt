@@ -1,0 +1,150 @@
+
+
+  EqualStart x Meteora DBC (localnet, real DBC binary, permissionless settlement)
+    versions: {"dbcSdk":"1.5.13","dbcIdl":"0.2.1","anchorClient":"1.2.1","solanaCore":"4.3.0","equalstartProgram":"6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j","dbcProgramDataSlot":0}
+    ✔ pins versions and verifies the real DBC + EqualStart programs are deployed (69ms)
+    [OK  ] dbc.create_config good (flat 1%) (SDK)
+           4si2tTkNaBjox32RbQCsFMjSz8gNEB9up9R6gQTjm6MgdsWUMUQ35RMc8hPWmrwaJUP9tiFpqYNEbNt9HdT19seZ
+    [OK  ] dbc.create_config high-fee (5% -> 1%) (SDK)
+           a5EKYuDXY1rmU6nsnBoRkzStnX7c6XSJfgv1mAMATYiHazgDkq1kmZQQiVRwcnYNvGoopt1xdQFf6ZHddgfz7xP
+    [OK  ] dbc.create_config first-swap-min-fee (SDK)
+           4EtfEvXfHX8ZduF88R7FHVf9e5aXcuUisjSwTpCCvsVpxrm8g7Htz74zrqecmFZNGY4TUzgPHez3YQSVWH3AkdJK
+    configs: {"good":{"address":"4P885j3FBHm8PjAYyZ7D9vKtE43ofAQM1D8AR1VsBUMh","cliffFeeNumerator":"10000000","baseFeeMode":0,"collectFeeMode":0,"enableFirstSwapWithMinFee":0,"tokenType":0,"migrationQuoteThreshold":"72075922005"},"highFee":{"address":"4bafBo9bd9f2FxBBLKQdgXdcy2RdGoxFWV7xuEJWSsoM","cliffFeeNumerator":"50000000","baseFeeMode":0,"collectFeeMode":0,"enableFirstSwapWithMinFee":0,"tokenType":0,"migrationQuoteThreshold":"72075922005"},"minFee":{"address":"74hZ2SuDwqVSx7DZmapaAQ72jPRMyy8EQAUu12i4Jx8p","cliffFeeNumerator":"50000000","baseFeeMode":0,"collectFeeMode":0,"enableFirstSwapWithMinFee":1,"tokenType":0,"migrationQuoteThreshold":"72075922005"}}
+    ✔ funds wallets and creates DBC configs (SDK): good, high opening fee, first-swap-min-fee (10554ms)
+    [OK  ] initialize_batch main
+           67UF33sKoedw4xUawPW5htTZ3zMcXn7m9685bwzGHXgu2uWFhB5rGVZG6bcTCfYTeV1X8L3yVhRjNrxU5QHzXKsi
+    [OK  ] initialize_batch abandoned
+           4NwGbuQh8q5tQ8QofCFDJuecXZPkbLirTbC96ZRkqdmaGvxDbDMTwiphcb5Enr532J5UQUCMnZsZgH71huuPkUf2
+    [OK  ] initialize_batch slippage (min 1e18 base per SOL)
+           5HaVniNMKBBpaZWeNAcZCyyHWjNqqhwCBXZmtexvUPxQv2GrV59o7ZixQUre52AoQQWgc8dh3fwHwqcVYLFvH7nq
+    [OK  ] initialize_batch underfunded (min raise 0.5 SOL)
+           41JzSMBLPSNnFYF5niYTocNBEqbq43w8posF3uGwwakjdLKyWT5yRKi15S72btqeJksxA9vwXA9Rz75xybHKvfSU
+    [FAIL] ATTACK re-initialize main batch with new terms
+           XgdR7yEuQbyfvZubceKHEkFTxMZK7mSHfXoAyw7XHXaMgd2qAeDiTfmYUFJPGxeWtz1P9tC9DrW5dHGvDy1YVSS
+    [FAIL] ATTACK initialize_batch with non-DBC config
+           5K8s2VfxqRaNrti15T9aL4DSdKfiNVry5L6BrCyzKpj12ZdGdo2vKMaJ7vwucHFRAfgHBr5uXzZ1u9EHbU7dvSo9
+    [FAIL] ATTACK initialize_batch with first-swap-min-fee config
+           3wa7wFHMSpofzJirEzWzmSz6qCjrbRodd8GyYrCLdxfxFy1oNkovwVk6BGfhn5eCjsyRhazLt8XEXKdwdSi1c6P2
+    [FAIL] ATTACK initialize_batch: config opening fee 5% > committed 1%
+           Q2z1htmURUVMEXE6Qry9dHmhibMeBKGxPTdbwBZin716cR7eT9eMauXfcwk4bPCKH7Xi4GBCFUQzCBY9YWS43XL
+    [FAIL] ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold
+           8XFBjHmSjCthfzNtru1koHn3nTfRfHYf1tPf4ZhRJDwYkNYBqxq34DPzKggWa5kE3JCUA738HisEYCURATbhWEf
+    [FAIL] ATTACK initialize_batch: min_base_per_sol overflows u64 at max raise
+           3ikXZ6EodAzebqA1rQajR7iZy7Lqmu54hHYsh5L1Jo4rVz8zYdzMi76Hh2Zc7e5Wq7re14G58yZiRZwk2univVai
+    [FAIL] ATTACK initialize_batch with expiry before close
+           3DV4wMCXfZ5DnzAmdRSenH6hHi7M5hTiGSdsiyCcx5meW7qizkgF22ZS6yNnXnEH9Q7MoqrU4rdcPAHXH6TX5zm8
+    ✔ initializes batches with immutable terms; rejects invalid configs, bad terms and re-initialization (5839ms)
+    [OK  ] wrap 0.7 SOL
+           3Ywbur3MSSeemR4AKJMuTwYmtMCKZCxkVZTKF7gXRfiU9EzNeiRSgEhAvtVgEdesHJeXk2GKMVjjbxBjndunX1ei
+    [OK  ] wrap 0.7 SOL
+           2SFtyWzKvxf4X18q3nq4VLSeQCgSffYbLzaQNHhHgmhRXgZzbzm2RfkS7V6Xs11LFz2aGR4sGnDo7cfRY3uZ5ZBe
+    [OK  ] wrap 0.7 SOL
+           369jC46B7rnq2McmQCpHYSnPCLJ9VNxjsPkZJ2kduuKVayWYVGdjsUhY648Rx1T6g8WUNRfSPdjnoPgwNomA1QWr
+    [OK  ] wrap eve 0.01 SOL
+           2YnSM2VgPZDJSUQNgCcWneoRD4GBkeWeJv9pLiN1kHtEFQRoyrvK79kBHveB1RCH6y72emVEue4MtgFU8Txx3EhC
+    [OK  ] deposit alice 0.15 (main)
+           2eH4qKXUT4DodVc49e19Sr6rZut1ho3ZNPBys9rb4ECZeNgHGUBec6EHVTnMHkjJMSoZjgeda4CoJADmdXRgvHGj
+    [OK  ] withdraw alice 0.05 before close (main)
+           22yg5mqTjTdQBCNaVtTMHifKUY9FNjaXC5CJZAp8nSwJiGTAp6PEZgnHrhkxgoiSbtiWMB8rxuHrLwCaPBW3AGfg
+    [OK  ] deposit bob 0.2 (main)
+           2MpMmZjsQHsuDwBU83zbcD2L16aZDqyhXk1fDEZBFXZ9sknDH77vETb3d3rQUb3MpkL9SwV38S1eH4uAZvCM72om
+    [OK  ] deposit carol 0.3 (main)
+           3pDQkQwwbMUPpCaNyp3QKi8xtX1BEaYk6UQFuph6WqiiJwgzKyXuwL4jJq8vtpkwGsZSp57oUUoEQp5v2x69Hjjw
+    [OK  ] deposit alice 0.05 (abandoned)
+           4EoLQpVQBwoo59ghwSBUYWZX5igbYJwJBbtGh7jwWuz3Rz85LcqByuQKps2mGzPfjDtCymawVXep1oMR6s1dxYbY
+    [OK  ] deposit bob 0.1 (abandoned)
+           q1aQmoD7SA7bXUE67yYjQfSQ9PN1vj6x1AC4q7TaGavsLePFMN9Kc2miyrJgnXkWKoS3nLTT83YpvyXYH4AM5Zf
+    [OK  ] deposit carol 0.15 (abandoned)
+           2sbcuhVwLXvrRSF3dfMUSYthcKTr6GC7n4mHc65FNmKWpNNySUoD5PCtxknrQJHUuomrw8buutfhvEczMPiQF5We
+    [OK  ] deposit alice 0.1 (slippage)
+           5YXUgPqqnNDbBnZHR67qQfz3ynzUvG26ueb7t1XQV61Jk6pYDVuc6LsP5jKYb2X6iTALNbqTbSfdsBw7zcT4SDfZ
+    [OK  ] deposit bob 0.1 (underfunded)
+           5wGw5hYEeq9LofLhrvUkNuj4YqPW86W77D7s8ZpqMQyWWVScRizRiPW2nxpzsUPofR8RZEKExEsFH284FWbFNqot
+    [FAIL] ATTACK refund before cancellation
+           2XZPUVRfF588cRe3vUUimrwZmiaq6rbiccov2mTc9c2SgFQ8nPu47sqqi4BVUVL7u6dYkwhMsLv1YLiParaHinE1
+    [FAIL] ATTACK cancel_expired before expiry
+           2ASob2GE2fSfewZByEbcedCnd9EXeD2oWJdEo9BR2U3m6CJzbvF5GuMoFCupQqX9YtN96b6CBecvRrwau1bLayM4
+    [FAIL] ATTACK carol exceeds per-wallet cap
+           5za7VANjC2Nxt6SdQLfSAo7ghQ27QsAY2dmfG5mM31C9uWLdJ8zWk5jisPGXW6LgVsnvb8as2HQUDK256Xzu92fe
+    [FAIL] ATTACK eve withdraws from alice's contribution
+           3TJQWcTkmeNdeTEtg3srTPLm1jbxMhELWJpdLkH1NRMArWtqKSE3RjviKeAxaURnW6KgXDNGLSkr7hbEnsU43rfm
+    [FAIL] ATTACK creator SPL-transfers out of PDA quote vault
+           sqNQT4zx9Uj3GPmefLzkRiT7rSgnVFfnMQKcoLKgfBMv5cRZin684QaVWhfFymmAxLkJ74tPoaiTQhrqmmiVa5A
+    [FAIL] ATTACK settle before closes_at
+           2hgR3BPvU1HawbFFeBHrpqBHvw9RgRurnuNNKPebeRUkvGn2bCeGWYHQNRqrNUiXXzYsCxiASS9dQARuuJEyyeQ4
+    ✔ Alice 0.1, Bob 0.2, Carol 0.3 deposit with their own signatures; caps, theft and premature settlement fail (10100ms)
+    [FAIL] ATTACK deposit after closes_at
+           5U1X9jZbUZpQsJaBEYSKzWby8ubmCyWwyysHmZhaBw7T6jHx4x5PCYbS4bE7mhsoVrSiZ1MoecZSTz3GNKVBxSty
+    [FAIL] ATTACK eve creates the committed DBC pool directly (front-run)
+           4cgKA3X9T1DfzuX2EzwJYTJ38yKTgK5diB5Lhcs7X8h1ujZx7C24GCSty4dHeMKTaBLZtJpws2oZH41ScPG4EZT8
+    [OK  ] GRIEF eve pre-funds mint, pool, vaults and metadata addresses
+           4qXV6f7uXQKMAYWinAGpr3oYjkwAenpqt85PTbeW35qhMMKV4GBdAwi4afTNHnhP8UNyemuf9YysUGN3cDCAYpRw
+    [FAIL] ATTACK settle naming eve as the creator (steal DBC creator role)
+           5hQ9FJ7nw8hShdHsRdEgAbeyF5or1rzQwZg7h6XwrneudtyTZCYgyD9Pd6igmqZH4At7S3say2NvZeiZS6HXUinx
+    [FAIL] ATTACK settle routing the buy into eve's token account
+           cCScVMUiG3MHxPo7upmhS4ByAcTvZCQkzfrdvDiAUGeuUuDWdW9hmWUgZFHF9h3B6TLU4WLGVRi1Q1qgkJdJEVH
+    [FAIL] ATTACK settle underfunded batch (min raise not met)
+           61GVrxFCDYzuwxfTuwbUsFT2QSaMgFri3XPDC55GTNFakAddMrkUAGKxLGvbToDxjAYqFUBmCQNV9TWQPzbjP6N3
+    ✔ nobody but EqualStart can create the committed pool; griefing and unauthorized settlement inputs fail (12784ms)
+    [FAIL] settle slippage batch
+           45Sfje8qf219Y1UC2rCzwyGhRC3CSFHoigW7YCK5zW7scPKRJrZNZz5wP8WLB2U4SzoSEyrtEw1WUisLJnmuKqut
+    ✔ SLIPPAGE: settle reverts entirely (pool creation included) when output < minimum from the actual total (525ms)
+    simulation: err=null CU=227186 bytes=814/1232 keys=21
+    [OK  ] SETTLEMENT settle by eve (permissionless)
+           3WkJBN6Ft71Lqc4VjxgDprjFRo22uD9yVAcuep7F5RHft8nVoWbD3wM57nekW3Fnz7smqsTHRrjwgVpyri6BSoPr
+    settlement: {"pool":{"owner":"dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN","config":"4P885j3FBHm8PjAYyZ7D9vKtE43ofAQM1D8AR1VsBUMh","creator":"CXfRWNJetukAaoCvAgXFXWxB7ZYMTShFxjfZsipKdYVv","baseMint":"DDFXDEofJ4NQPVyco11kwJECjqqqMoc8CHvoPHP9TBnu","baseReserve":"980546659223693","quoteReserve":"594000000","totalProtocolQuoteFee":"1200000","totalTradingQuoteFee":"4800000","hasSwap":1},"batchBaseVault":"19453340776307","quoteVaultAfter":"0","batch":{"phase":"settled","totalQuote":"600000000","quoteSpent":"600000000","baseReceived":"19453340776307","settlerBounty":"0"},"minBaseOut":"18000000000000","openingFee":"6000000","settlerNetLamports":"28458040","creatorLamportDelta":"0"}
+    ✔ SETTLEMENT: creator absent; unrelated wallet settles in ONE instruction (DBC init + swap2 + creator handoff via CPI) (541ms)
+    [FAIL] ATTACK replay settle
+           4hTvXHQXSw1GLjkbb38NoEqUa2ryqXvARd5DfyH2rspwRssP2F75C2yTLk9yecHC2dpccgqh773iEwhRaYL4ZdCh
+    ✔ replay: settle cannot run again (517ms)
+    [FAIL] ATTACK creator SPL-transfers out of PDA base vault
+           4ujeobZFAAkz4bcmaJU2BnFB3mvtMqn5ydN9EguLkuV98h8fZ4WYaTpBfTKS4sHT87KdsD6mwMpCFpTMhjSWVhzp
+    [FAIL] ATTACK eve claims alice's share
+           3bBUiT8GSvXjwMkAjxEhfcWBYMycCkLP88bNYn8ZwDYKghw9adru4iXXV282X2jtpby6nocj9y11RDEQnYoK3aTB
+    [FAIL] ATTACK eve claims without contribution
+           5Cg7H2wkyLRcG9yV7UkaXTk6gWBBAdxyNY3QYqCWRa5bZAnAiwxHeu6TKwEfHvsMCDaBBUcqyPoEaLxmX7ic3XF8
+    [FAIL] ATTACK burn_dust before all claims
+           Lkx7QAwNLnMMC29mVnAm1ywq3cXKpzHzvdCxFuQbj4ja9gdTgSJdcsmS32E26LLTuVd5KeA2yRwv1Fi2z6TyRsL
+    [OK  ] claim carol
+           3s7koyyiZnEFN3R1XEC21vMNcUvhcMWLmtYMFZcULtBVtjG7qWLpgfeJD3jW2gtVaNQhfiSspCQB7UAZ5HUeNn1w
+    [OK  ] claim alice
+           ZewtUHvNEYdvHioM6WgpZCkY8iPiFNT9ohizVE58oESGzqHpc3XyLxkD6qLpPdTdcePpeSF2W3d16ozgCJ5JjV6
+    [OK  ] claim bob
+           5YDkhwDxwH95F2996rtuvtBRsGdjvyor8JGwaxKx875jcbbVwyobHL9e8rVz1KgjJQnT5CyS7U1u8FC9FfxFTfSz
+    [FAIL] ATTACK alice double-claims
+           46jSUPJrihi9a1h4LhZykteQD2o57wAwtT1sQjJqAYVdFntw9tVdFwUc9tEP1iYNpG75Vu8EfCrCqsW6b4H96qrh
+    claims: {"baseReceived":"19453340776307","alice":"3242223462717","bob":"6484446925435","carol":"9726670388153","dustBeforeBurn":"2"}
+    [OK  ] burn_dust (permissionless, after all claims)
+           266kWy5aB6U4bGegBVr8mc1oB43iNRxHnaCugZSu1gut5Kwuo3gRdY9juiq1TYZYzkPua8rA3VZxzvo5z5x1y3KG
+    ✔ independent 1:2:3 claims; double-claim, outsider claim and vault theft fail; dust burn (4765ms)
+    [FAIL] ATTACK settle after expiry
+           2yD1ePGsAanSLfAGDPX44pPasWpbWNFpdaaxd9K5iP3KPuoofeHx28gN6DHvB9FTVDB9M72LE4aiGkHc4rmpKaBT
+    [FAIL] ATTACK cancel_expired sending bounty to eve
+           3wX9ZyszCXTw82WSfp6o1HMnVR4APSvYcK9FgvDf1T5zfXkeWgGF2YWVXBQLrHR8x8vBXzK1xET24VupXv5NAqSk
+    [OK  ] cancel_expired abandoned by eve (permissionless)
+           4XLJUw5HnHuhg6VLpamnnaDNiZbcaFrFZYB2LKMwszFJWWcm4FhukWvgE8iqpXHkR1JUEKqnR261jSiJGJD5UcZX
+    [FAIL] ATTACK cancel_expired twice
+           3i28kA8aBwAgKXDbngByzNpYFYhyXJkm17V8zRw7rDSqpSfKkeCBKwr1C54eWtJLXDYM5yqVJNCWWhyUAaterfcj
+    [FAIL] ATTACK eve refunds alice's deposit to eve
+           4XuRmTbUKTqs2pd9dMgAGKBEwqAPuwqQf54MRMua3hNjrVriV3tkL5SEK942xfp77zcBbB51Mmg16U6YGmqvwJZd
+    [FAIL] ATTACK alice refunds into eve's token account
+           4vzYgwg9nefgPASJrMTzTytbpLg8VeUr2EkMrUhe775D9BVegLce2iiL1kK7HwUFHy2WSRMTAQaUDreLKxx2oAiU
+    [OK  ] refund bob
+           sPoEerXit4j6S82WNDnJU47q1WyXS6WJobrqKj5o2HJWf7ivHcFzZKz6Gnuip94jHcYjj3gV49QPzLGhXavAFAr
+    [OK  ] refund alice
+           3DAu2AUqtFkr7mpEGDoh5LfqfGTjCSm4ihzaY3UJJXEXvEAYzLsvzWcmA3PJvDmgYSqJ2mSjwPBu8GHRSGndzb4A
+    [OK  ] refund carol
+           5RknC3N9bfqwzCGR3ZrLuwC8rTiU3cekJ9E5qKoTE92n6nrSaxGzB2T9Nw7oXtuhkXRnTR662L6266f98UgZHETn
+    [FAIL] ATTACK bob double-refund
+           4syEM3D7Hf4CdhzfVSS6cKLnQfX28GU1Fb1PGzNLzZFnNxzVZn7PXX7QfKx8vbqS4sWQoZkioeWKcatg9RgWFPM3
+    [OK  ] cancel_expired underfunded by eve
+           5UsVPMGzeq1ZXEKMMDXPEXr6PSLgJ1qqsK7it8p7W9xaEX4Ekk1fRAh5Ac8zRXjrbYbGAPXS2eBAs1xsZHbz59Lp
+    [OK  ] refund bob (underfunded)
+           4GwcL8isVvuiG68BYxmiGA426wgi72imBxDcP432FWVqRUBzQWm5P4kDxK2oPxQWGvMEzCMnu7Pgd2UWpqpTdQfE
+    ✔ CREATOR ABANDONMENT + REFUND RECOVERY: unsettled batch expires, anyone cancels, everyone is refunded 1:1, bounty returns to creator (17166ms)
+
+    evidence written to /Users/j/projects/equalstart_spike/evidence/localnet-v2-dbc-devnet-binary.json
+
+
+  10 passing (1m)
+

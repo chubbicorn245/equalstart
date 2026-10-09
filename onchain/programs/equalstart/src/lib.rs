@@ -1,35 +1,44 @@
 //! EqualStart: a batch escrow whose pooled wSOL becomes the very first buy on a
-//! Meteora Dynamic Bonding Curve (DBC) pool, inside the same transaction that
+//! Meteora Dynamic Bonding Curve (DBC) pool, in the same instruction that
 //! creates the pool.
 //!
 //! Trust model:
-//! - Launch terms are fixed at `initialize_batch` and never mutable afterwards.
+//! - Launch terms (DBC config, token metadata, deadlines, caps, fee ceiling,
+//!   minimum price) are fixed at `initialize_batch` and never mutable afterwards.
 //! - Funds sit in PDA-owned SPL token vaults. The only instructions that move
 //!   them are participant-signed (`withdraw`, `claim`, `refund`), the single
-//!   PDA-signed DBC `swap2` CPI in `execute_batch`, and `burn_dust`.
+//!   PDA-signed DBC `swap2` CPI in `settle`, and `burn_dust`.
 //!   There is no creator/admin withdrawal path.
+//! - `settle` is permissionless. The base mint is a PDA of the batch and the
+//!   batch PDA is the DBC pool creator, so EqualStart is the only party able to
+//!   sign the DBC pool creation. `settle` creates the pool and buys from it in
+//!   one instruction, so no trade can precede the batch buy, and settlement
+//!   needs no cooperation from the creator.
 //! - Deadlines come from the `Clock` sysvar, never from caller input.
-//! - `execute_batch` refuses to run unless the instruction immediately before it
-//!   (top level, same transaction) is DBC `initialize_virtual_pool_with_spl_token`
-//!   for the committed config/base mint/pool, and the pool has never been swapped.
 
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program::{
-    instruction::{get_stack_height, AccountMeta, Instruction},
+    instruction::{AccountMeta, Instruction},
     program::invoke_signed,
 };
 use anchor_spl::{
-    associated_token::AssociatedToken,
+    associated_token::{self, get_associated_token_address, AssociatedToken},
     token::{self, Burn, Mint, Token, TokenAccount, TransferChecked},
 };
-use solana_instructions_sysvar::{load_current_index_checked, load_instruction_at_checked};
 
 declare_id!("6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j");
 
 pub const BATCH_SEED: &[u8] = b"batch";
 pub const CONTRIBUTION_SEED: &[u8] = b"deposit";
 pub const QUOTE_VAULT_SEED: &[u8] = b"quote_vault";
-pub const BASE_VAULT_SEED: &[u8] = b"base_vault";
+pub const MINT_SEED: &[u8] = b"mint";
+
+pub const MAX_NAME_LEN: usize = 32;
+pub const MAX_SYMBOL_LEN: usize = 10;
+pub const MAX_URI_LEN: usize = 200;
+pub const BPS_DENOMINATOR: u128 = 10_000;
+/// `min_base_per_sol` is quoted per whole SOL (1e9 lamports of wSOL).
+pub const LAMPORTS_PER_QUOTE_UNIT: u128 = 1_000_000_000;
 
 /// Constants and byte layouts of Meteora DBC, pinned to IDL v0.2.1
 /// (`@meteora-ag/dynamic-bonding-curve-sdk` 1.5.13, program source f552f20).
@@ -40,38 +49,45 @@ pub mod dbc {
     pub const POOL_AUTHORITY: Pubkey = pubkey!("FhVo3mqL8PW5pH5U2CN4XE33DokiyZnUwuGpH2hmHLuM");
     /// PDA of `[b"__event_authority"]` under the DBC program.
     pub const EVENT_AUTHORITY: Pubkey = pubkey!("8Ks12pbrD6PXxfty1hVQiE9sc289zgU1zHkvXhrSdriF");
+    pub const METADATA_PROGRAM_ID: Pubkey = pubkey!("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s");
     pub const POOL_SEED: &[u8] = b"pool";
+    pub const TOKEN_VAULT_SEED: &[u8] = b"token_vault";
 
     pub const SWAP2_DISCRIMINATOR: [u8; 8] = [65, 75, 63, 76, 235, 91, 91, 136];
     pub const INIT_SPL_POOL_DISCRIMINATOR: [u8; 8] = [140, 85, 215, 176, 102, 54, 104, 79];
+    pub const TRANSFER_POOL_CREATOR_DISCRIMINATOR: [u8; 8] = [20, 7, 169, 33, 58, 147, 166, 33];
     pub const VIRTUAL_POOL_DISCRIMINATOR: [u8; 8] = [213, 224, 5, 209, 98, 69, 119, 92];
     pub const POOL_CONFIG_DISCRIMINATOR: [u8; 8] = [26, 108, 14, 123, 116, 230, 129, 43];
     pub const SWAP_MODE_EXACT_IN: u8 = 0;
-
-    // `initialize_virtual_pool_with_spl_token` account indices.
-    pub const INIT_IX_CONFIG: usize = 0;
-    pub const INIT_IX_BASE_MINT: usize = 3;
-    pub const INIT_IX_QUOTE_MINT: usize = 4;
-    pub const INIT_IX_POOL: usize = 5;
+    pub const FEE_DENOMINATOR: u128 = 1_000_000_000;
 
     // VirtualPool (bytemuck repr(C)) byte offsets, including the 8-byte discriminator.
     pub const VIRTUAL_POOL_LEN: usize = 424;
     pub const POOL_CONFIG_OFFSET: usize = 72;
+    pub const POOL_CREATOR_OFFSET: usize = 104;
     pub const POOL_BASE_MINT_OFFSET: usize = 136;
     pub const POOL_BASE_VAULT_OFFSET: usize = 168;
     pub const POOL_QUOTE_VAULT_OFFSET: usize = 200;
     pub const POOL_QUOTE_RESERVE_OFFSET: usize = 240;
+    pub const POOL_TOTAL_PROTOCOL_BASE_FEE_OFFSET: usize = 312;
+    pub const POOL_TOTAL_PROTOCOL_QUOTE_FEE_OFFSET: usize = 320;
+    pub const POOL_TOTAL_TRADING_BASE_FEE_OFFSET: usize = 328;
+    pub const POOL_TOTAL_TRADING_QUOTE_FEE_OFFSET: usize = 336;
     pub const POOL_HAS_SWAP_OFFSET: usize = 370;
 
     // PoolConfig (bytemuck repr(C)) byte offsets, including the 8-byte discriminator.
     pub const CONFIG_MIN_LEN: usize = 408;
     pub const CONFIG_QUOTE_MINT_OFFSET: usize = 8;
+    pub const CONFIG_CLIFF_FEE_NUMERATOR_OFFSET: usize = 104;
     pub const CONFIG_BASE_FEE_MODE_OFFSET: usize = 104 + 26;
+    pub const CONFIG_COLLECT_FEE_MODE_OFFSET: usize = 232;
     pub const CONFIG_TOKEN_TYPE_OFFSET: usize = 237;
     pub const CONFIG_MIGRATION_QUOTE_THRESHOLD_OFFSET: usize = 264;
     pub const CONFIG_FIRST_SWAP_MIN_FEE_OFFSET: usize = 365;
     pub const BASE_FEE_MODE_RATE_LIMITER: u8 = 2;
     pub const TOKEN_TYPE_SPL: u8 = 0;
+    pub const COLLECT_FEE_MODE_QUOTE: u8 = 0;
+    pub const COLLECT_FEE_MODE_OUTPUT: u8 = 1;
 
     pub fn pool_address(config: &Pubkey, base_mint: &Pubkey, quote_mint: &Pubkey) -> Pubkey {
         let (hi, lo) = if base_mint > quote_mint {
@@ -93,6 +109,11 @@ pub mod dbc {
     pub fn read_u64(data: &[u8], offset: usize) -> u64 {
         u64::from_le_bytes(data[offset..offset + 8].try_into().unwrap())
     }
+
+    pub fn borsh_string(data: &mut Vec<u8>, s: &str) {
+        data.extend_from_slice(&(s.len() as u32).to_le_bytes());
+        data.extend_from_slice(s.as_bytes());
+    }
 }
 
 #[program]
@@ -107,35 +128,65 @@ pub mod equalstart {
             terms.per_wallet_cap > 0
                 && terms.min_raise > 0
                 && terms.max_pool_quote_in >= terms.min_raise
-                && terms.min_base_out > 0,
+                && terms.min_base_per_sol > 0
+                && u128::from(terms.max_opening_fee_bps) < BPS_DENOMINATOR,
             EqualStartError::BadTerms
         );
-        require_keys_neq!(terms.base_mint, token::spl_token::native_mint::ID, EqualStartError::BadTerms);
+        require!(
+            !terms.token_name.is_empty()
+                && terms.token_name.len() <= MAX_NAME_LEN
+                && !terms.token_symbol.is_empty()
+                && terms.token_symbol.len() <= MAX_SYMBOL_LEN
+                && terms.token_uri.len() <= MAX_URI_LEN,
+            EqualStartError::BadTerms
+        );
+        // Settling must stay possible for the largest allowed batch.
+        min_base_out_for(terms.max_pool_quote_in, terms.min_base_per_sol)?;
 
-        validate_dbc_config(&ctx.accounts.dbc_config, terms.max_pool_quote_in)?;
+        validate_dbc_config(&ctx.accounts.dbc_config, &terms)?;
+
+        let batch_key = ctx.accounts.batch.key();
+        let base_mint = Pubkey::find_program_address(&[MINT_SEED, batch_key.as_ref()], &crate::ID).0;
+        let quote_mint = ctx.accounts.quote_mint.key();
+        let dbc_config = ctx.accounts.dbc_config.key();
+
+        if terms.settler_bounty > 0 {
+            anchor_lang::system_program::transfer(
+                CpiContext::new(
+                    ctx.accounts.system_program.key(),
+                    anchor_lang::system_program::Transfer {
+                        from: ctx.accounts.creator.to_account_info(),
+                        to: ctx.accounts.batch.to_account_info(),
+                    },
+                ),
+                terms.settler_bounty,
+            )?;
+        }
 
         let batch = &mut ctx.accounts.batch;
         batch.creator = ctx.accounts.creator.key();
         batch.launch_id = terms.launch_id;
-        batch.dbc_config = ctx.accounts.dbc_config.key();
-        batch.base_mint = terms.base_mint;
-        batch.quote_mint = ctx.accounts.quote_mint.key();
-        batch.pool = dbc::pool_address(&batch.dbc_config, &terms.base_mint, &batch.quote_mint);
+        batch.dbc_config = dbc_config;
+        batch.base_mint = base_mint;
+        batch.quote_mint = quote_mint;
+        batch.pool = dbc::pool_address(&dbc_config, &base_mint, &quote_mint);
         batch.quote_vault = ctx.accounts.quote_vault.key();
-        batch.base_vault = Pubkey::find_program_address(
-            &[BASE_VAULT_SEED, batch.key().as_ref()],
-            &crate::ID,
-        )
-        .0;
+        batch.base_vault = get_associated_token_address(&batch_key, &base_mint);
         batch.closes_at = terms.closes_at;
         batch.expires_at = terms.expires_at;
         batch.per_wallet_cap = terms.per_wallet_cap;
         batch.min_raise = terms.min_raise;
         batch.max_pool_quote_in = terms.max_pool_quote_in;
-        batch.min_base_out = terms.min_base_out;
+        batch.min_base_per_sol = terms.min_base_per_sol;
+        batch.max_opening_fee_bps = terms.max_opening_fee_bps;
+        batch.settler_bounty = terms.settler_bounty;
+        batch.token_name = terms.token_name;
+        batch.token_symbol = terms.token_symbol;
+        batch.token_uri = terms.token_uri;
         batch.phase = Phase::Open;
         batch.bump = ctx.bumps.batch;
-        msg!("EqualStart batch {} committed to DBC pool {}", batch.key(), batch.pool);
+        batch.mint_bump = Pubkey::find_program_address(&[MINT_SEED, batch_key.as_ref()], &crate::ID).1;
+        msg!("EqualStart batch {} committed to DBC pool {} base mint {}", batch_key, batch.pool, base_mint);
         Ok(())
     }
 
@@ -200,21 +251,94 @@ pub mod equalstart {
         )
     }
 
-    pub fn execute_batch(ctx: Context<ExecuteBatch>) -> Result<()> {
+    /// Permissionless settlement: create the committed DBC pool with the batch
+    /// PDA as creator and a batch-PDA mint, buy with the whole batch, hand the
+    /// DBC creator role to the committed creator, and pay the settler bounty.
+    pub fn settle(ctx: Context<Settle>) -> Result<()> {
         let now = Clock::get()?.unix_timestamp;
         let batch = &ctx.accounts.batch;
         require!(batch.phase == Phase::Open, EqualStartError::NotOpen);
         require!(now >= batch.closes_at && now < batch.expires_at, EqualStartError::NotInSettlementWindow);
         require!(batch.total_quote >= batch.min_raise, EqualStartError::MinRaiseNotMet);
 
-        verify_pool_created_by_previous_instruction(&ctx.accounts.instructions_sysvar, batch)?;
-        verify_pristine_pool(&ctx.accounts.pool, batch, &ctx.accounts.dbc_base_vault, &ctx.accounts.dbc_quote_vault)?;
-
         let amount_in = batch.total_quote;
+        let min_base_out = min_base_out_for(amount_in, batch.min_base_per_sol)?;
         let quote_before = ctx.accounts.quote_vault.amount;
-        let base_before = ctx.accounts.base_vault.amount;
         require!(quote_before >= amount_in, EqualStartError::VaultShortfall);
 
+        let batch_key = batch.key();
+        let launch_id = batch.launch_id.to_le_bytes();
+        let batch_seeds: &[&[u8]] = &[BATCH_SEED, batch.creator.as_ref(), &launch_id, &[batch.bump]];
+        let mint_seeds: &[&[u8]] = &[MINT_SEED, batch_key.as_ref(), &[batch.mint_bump]];
+
+        // 1. DBC creates the pool. Only EqualStart can sign for the base mint and
+        //    the creator, so this pool cannot exist before this instruction.
+        let init_ix = Instruction {
+            program_id: dbc::PROGRAM_ID,
+            accounts: vec![
+                AccountMeta::new_readonly(batch.dbc_config, false),
+                AccountMeta::new_readonly(dbc::POOL_AUTHORITY, false),
+                AccountMeta::new_readonly(batch_key, true),
+                AccountMeta::new(batch.base_mint, true),
+                AccountMeta::new_readonly(batch.quote_mint, false),
+                AccountMeta::new(batch.pool, false),
+                AccountMeta::new(ctx.accounts.dbc_base_vault.key(), false),
+                AccountMeta::new(ctx.accounts.dbc_quote_vault.key(), false),
+                AccountMeta::new(ctx.accounts.mint_metadata.key(), false),
+                AccountMeta::new_readonly(dbc::METADATA_PROGRAM_ID, false),
+                AccountMeta::new(ctx.accounts.settler.key(), true),
+                AccountMeta::new_readonly(token::ID, false),
+                AccountMeta::new_readonly(token::ID, false),
+                AccountMeta::new_readonly(anchor_lang::system_program::ID, false),
+                AccountMeta::new_readonly(dbc::EVENT_AUTHORITY, false),
+                AccountMeta::new_readonly(dbc::PROGRAM_ID, false),
+            ],
+            data: {
+                let mut data = dbc::INIT_SPL_POOL_DISCRIMINATOR.to_vec();
+                dbc::borsh_string(&mut data, &batch.token_name);
+                dbc::borsh_string(&mut data, &batch.token_symbol);
+                dbc::borsh_string(&mut data, &batch.token_uri);
+                data
+            },
+        };
+        invoke_signed(
+            &init_ix,
+            &[
+                ctx.accounts.dbc_config.to_account_info(),
+                ctx.accounts.dbc_pool_authority.to_account_info(),
+                ctx.accounts.batch.to_account_info(),
+                ctx.accounts.base_mint.to_account_info(),
+                ctx.accounts.quote_mint.to_account_info(),
+                ctx.accounts.pool.to_account_info(),
+                ctx.accounts.dbc_base_vault.to_account_info(),
+                ctx.accounts.dbc_quote_vault.to_account_info(),
+                ctx.accounts.mint_metadata.to_account_info(),
+                ctx.accounts.metadata_program.to_account_info(),
+                ctx.accounts.settler.to_account_info(),
+                ctx.accounts.token_program.to_account_info(),
+                ctx.accounts.system_program.to_account_info(),
+                ctx.accounts.dbc_event_authority.to_account_info(),
+                ctx.accounts.dbc_program.to_account_info(),
+            ],
+            &[batch_seeds, mint_seeds],
+        )?;
+        verify_pristine_pool(&ctx.accounts.pool, batch, &ctx.accounts.dbc_base_vault, &ctx.accounts.dbc_quote_vault)?;
+
+        // 2. Batch base vault: the batch PDA's ATA for the new mint.
+        associated_token::create_idempotent(CpiContext::new(
+            ctx.accounts.associated_token_program.key(),
+            associated_token::Create {
+                payer: ctx.accounts.settler.to_account_info(),
+                associated_token: ctx.accounts.base_vault.to_account_info(),
+                authority: ctx.accounts.batch.to_account_info(),
+                mint: ctx.accounts.base_mint.to_account_info(),
+                system_program: ctx.accounts.system_program.to_account_info(),
+                token_program: ctx.accounts.token_program.to_account_info(),
+            },
+        ))?;
+        let base_before = token_amount(&ctx.accounts.base_vault)?;
+
+        // 3. The first and only swap in this instruction: the whole batch, ExactIn.
         let swap_ix = Instruction {
             program_id: dbc::PROGRAM_ID,
             accounts: vec![
@@ -227,7 +351,7 @@ pub mod equalstart {
                 AccountMeta::new(ctx.accounts.dbc_quote_vault.key(), false),
                 AccountMeta::new_readonly(batch.base_mint, false),
                 AccountMeta::new_readonly(batch.quote_mint, false),
-                AccountMeta::new_readonly(batch.key(), true),
+                AccountMeta::new_readonly(batch_key, true),
                 AccountMeta::new_readonly(token::ID, false),
                 AccountMeta::new_readonly(token::ID, false),
                 // Optional `referral_token_account` = None is encoded as the program id.
@@ -238,13 +362,11 @@ pub mod equalstart {
             data: {
                 let mut data = dbc::SWAP2_DISCRIMINATOR.to_vec();
                 data.extend_from_slice(&amount_in.to_le_bytes());
-                data.extend_from_slice(&batch.min_base_out.to_le_bytes());
+                data.extend_from_slice(&min_base_out.to_le_bytes());
                 data.push(dbc::SWAP_MODE_EXACT_IN);
                 data
             },
         };
-        let launch_id = batch.launch_id.to_le_bytes();
-        let signer_seeds: &[&[u8]] = &[BATCH_SEED, batch.creator.as_ref(), &launch_id, &[batch.bump]];
         invoke_signed(
             &swap_ix,
             &[
@@ -262,32 +384,68 @@ pub mod equalstart {
                 ctx.accounts.dbc_event_authority.to_account_info(),
                 ctx.accounts.dbc_program.to_account_info(),
             ],
-            &[signer_seeds],
+            &[batch_seeds],
         )?;
 
         ctx.accounts.quote_vault.reload()?;
-        ctx.accounts.base_vault.reload()?;
         let quote_spent = quote_before
             .checked_sub(ctx.accounts.quote_vault.amount)
             .ok_or(EqualStartError::Overflow)?;
-        let base_received = ctx
-            .accounts
-            .base_vault
-            .amount
+        let base_received = token_amount(&ctx.accounts.base_vault)?
             .checked_sub(base_before)
             .ok_or(EqualStartError::Overflow)?;
         require!(quote_spent == amount_in, EqualStartError::PartialFill);
-        require!(base_received >= ctx.accounts.batch.min_base_out, EqualStartError::SlippageExceeded);
+        require!(base_received >= min_base_out, EqualStartError::SlippageExceeded);
+        let opening_fee = verify_opening_fee(&ctx.accounts.pool, &ctx.accounts.dbc_config, batch, quote_spent, base_received)?;
+
+        // 4. Hand the DBC pool-creator role (creator fees, surplus) to the
+        //    committed creator. Nothing else about the pool depends on it.
+        let transfer_creator_ix = Instruction {
+            program_id: dbc::PROGRAM_ID,
+            accounts: vec![
+                AccountMeta::new(batch.pool, false),
+                AccountMeta::new_readonly(batch.dbc_config, false),
+                AccountMeta::new_readonly(batch_key, true),
+                AccountMeta::new_readonly(batch.creator, false),
+                AccountMeta::new_readonly(dbc::EVENT_AUTHORITY, false),
+                AccountMeta::new_readonly(dbc::PROGRAM_ID, false),
+            ],
+            data: dbc::TRANSFER_POOL_CREATOR_DISCRIMINATOR.to_vec(),
+        };
+        invoke_signed(
+            &transfer_creator_ix,
+            &[
+                ctx.accounts.pool.to_account_info(),
+                ctx.accounts.dbc_config.to_account_info(),
+                ctx.accounts.batch.to_account_info(),
+                ctx.accounts.creator.to_account_info(),
+                ctx.accounts.dbc_event_authority.to_account_info(),
+                ctx.accounts.dbc_program.to_account_info(),
+            ],
+            &[batch_seeds],
+        )?;
+        {
+            let data = ctx.accounts.pool.try_borrow_data()?;
+            require_keys_eq!(dbc::read_pubkey(&data, dbc::POOL_CREATOR_OFFSET), batch.creator, EqualStartError::InvalidPool);
+        }
+
+        // 5. Pay the settler bounty that the creator escrowed at initialization.
+        let bounty = batch.settler_bounty;
+        move_lamports(&ctx.accounts.batch.to_account_info(), &ctx.accounts.settler.to_account_info(), bounty)?;
 
         let batch = &mut ctx.accounts.batch;
+        batch.settler_bounty = 0;
         batch.quote_spent = quote_spent;
         batch.base_received = base_received;
         batch.phase = Phase::Settled;
         msg!(
-            "EqualStart settled: quote_spent={} base_received={} pool={}",
+            "EqualStart settled: quote_spent={} base_received={} min_base_out={} opening_fee={} pool={} settler={}",
             quote_spent,
             base_received,
-            batch.pool
+            min_base_out,
+            opening_fee,
+            batch.pool,
+            ctx.accounts.settler.key()
         );
         Ok(())
     }
@@ -324,11 +482,17 @@ pub mod equalstart {
         )
     }
 
+    /// Permissionless: after expiry an unsettled batch becomes refundable and the
+    /// unused settler bounty returns to the creator.
     pub fn cancel_expired(ctx: Context<CancelExpired>) -> Result<()> {
         let now = Clock::get()?.unix_timestamp;
-        let batch = &mut ctx.accounts.batch;
+        let batch = &ctx.accounts.batch;
         require!(batch.phase == Phase::Open, EqualStartError::NotOpen);
         require!(now >= batch.expires_at, EqualStartError::NotExpired);
+        let bounty = batch.settler_bounty;
+        move_lamports(&ctx.accounts.batch.to_account_info(), &ctx.accounts.creator.to_account_info(), bounty)?;
+        let batch = &mut ctx.accounts.batch;
+        batch.settler_bounty = 0;
         batch.phase = Phase::Cancelled;
         Ok(())
     }
@@ -375,6 +539,35 @@ pub mod equalstart {
     }
 }
 
+/// floor(total_quote * min_base_per_sol / 1e9), at least 1, in u128.
+fn min_base_out_for(total_quote: u64, min_base_per_sol: u64) -> Result<u64> {
+    let min_out = (total_quote as u128)
+        .checked_mul(min_base_per_sol as u128)
+        .ok_or(EqualStartError::Overflow)?
+        .checked_div(LAMPORTS_PER_QUOTE_UNIT)
+        .ok_or(EqualStartError::Overflow)?;
+    let min_out = u64::try_from(min_out).map_err(|_| EqualStartError::Overflow)?;
+    Ok(min_out.max(1))
+}
+
+fn token_amount(account: &UncheckedAccount) -> Result<u64> {
+    let data = account.try_borrow_data()?;
+    // SPL token account: mint(32) owner(32) amount(8).
+    require!(data.len() >= 72, EqualStartError::VaultShortfall);
+    Ok(dbc::read_u64(&data, 64))
+}
+
+fn move_lamports(from: &AccountInfo, to: &AccountInfo, amount: u64) -> Result<()> {
+    if amount == 0 {
+        return Ok(());
+    }
+    let new_from = from.lamports().checked_sub(amount).ok_or(EqualStartError::Overflow)?;
+    let new_to = to.lamports().checked_add(amount).ok_or(EqualStartError::Overflow)?;
+    **from.try_borrow_mut_lamports()? = new_from;
+    **to.try_borrow_mut_lamports()? = new_to;
+    Ok(())
+}
+
 fn transfer_from_vault<'info>(
     token_program: &Program<'info, Token>,
     batch: &Account<'info, Batch>,
@@ -401,10 +594,10 @@ fn transfer_from_vault<'info>(
     )
 }
 
-/// Reject DBC configs whose first-swap behaviour is incompatible with a CPI buy
-/// or would let the swap fee depend on instruction context, and configs whose
-/// curve the full batch could complete (the buy must stay a plain curve swap).
-fn validate_dbc_config(config: &UncheckedAccount, max_pool_quote_in: u64) -> Result<()> {
+/// Reject DBC configs whose first-swap behaviour is incompatible with a CPI buy,
+/// whose opening fee exceeds the committed ceiling, or whose curve the full
+/// batch could complete (the buy must stay a plain curve swap).
+fn validate_dbc_config(config: &UncheckedAccount, terms: &BatchTerms) -> Result<()> {
     require_keys_eq!(*config.owner, dbc::PROGRAM_ID, EqualStartError::InvalidDbcConfig);
     let data = config.try_borrow_data()?;
     require!(
@@ -422,42 +615,28 @@ fn validate_dbc_config(config: &UncheckedAccount, max_pool_quote_in: u64) -> Res
         EqualStartError::InvalidDbcConfig
     );
     require!(data[dbc::CONFIG_FIRST_SWAP_MIN_FEE_OFFSET] == 0, EqualStartError::InvalidDbcConfig);
+    let collect_fee_mode = data[dbc::CONFIG_COLLECT_FEE_MODE_OFFSET];
     require!(
-        max_pool_quote_in < dbc::read_u64(&data, dbc::CONFIG_MIGRATION_QUOTE_THRESHOLD_OFFSET),
+        collect_fee_mode == dbc::COLLECT_FEE_MODE_QUOTE || collect_fee_mode == dbc::COLLECT_FEE_MODE_OUTPUT,
+        EqualStartError::InvalidDbcConfig
+    );
+    // Every DBC base-fee schedule starts at its cliff fee and only decreases, and
+    // the pool activates in the settling instruction, so the cliff fee is the
+    // base fee the batch pays. Dynamic fee is re-checked after the swap.
+    let cliff = dbc::read_u64(&data, dbc::CONFIG_CLIFF_FEE_NUMERATOR_OFFSET) as u128;
+    require!(
+        cliff * BPS_DENOMINATOR <= u128::from(terms.max_opening_fee_bps) * dbc::FEE_DENOMINATOR,
+        EqualStartError::OpeningFeeTooHigh
+    );
+    require!(
+        terms.max_pool_quote_in < dbc::read_u64(&data, dbc::CONFIG_MIGRATION_QUOTE_THRESHOLD_OFFSET),
         EqualStartError::BadTerms
     );
     Ok(())
 }
 
-/// The instruction directly before this one, at the top level of this same
-/// transaction, must be DBC's pool initialization for exactly the committed
-/// config, base mint, quote mint and pool. Because DBC `init`s the pool account,
-/// that instruction would fail if the pool already existed, so success proves
-/// the pool was created in this transaction with nothing in between.
-fn verify_pool_created_by_previous_instruction(instructions_sysvar: &UncheckedAccount, batch: &Batch) -> Result<()> {
-    require!(get_stack_height() == 1, EqualStartError::NotTopLevel);
-    let ix_sysvar = instructions_sysvar.to_account_info();
-    let current = load_current_index_checked(&ix_sysvar)? as usize;
-    let this_ix = load_instruction_at_checked(current, &ix_sysvar)?;
-    require!(this_ix.program_id.to_bytes() == crate::ID.to_bytes(), EqualStartError::NotTopLevel);
-    require!(current > 0, EqualStartError::PoolNotCreatedAtomically);
-
-    let prev = load_instruction_at_checked(current - 1, &ix_sysvar)?;
-    let account = |i: usize| prev.accounts.get(i).map(|a| a.pubkey.to_bytes());
-    require!(
-        prev.program_id.to_bytes() == dbc::PROGRAM_ID.to_bytes()
-            && prev.data.get(..8) == Some(&dbc::INIT_SPL_POOL_DISCRIMINATOR[..])
-            && account(dbc::INIT_IX_CONFIG) == Some(batch.dbc_config.to_bytes())
-            && account(dbc::INIT_IX_BASE_MINT) == Some(batch.base_mint.to_bytes())
-            && account(dbc::INIT_IX_QUOTE_MINT) == Some(batch.quote_mint.to_bytes())
-            && account(dbc::INIT_IX_POOL) == Some(batch.pool.to_bytes()),
-        EqualStartError::PoolNotCreatedAtomically
-    );
-    Ok(())
-}
-
-/// Independently of instruction introspection, the live pool state must belong to
-/// the committed config/base mint and show no prior trade.
+/// The pool DBC just created must belong to the committed config and base mint,
+/// use the vaults we pass to the swap, and show no prior trade.
 fn verify_pristine_pool(
     pool: &UncheckedAccount,
     batch: &Batch,
@@ -481,16 +660,52 @@ fn verify_pristine_pool(
     Ok(())
 }
 
+/// Measure the fee DBC actually charged on the batch buy from the pool's fee
+/// counters (all zero before the swap, since the pool was created in this
+/// instruction) and enforce the committed ceiling. Returns the fee amount.
+fn verify_opening_fee(
+    pool: &UncheckedAccount,
+    config: &UncheckedAccount,
+    batch: &Batch,
+    quote_spent: u64,
+    base_received: u64,
+) -> Result<u64> {
+    let collect_fee_mode = config.try_borrow_data()?[dbc::CONFIG_COLLECT_FEE_MODE_OFFSET];
+    let data = pool.try_borrow_data()?;
+    let (fee, gross) = if collect_fee_mode == dbc::COLLECT_FEE_MODE_QUOTE {
+        let fee = (dbc::read_u64(&data, dbc::POOL_TOTAL_TRADING_QUOTE_FEE_OFFSET) as u128)
+            + (dbc::read_u64(&data, dbc::POOL_TOTAL_PROTOCOL_QUOTE_FEE_OFFSET) as u128);
+        (fee, quote_spent as u128)
+    } else {
+        let fee = (dbc::read_u64(&data, dbc::POOL_TOTAL_TRADING_BASE_FEE_OFFSET) as u128)
+            + (dbc::read_u64(&data, dbc::POOL_TOTAL_PROTOCOL_BASE_FEE_OFFSET) as u128);
+        (fee, fee + base_received as u128)
+    };
+    require!(
+        fee.checked_mul(BPS_DENOMINATOR).ok_or(EqualStartError::Overflow)?
+            <= gross.checked_mul(u128::from(batch.max_opening_fee_bps)).ok_or(EqualStartError::Overflow)?,
+        EqualStartError::OpeningFeeTooHigh
+    );
+    Ok(u64::try_from(fee).map_err(|_| EqualStartError::Overflow)?)
+}
+
 #[derive(AnchorSerialize, AnchorDeserialize, Clone)]
 pub struct BatchTerms {
     pub launch_id: u64,
-    pub base_mint: Pubkey,
     pub closes_at: i64,
     pub expires_at: i64,
     pub per_wallet_cap: u64,
     pub min_raise: u64,
     pub max_pool_quote_in: u64,
-    pub min_base_out: u64,
+    /// Minimum average price: base raw units per 1 SOL of batch quote (fees included).
+    pub min_base_per_sol: u64,
+    /// Ceiling on the DBC fee charged on the batch buy, in basis points.
+    pub max_opening_fee_bps: u16,
+    /// Lamports escrowed from the creator; paid to whoever settles, else back to the creator.
+    pub settler_bounty: u64,
+    pub token_name: String,
+    pub token_symbol: String,
+    pub token_uri: String,
 }
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, InitSpace)]
@@ -516,7 +731,15 @@ pub struct Batch {
     pub per_wallet_cap: u64,
     pub min_raise: u64,
     pub max_pool_quote_in: u64,
-    pub min_base_out: u64,
+    pub min_base_per_sol: u64,
+    pub max_opening_fee_bps: u16,
+    pub settler_bounty: u64,
+    #[max_len(MAX_NAME_LEN)]
+    pub token_name: String,
+    #[max_len(MAX_SYMBOL_LEN)]
+    pub token_symbol: String,
+    #[max_len(MAX_URI_LEN)]
+    pub token_uri: String,
     pub phase: Phase,
     pub total_quote: u64,
     pub quote_spent: u64,
@@ -525,6 +748,7 @@ pub struct Batch {
     pub participants_count: u32,
     pub claimed_count: u32,
     pub bump: u8,
+    pub mint_bump: u8,
 }
 
 #[account]
@@ -550,7 +774,7 @@ pub struct InitializeBatch<'info> {
         seeds = [BATCH_SEED, creator.key().as_ref(), &terms.launch_id.to_le_bytes()],
         bump,
     )]
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
     #[account(address = token::spl_token::native_mint::ID)]
     pub quote_mint: Account<'info, Mint>,
     #[account(
@@ -573,7 +797,7 @@ pub struct Deposit<'info> {
     #[account(mut)]
     pub participant: Signer<'info>,
     #[account(mut)]
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
     #[account(
         init_if_needed,
         payer = participant,
@@ -596,7 +820,7 @@ pub struct Deposit<'info> {
 pub struct Withdraw<'info> {
     pub participant: Signer<'info>,
     #[account(mut)]
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
     #[account(
         mut,
         seeds = [CONTRIBUTION_SEED, batch.key().as_ref(), participant.key().as_ref()],
@@ -613,39 +837,44 @@ pub struct Withdraw<'info> {
 }
 
 #[derive(Accounts)]
-pub struct ExecuteBatch<'info> {
-    /// Anyone may pay; the payer gains no rights over the batch.
+pub struct Settle<'info> {
+    /// Anyone. Pays the account rent and DBC pool-creation fee, receives the
+    /// settler bounty, and gains no rights over the batch or its funds.
     #[account(mut)]
-    pub payer: Signer<'info>,
+    pub settler: Signer<'info>,
     #[account(mut)]
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
+    /// CHECK: the committed creator; receives the DBC pool-creator role. Need not sign.
+    #[account(address = batch.creator)]
+    pub creator: UncheckedAccount<'info>,
     #[account(mut, address = batch.quote_vault)]
-    pub quote_vault: Account<'info, TokenAccount>,
-    #[account(
-        init,
-        payer = payer,
-        seeds = [BASE_VAULT_SEED, batch.key().as_ref()],
-        bump,
-        token::mint = base_mint,
-        token::authority = batch,
-    )]
-    pub base_vault: Account<'info, TokenAccount>,
-    #[account(address = batch.base_mint)]
-    pub base_mint: Account<'info, Mint>,
+    pub quote_vault: Box<Account<'info, TokenAccount>>,
+    /// CHECK: batch ATA for the base mint, created in `settle`.
+    #[account(mut, address = batch.base_vault)]
+    pub base_vault: UncheckedAccount<'info>,
+    /// CHECK: batch-PDA base mint, created by DBC in `settle`.
+    #[account(mut, address = batch.base_mint)]
+    pub base_mint: UncheckedAccount<'info>,
     #[account(address = batch.quote_mint)]
-    pub quote_mint: Account<'info, Mint>,
-    /// CHECK: address pinned to the committed pool; contents checked in `verify_pristine_pool`.
+    pub quote_mint: Box<Account<'info, Mint>>,
+    /// CHECK: committed DBC pool PDA, created by DBC in `settle`; contents checked afterwards.
     #[account(mut, address = batch.pool)]
     pub pool: UncheckedAccount<'info>,
-    /// CHECK: address pinned to the committed config.
+    /// CHECK: committed config.
     #[account(address = batch.dbc_config)]
     pub dbc_config: UncheckedAccount<'info>,
-    /// CHECK: must equal the vault recorded in the pool state (checked) and is re-validated by DBC.
+    /// CHECK: DBC derives and `init`s it (seeds checked by DBC); must match pool state.
     #[account(mut)]
     pub dbc_base_vault: UncheckedAccount<'info>,
-    /// CHECK: must equal the vault recorded in the pool state (checked) and is re-validated by DBC.
+    /// CHECK: DBC derives and `init`s it (seeds checked by DBC); must match pool state.
     #[account(mut)]
     pub dbc_quote_vault: UncheckedAccount<'info>,
+    /// CHECK: Metaplex metadata PDA of the base mint; derived and checked by Metaplex.
+    #[account(mut)]
+    pub mint_metadata: UncheckedAccount<'info>,
+    /// CHECK: fixed Metaplex program id.
+    #[account(address = dbc::METADATA_PROGRAM_ID)]
+    pub metadata_program: UncheckedAccount<'info>,
     /// CHECK: fixed DBC PDA.
     #[account(address = dbc::POOL_AUTHORITY)]
     pub dbc_pool_authority: UncheckedAccount<'info>,
@@ -655,10 +884,8 @@ pub struct ExecuteBatch<'info> {
     /// CHECK: fixed DBC program id.
     #[account(address = dbc::PROGRAM_ID)]
     pub dbc_program: UncheckedAccount<'info>,
-    /// CHECK: fixed instructions sysvar id.
-    #[account(address = solana_instructions_sysvar::ID.to_bytes().into())]
-    pub instructions_sysvar: UncheckedAccount<'info>,
     pub token_program: Program<'info, Token>,
+    pub associated_token_program: Program<'info, AssociatedToken>,
     pub system_program: Program<'info, System>,
 }
 
@@ -667,7 +894,7 @@ pub struct Claim<'info> {
     #[account(mut)]
     pub participant: Signer<'info>,
     #[account(mut)]
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
     #[account(
         mut,
         seeds = [CONTRIBUTION_SEED, batch.key().as_ref(), participant.key().as_ref()],
@@ -693,13 +920,16 @@ pub struct Claim<'info> {
 #[derive(Accounts)]
 pub struct CancelExpired<'info> {
     #[account(mut)]
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
+    /// CHECK: the committed creator; receives the unused settler bounty. Need not sign.
+    #[account(mut, address = batch.creator)]
+    pub creator: UncheckedAccount<'info>,
 }
 
 #[derive(Accounts)]
 pub struct Refund<'info> {
     pub participant: Signer<'info>,
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
     #[account(
         mut,
         seeds = [CONTRIBUTION_SEED, batch.key().as_ref(), participant.key().as_ref()],
@@ -717,7 +947,7 @@ pub struct Refund<'info> {
 
 #[derive(Accounts)]
 pub struct BurnDust<'info> {
-    pub batch: Account<'info, Batch>,
+    pub batch: Box<Account<'info, Batch>>,
     #[account(mut, address = batch.base_vault)]
     pub base_vault: Account<'info, TokenAccount>,
     #[account(mut, address = batch.base_mint)]
@@ -751,10 +981,8 @@ pub enum EqualStartError {
     NotInSettlementWindow,
     #[msg("Minimum raise not met")]
     MinRaiseNotMet,
-    #[msg("execute_batch must be a top-level instruction")]
-    NotTopLevel,
-    #[msg("Previous instruction must initialize the committed DBC pool in this transaction")]
-    PoolNotCreatedAtomically,
+    #[msg("DBC fee on the opening buy exceeds the committed ceiling")]
+    OpeningFeeTooHigh,
     #[msg("Pool account does not match the committed DBC pool")]
     InvalidPool,
     #[msg("Pool has already been traded")]
