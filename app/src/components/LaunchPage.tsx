@@ -12,6 +12,11 @@ import {
   explorerTx,
   fetchBatch,
   fetchContribution,
+  fetchContributions,
+  fetchActivity,
+  findSettlementSignature,
+  type Activity,
+  type ContributionRow,
   minBaseOut,
   refundIxs,
   settleIxs,
@@ -24,6 +29,10 @@ import { CLUSTER, useChainTime, useProgram, useSend } from "../hooks.ts";
 import { STAGE_LABEL, dateTime, duration, short, sol, solToLamports, tokens, TOKEN_DECIMALS } from "../format.ts";
 import { Progress } from "./Progress.tsx";
 import { TxNotice } from "./TxNotice.tsx";
+import { ActivityFeed, Allocation, Timeline } from "./LaunchDetails.tsx";
+import snapshot from "../lib/activity-snapshot.json" with { type: "json" };
+
+const ACTIVITY_SNAPSHOT = snapshot as Record<string, { instruction: string; signer: string; error?: string }>;
 
 export function LaunchPage({ address }: { address: PublicKey }) {
   const program = useProgram();
@@ -32,13 +41,19 @@ export function LaunchPage({ address }: { address: PublicKey }) {
   const now = useChainTime();
   const [batch, setBatch] = useState<Batch | null | undefined>(undefined);
   const [mine, setMine] = useState<Contribution | null>(null);
-  const [settleSig, setSettleSig] = useState<string | null>(null);
+  const [rows, setRows] = useState<ContributionRow[] | null>(null);
+  const [version, setVersion] = useState(0);
 
   const refresh = useCallback(async () => {
     const b = await fetchBatch(program, address);
     setBatch(b);
     setMine(b && publicKey ? await fetchContribution(program, address, publicKey) : null);
+    if (b) setRows(await fetchContributions(program, address).catch(() => null));
   }, [program, address, publicKey]);
+  const afterTx = useCallback(async () => {
+    await refresh();
+    setVersion((v) => v + 1);
+  }, [refresh]);
 
   useEffect(() => {
     refresh();
@@ -46,19 +61,17 @@ export function LaunchPage({ address }: { address: PublicKey }) {
     return () => clearInterval(t);
   }, [refresh]);
 
-  // The settlement is the first successful transaction on the pool that logs "EqualStart settled".
+  const [activity, setActivity] = useState<Activity[] | null>(null);
+  const [poolSettleSig, setPoolSettleSig] = useState<string | null>(null);
   useEffect(() => {
-    if (batch?.phase !== "settled" || settleSig) return;
-    (async () => {
-      const sigs = (await connection.getSignaturesForAddress(batch.pool, { limit: 50 })).filter((s) => !s.err).reverse();
-      for (const s of sigs) {
-        const tx = await connection.getTransaction(s.signature, { maxSupportedTransactionVersion: 0 });
-        if (tx?.meta?.logMessages?.some((l) => l.includes("EqualStart settled"))) return setSettleSig(s.signature);
-      }
-    })().catch(() => {});
-  }, [batch, connection, settleSig]);
+    fetchActivity(connection, address, ACTIVITY_SNAPSHOT).then(setActivity, () => setActivity([]));
+  }, [connection, address, version]);
+  useEffect(() => {
+    if (batch?.phase === "settled") findSettlementSignature(connection, batch.pool).then(setPoolSettleSig, () => {});
+  }, [connection, batch?.phase, batch?.pool]);
+  const settleSig = activity?.find((a) => a.ok && a.instruction === "Settle")?.signature ?? poolSettleSig;
 
-  const { state, send, reset } = useSend(refresh);
+  const { state, send, reset } = useSend(afterTx);
 
   if (batch === undefined) return <p className="muted">Loading launch…</p>;
   if (batch === null) return <p className="error">No EqualStart launch at {address.toBase58()} on {CLUSTER}.</p>;
@@ -84,6 +97,7 @@ export function LaunchPage({ address }: { address: PublicKey }) {
         <div className="col-main">
           <section className="card">
             <Progress batch={batch} />
+            <Timeline batch={batch} now={now} />
             <div className="stats">
               <Stat label="Participants" value={String(batch.participantsCount)} />
               <Stat label="Per-wallet cap" value={`${sol(batch.perWalletCap)} SOL`} />
@@ -107,11 +121,15 @@ export function LaunchPage({ address }: { address: PublicKey }) {
               <Position batch={batch} stage={stage} mine={mine} me={publicKey} send={send} pending={state.status === "pending"} minMet={minMet} />
             )}
           </section>
+          <Allocation batch={batch} rows={rows} />
         </div>
 
         <aside className="col-side">
           <Commitments batch={batch} />
         </aside>
+      </div>
+      <div className="col-full">
+        <ActivityFeed items={activity} />
       </div>
     </div>
   );
@@ -241,7 +259,7 @@ function SettlementResult({ batch, settleSig }: { batch: Batch; settleSig: strin
         {settleSig ? (
           <a href={explorerTx(settleSig, CLUSTER)} target="_blank" rel="noreferrer">Settlement transaction</a>
         ) : (
-          <span className="muted">Locating settlement transaction…</span>
+          <span className="muted">Loading settlement transaction…</span>
         )}
         {" · "}
         <a href={explorerAddress(batch.pool, CLUSTER)} target="_blank" rel="noreferrer">Pool</a>

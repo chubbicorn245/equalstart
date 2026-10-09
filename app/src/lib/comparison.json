@@ -1,0 +1,94 @@
+{
+  "demo": {
+    "source": "Measured on the Meteora DBC mainnet binary (localnet), same config as the demo: flat 1% fee, 30→300 SOL market-cap curve.",
+    "sequential": [
+      {
+        "name": "Alice",
+        "sol": 0.1,
+        "order": 1,
+        "tokens": "3290227906700",
+        "tokensPerSol": 32902279
+      },
+      {
+        "name": "Bob",
+        "sol": 0.2,
+        "order": 2,
+        "tokens": "6522341749910",
+        "tokensPerSol": 32611709
+      },
+      {
+        "name": "Carol",
+        "sol": 0.3,
+        "order": 3,
+        "tokens": "9640771119697",
+        "tokensPerSol": 32135904
+      }
+    ],
+    "batch": [
+      {
+        "name": "Alice",
+        "sol": 0.1,
+        "tokens": "3242223462717",
+        "tokensPerSol": 32422235
+      },
+      {
+        "name": "Bob",
+        "sol": 0.2,
+        "tokens": "6484446925435",
+        "tokensPerSol": 32422235
+      },
+      {
+        "name": "Carol",
+        "sol": 0.3,
+        "tokens": "9726670388153",
+        "tokensPerSol": 32422235
+      }
+    ]
+  },
+  "x20": {
+    "source": "Measured on the Meteora DBC mainnet binary (localnet), same config as the demo: flat 1% fee, 30→300 SOL market-cap curve.",
+    "sequential": [
+      {
+        "name": "Alice",
+        "sol": 2,
+        "order": 1,
+        "tokens": "62299412650789",
+        "tokensPerSol": 31149706
+      },
+      {
+        "name": "Bob",
+        "sol": 4,
+        "order": 2,
+        "tokens": "105753544210334",
+        "tokensPerSol": 26438386
+      },
+      {
+        "name": "Carol",
+        "sol": 6,
+        "order": 3,
+        "tokens": "123896312298958",
+        "tokensPerSol": 20649385
+      }
+    ],
+    "batch": [
+      {
+        "name": "Alice",
+        "sol": 2,
+        "tokens": "48658211526680",
+        "tokensPerSol": 24329106
+      },
+      {
+        "name": "Bob",
+        "sol": 4,
+        "tokens": "97316423053360",
+        "tokensPerSol": 24329106
+      },
+      {
+        "name": "Carol",
+        "sol": 6,
+        "tokens": "145974634580041",
+        "tokensPerSol": 24329106
+      }
+    ]
+  }
+}

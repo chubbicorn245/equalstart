@@ -29,6 +29,9 @@ export function App() {
     <ConnectionProvider endpoint={RPC_URL} config={{ commitment: "confirmed" }}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
+          <div className="banner" role="note">
+            <strong>Devnet only · Unaudited prototype.</strong> Uses test SOL with no value. Don't send real funds.
+          </div>
           <header className="topbar">
             <a className="brand" href="#/">
               <span className="brand-mark" aria-hidden>=</span>

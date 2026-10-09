@@ -7,6 +7,9 @@ import idl from "./lib/equalstart.idl.json" with { type: "json" };
 export const CLUSTER: string = import.meta.env.VITE_CLUSTER ?? "devnet";
 export const RPC_URL: string = import.meta.env.VITE_RPC_URL ?? (CLUSTER === "localnet" ? "http://127.0.0.1:8899" : "https://api.devnet.solana.com");
 
+/** The launch featured on the home page (the real-wallet demo); other launches are listed separately. */
+export const FEATURED_BATCH: string = import.meta.env.VITE_FEATURED_BATCH ?? "8F8fx1WzLjdcXr1xYnp6BeC3o67zSKsgM8LPoknBaGQH";
+
 export function useProgram() {
   const { connection } = useConnection();
   return useMemo(() => makeProgram(connection), [connection]);

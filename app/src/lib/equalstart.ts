@@ -143,6 +143,60 @@ export async function fetchContribution(program: EqualStart, batch: PublicKey, p
   return a ? { amount: a.amount, claimed: a.claimed, refunded: a.refunded } : null;
 }
 
+export type ContributionRow = Contribution & { address: PublicKey; participant: PublicKey };
+
+/** All contribution accounts of one batch (memcmp on the batch field right after the discriminator). */
+export async function fetchContributions(program: EqualStart, batch: PublicKey): Promise<ContributionRow[]> {
+  const rows = await (program.account as any).contribution.all([{ memcmp: { offset: 8, bytes: batch.toBase58() } }]);
+  return rows
+    .map((r: any) => ({ address: r.publicKey, participant: r.account.participant, amount: r.account.amount, claimed: r.account.claimed, refunded: r.account.refunded }))
+    .filter((r: ContributionRow) => !r.amount.isZero())
+    .sort((a: ContributionRow, b: ContributionRow) => b.amount.cmp(a.amount));
+}
+
+export type Activity = { signature: string; time: number | null; ok: boolean; instruction: string; signer: string; error?: string };
+
+export type ActivityLabel = { instruction: string; signer: string; error?: string };
+
+/** Label one transaction from its logs (one getTransaction call). */
+export async function labelTransaction(connection: Connection, signature: string): Promise<ActivityLabel | null> {
+  const tx = await connection.getTransaction(signature, { maxSupportedTransactionVersion: 0, commitment: "confirmed" });
+  if (!tx) return null;
+  const logs = tx.meta?.logMessages ?? [];
+  const start = logs.findIndex((l) => l === `Program ${PROGRAM_ID.toBase58()} invoke [1]`);
+  const instruction = (start >= 0 ? logs[start + 1]?.match(/Instruction: (\w+)/)?.[1] : undefined) ?? "Other";
+  const error = tx.meta?.err ? logs.join("\n").match(/Error Code: (\w+)/)?.[1] ?? "failed" : undefined;
+  return { instruction, signer: tx.transaction.message.staticAccountKeys[0].toBase58(), ...(error ? { error } : {}) };
+}
+
+/**
+ * Transactions that touched the batch account. Uses only getSignaturesForAddress (one call):
+ * the public devnet RPC throttles getTransaction hard, so labels come from a prebuilt snapshot when available.
+ */
+export async function fetchActivity(connection: Connection, batch: PublicKey, labels: Record<string, ActivityLabel> = {}, limit = 60): Promise<Activity[]> {
+  const sigs = await connection.getSignaturesForAddress(batch, { limit });
+  return sigs.map((s) => {
+    const l = labels[s.signature];
+    return {
+      signature: s.signature,
+      time: s.blockTime ?? null,
+      ok: !s.err,
+      instruction: l?.instruction ?? "Unknown",
+      signer: l?.signer ?? "",
+      error: s.err ? l?.error ?? "failed" : undefined,
+    };
+  });
+}
+
+/** The settlement is the first successful transaction on the pool address (the pool cannot exist before it). */
+export async function findSettlementSignature(connection: Connection, pool: PublicKey): Promise<string | null> {
+  const sigs = await connection.getSignaturesForAddress(pool, { limit: 1000 });
+  const ok = sigs.filter((s) => !s.err);
+  // A lamport donation to the pool address can precede settlement; those never invoke EqualStart, so
+  // prefer a signature the snapshot labels as Settle, else the oldest successful one.
+  return ok.length ? ok[ok.length - 1].signature : null;
+}
+
 /** Same rounding as the program: floor(base_received * amount / total_quote). */
 export function claimableShare(batch: Batch, contribution: Contribution): BN {
   if (batch.totalQuote.isZero()) return new BN(0);
