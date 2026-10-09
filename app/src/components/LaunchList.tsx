@@ -57,7 +57,7 @@ export function LaunchList() {
                 <Progress batch={b} compact />
                 <div className="meta">
                   <span>{sol(b.totalQuote)} / {sol(b.maxPoolQuoteIn)} SOL</span>
-                  <span>{b.participantsCount} wallets</span>
+                  <span>{b.participantsCount} {b.participantsCount === 1 ? "wallet" : "wallets"}</span>
                   {next && now && <span>{stage === "deposits" ? "closes" : "expires"} in {duration(next - now)}</span>}
                   {publicKey?.equals(b.creator) && <span className="tag">yours</span>}
                 </div>
