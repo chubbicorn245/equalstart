@@ -13,3 +13,5 @@ test-ledger/
 .surfpool/
 .yarn/
 .DS_Store
+app/dist/
+.env

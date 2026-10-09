@@ -1,0 +1,33 @@
+{
+  "name": "equalstart-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "smoke": "node --experimental-strip-types scripts/smoke.ts"
+  },
+  "devDependencies": {
+    "@types/bn.js": "5.1.6",
+    "@types/node": "22.20.5",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react": "6.1.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.0"
+  },
+  "dependencies": {
+    "@anchor-lang/core": "1.2.1",
+    "@meteora-ag/dynamic-bonding-curve-sdk": "1.5.13",
+    "@solana/spl-token": "0.4.14",
+    "@solana/wallet-adapter-base": "0.9.28",
+    "@solana/wallet-adapter-react": "0.15.40",
+    "@solana/wallet-adapter-react-ui": "0.9.40",
+    "@solana/web3.js": "1.99.0",
+    "bn.js": "5.2.1",
+    "buffer": "6.0.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}
