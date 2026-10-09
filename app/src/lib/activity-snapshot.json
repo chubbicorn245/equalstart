@@ -1,1 +1,102 @@
-{}
+{
+ "4jZ8Lw7JMerMC2bwi7qBejqrYuKFvTNsQwtMy4AQH7yVct4Jg8iWzyNfJTsg2uA1WkizusYdpyYEftwD3wTBdmkK": {
+  "instruction": "BurnDust",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk"
+ },
+ "5YKy4n7HBqodWWp6wjtf4zachxyUsF7AnXYuSC5aahq2uhZi2xVztmRWfhehnm6Z3YVtjJtCrTiWzxSJMBApdTCp": {
+  "instruction": "Claim",
+  "signer": "8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3",
+  "error": "AlreadyClaimed"
+ },
+ "2HoyxxUkiatcvpK1QersHhHcLh9X1iVs99jwvrnLg9pRDNmaLKm3R9rY7UfnTu3a8riisnHACLmsTXD89zgG3SMW": {
+  "instruction": "Claim",
+  "signer": "AE8PNPazT7rhcktWxTMDSojQTc1aXwDpAGZ7bgD5GxnV"
+ },
+ "5yLgdMDHoNpdALHRAPXtu4T2Y4xCpdBaxruAtdWBV6pBbVUJEwTpKxa3ZyGes4py7yhZYa9GZfnAMSxvYJwmj9AK": {
+  "instruction": "Claim",
+  "signer": "8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3"
+ },
+ "jjQMVsuWUiu7vkEK3QGka5amNuvJUzMiaeY5QPPBu82CzbWudvMeySkwvaDeCmTGsKjqrHVpgV2QcTuZ29f3van": {
+  "instruction": "Claim",
+  "signer": "5xjvuvnJneYTxHxfdMMy3ZsoexkZ3K461EtUdC2gXZBk"
+ },
+ "4qt1Bkd1721mpb7TowUPTqAxndk6BJKU7FcwFm2VyeYpWZ2m3HQpDzLfveDzbJM99qUghuHGriZAk7aZdo5682eX": {
+  "instruction": "BurnDust",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "ClaimsOutstanding"
+ },
+ "r4G5CwcLRKo9RqDD6mXS3kED3oBGQ5CWA15XbuUPe86nZqtyhLPLdvdvwFeoxmFkP2cQwfVdjvHZFYg1oxLWW2U": {
+  "instruction": "Claim",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "AccountNotInitialized"
+ },
+ "4rHJBZD1w28XnEahUYwxFzRMUi1TLoPs2Bo4Ebpa1dqxt8RQQCLTYFNwuyhRoX7jihEfAnHz56jsSMryjCrNUiFo": {
+  "instruction": "Claim",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "ConstraintSeeds"
+ },
+ "a55yHogzXFrm3dSVFQBhxXXf3aaVT6rr8nMhFX8XCcHCAL8ti225VfgJKqFAZjd8TUuokVZ2pKrbV7PbU4zTx1K": {
+  "instruction": "Settle",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "NotOpen"
+ },
+ "3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t": {
+  "instruction": "Settle",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk"
+ },
+ "2EuG4XpFF6JQXqPwoNUvALtayXrBSYJQ1CaLUSf5rG3DzdSfKtzQuhfWWW76vSRd8f74LVG2ZVRuJnHoVQcbVuCX": {
+  "instruction": "Settle",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "ConstraintAddress"
+ },
+ "2mE6CiS9oGGqNFbborfgfnSs3RshYDriuhpJeR3kLPJTcwwx6ti1WjMs2X9aUXckx2mvdupmqEsfAZS6zWqKD1Uc": {
+  "instruction": "Settle",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "ConstraintAddress"
+ },
+ "8CyN4P55cMVgHxLpSkvBQDuWx3vPmCwpcZvuzvPWdavLCw5JeWsaD7PoYVGDQdM7gDksS16r7Q51h24V7QtAF83": {
+  "instruction": "Deposit",
+  "signer": "8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3",
+  "error": "DepositClosed"
+ },
+ "6zH5DtLuq5az6ZcUqgdgTP1xJeXhGjsS8XPswJjF6RnRuDSEEJofJASJVupZEywsnMn9Ssx51KGdmMhzW4tBQZs": {
+  "instruction": "Settle",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "NotInSettlementWindow"
+ },
+ "Aaju15rnzGLPxJxz2oU8npVe5YUj36itiSmcqd2qJF1gGXtfJcdePideoihuVGi9KBwLH3A9iKNJMP7UFtXNFzX": {
+  "instruction": "Withdraw",
+  "signer": "CHNW5bxm3fT3kLBHwGu3dZzn7pzjevgwAnt94j25A4Yk",
+  "error": "ConstraintSeeds"
+ },
+ "549oVSg8xaJqHFiTz7mTuW4GqAUVvdBCJAgu3khpmHrJ5u73mcpHeoBuxA4g61JW9HoS5yNWi6iUaN8gX4t5vF9J": {
+  "instruction": "Deposit",
+  "signer": "5xjvuvnJneYTxHxfdMMy3ZsoexkZ3K461EtUdC2gXZBk",
+  "error": "WalletCapExceeded"
+ },
+ "4v6oRG9P1ZYzkPE3gX3H8oU6KNWM6jutYndkdQwEWrPs8mfMc4Qmy7qZouxUYq19iHb42z9MBHuQW8gQx3so3fri": {
+  "instruction": "Deposit",
+  "signer": "5xjvuvnJneYTxHxfdMMy3ZsoexkZ3K461EtUdC2gXZBk"
+ },
+ "2q9tUr4jGb6MSfyWU1i5LsSrYtx4UawL2YjrHCH2e3Jx6uFpsEYf7wexQ8thDn2Hqjy1sfUiqktjMsuBZb6qKocp": {
+  "instruction": "Deposit",
+  "signer": "AE8PNPazT7rhcktWxTMDSojQTc1aXwDpAGZ7bgD5GxnV"
+ },
+ "49YjikfaipYQhMkP4PdFHLvTnJCXqPBtrDCzNQX77Yo6twdB5JaXawb73BRyAzoRiK61ZZtJn4e6mREQB2AHQRd5": {
+  "instruction": "Withdraw",
+  "signer": "8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3"
+ },
+ "ARZWMsNj5gbvKz95j2GRfykV1k9XvEaage53Hfdp6H3bjJHXJUdugfk2KQurAi8DHwr8ahBDkMjUAAkv3P4pTJx": {
+  "instruction": "Deposit",
+  "signer": "8f9EBZ7y3dhhuof3ZjV6yZg2AMRCYuhpkC4r3F52qiT3"
+ },
+ "4ZMSjXoYsCyj1tWapzB4t3RDncPUEMvuSuR1gGt8aWS7zyBWEkMPXvB3tKuRhoEHSnBKqrqq96z3mqR4tE5BUrvE": {
+  "instruction": "InitializeBatch",
+  "signer": "CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR",
+  "error": "failed"
+ },
+ "4eiaBFnDpoeZRLuXFY3qR49R7wcn4ZgfUiuws8kvAatsbSYHz8gJfqyR7tqnwaNJxwjspg52UaJuRyzPqE1WDidm": {
+  "instruction": "InitializeBatch",
+  "signer": "CiYuBF9qqVpan75d7oPmCkTUMrbfJBqcDYbYJFsW9foR"
+ }
+}
