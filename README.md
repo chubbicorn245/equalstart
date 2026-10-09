@@ -1,6 +1,6 @@
 # EqualStart: experimental feasibility bundle
 
-**Updated:** October 8, 2026. **Onchain tests:** PASS on localnet against the real Meteora DBC binaries (Anchor program in `onchain/`, results in `ONCHAIN_RESULTS.md`). Public devnet run not yet performed.
+**Updated:** October 8, 2026. **Onchain tests:** permissionless atomic settlement (EqualStart creates the DBC pool and makes the batch buy via CPI in one instruction) PASSES on localnet against the real Meteora DBC binaries (Anchor program in `onchain/`, results in `ONCHAIN_RESULTS.md`). Public devnet run scripted (`onchain/scripts/devnet.sh`) but not yet performed: needs devnet SOL.
 
 This bundle contains:
 - `settlement.mjs`: minimal fee-free accounting model using raw integer token units (`BigInt`), independent claims/refunds, and explicit atomicity/slippage preconditions.

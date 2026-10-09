@@ -1,11 +1,30 @@
-# EqualStart: onchain results (2026-10-08)
+# EqualStart: onchain results (updated 2026-10-08)
 
-**Verdict: PASS on localnet with the real Meteora DBC program binaries; public devnet run NOT performed (faucet rate-limited, no funds).**
+**Verdict: permissionless atomic settlement is feasible and PASSES on localnet with the real Meteora DBC program binaries (mainnet and devnet builds). Public devnet run: NOT yet performed (faucet refuses airdrops; `keys/deployer.json` has 0 SOL). The run is scripted: `onchain/scripts/devnet.sh`.**
 
-A PDA-controlled escrow executed the first DBC buy, through a PDA-signed `swap2` CPI, atomically in the same transaction that created the pool. The pool was built with SDK 1.5.13.
-The DBC program used is the exact bytecode deployed at `dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN`, dumped from mainnet (and separately devnet). It is not a mock or adapter. Both binaries pass the same 10-test suite.
+## What changed since the first proof (commit 204524f)
 
-Caveat: localnet signatures cannot be looked up on a public explorer. They are reproducible by re-running, and full logs are saved in `evidence/`.
+The first proof needed the creator: the settlement transaction was an SDK-built DBC pool init signed by the creator and a base-mint keypair, followed by `execute_batch`. A creator who walked away, or created the pool separately, blocked settlement.
+
+Now settlement is one permissionless EqualStart instruction, `settle`. It does four things via CPI:
+
+```
+EqualStart Settle                                       invoke [1]   (signed only by the settler, any wallet)
+  DBC InitializeVirtualPoolWithSplToken                 invoke [2]   creator = batch PDA, base_mint = batch PDA (both invoke_signed)
+    Metaplex CreateMetadataAccountV3 / System / Token   invoke [3..4]
+  Associated Token: create batch base vault             invoke [2]
+  DBC Swap2 ExactIn (payer = batch PDA)                 invoke [2]   amount_in = whole batch, min_out from actual total
+  DBC TransferPoolCreator -> committed creator          invoke [2]
+  "EqualStart settled: quote_spent=… base_received=… min_base_out=… opening_fee=…"
+```
+
+**Why this is safe (DBC source @ f552f20, `ix_initialize_virtual_pool_with_spl_token.rs`):**
+- DBC requires `base_mint` to be an `init, signer` account, and `creator` to be a `Signer`.
+- In EqualStart, the base mint is the PDA `["mint", batch]` and the creator is the batch PDA. Only EqualStart can produce either signature, and only inside `settle`.
+- So the committed pool cannot exist before `settle` runs, and no other buy can come before the batch's.
+- This replaces the instruction-sysvar "previous instruction" check entirely.
+- DBC has no stack-height check on pool init. The only CPI restrictions it has are the rate-limiter fee mode and first-swap-min-fee, and both are rejected at `initialize_batch`.
+- CPI depth peaks at 4 (EqualStart → DBC → Metaplex → System), within the limit.
 
 ## Pinned versions
 
@@ -13,127 +32,219 @@ Caveat: localnet signatures cannot be looked up on a public explorer. They are r
 |---|---|
 | `@meteora-ag/dynamic-bonding-curve-sdk` | 1.5.13 (exact) |
 | DBC IDL (bundled in SDK) | 0.2.1, saved to `idl/dynamic_bonding_curve.json` |
-| DBC source cross-checked | MeteoraAg/dynamic-bonding-curve @ f552f20 (Cargo 0.2.1, Anchor 1.0.2) |
-| DBC mainnet binary | sha256 `4c26a8a5…f23b`, 2,326,577 B (`fixtures/dbc_mainnet.so`) |
-| DBC devnet binary | sha256 `5edf76d9…8ad3`, 1,983,568 B (`fixtures/dbc_devnet.so`) |
+| DBC source cross-checked | MeteoraAg/dynamic-bonding-curve @ f552f20 |
+| DBC mainnet binary | sha256 `4c26a8a5…f23b` (`fixtures/dbc_mainnet.so`) |
+| DBC devnet binary | sha256 `5edf76d9…8ad3` (`fixtures/dbc_devnet.so`); re-dumped from devnet today, still identical |
 | Anchor (lang/spl/cli/TS client) | 1.2.1 |
 | Agave / solana-test-validator | 4.3.0 |
-| EqualStart program id (local) | `6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j` |
+| EqualStart program id | `6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j` |
 
-`swap2` schema (IDL 0.2.1): accounts `pool_authority, config, pool(w), input_token_account(w), output_token_account(w), base_vault(w), quote_vault(w), base_mint, quote_mint, payer(signer), token_base_program, token_quote_program, referral_token_account(w, optional), event_authority, program`; args `SwapParameters2 { amount_0: u64, amount_1: u64, swap_mode: u8 }` (0 = ExactIn: amount_in / min_out).
-`payer` is the only signer and the transfer authority of `input_token_account`, so the batch PDA is `payer`, signed with `invoke_signed`.
+DBC instructions EqualStart calls:
+- `initialize_virtual_pool_with_spl_token`: 16 accounts, args `{name, symbol, uri}`.
+- `swap2`: 15 accounts, args `SwapParameters2 { amount_0: u64, amount_1: u64, swap_mode: u8 }`, with 0 = ExactIn.
+- `transfer_pool_creator`: 6 accounts, no args.
 
-## Settlement transaction (mainnet DBC binary)
+All discriminators and account orders come from IDL 0.2.1 and are hard-coded in `lib.rs` (`mod dbc`).
 
-`4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y`
+## Settlement (mainnet DBC binary)
 
-```
-ix0 ComputeBudget                                   invoke [1]
-ix1 DBC InitializeVirtualPoolWithSplToken (SDK)      invoke [1]
-ix2 EqualStart ExecuteBatch                          invoke [1]
-      DBC Swap2  (payer = batch PDA, invoke_signed)  invoke [2]
-        SPL Token transfers                          invoke [3]
-      "EqualStart settled: quote_spent=600000000 base_received=19453340776307"
-```
+Signature: `4h2pcxNw5FETH2JT2EVjvx4uueGuK417JKFWMv2AQP6WqM64Cnyyj6UPaEmb293vMjzEpGLJkuvzioBtoEnCnVzW`. Settled by `eve`, an unrelated wallet. The creator signed nothing after `initialize_batch`.
 
-- Simulated first: 168,317 CU (mainnet binary) / 183,813 CU (devnet binary). The transaction is 932 of 1,232 bytes with 20 static account keys, and needs no ALT.
-- Pool state after: `has_swap=1`, `quote_reserve=594000000` (0.6 SOL minus the 1% fee), config and base mint match the commitment.
-- The only successful transaction ever touching the pool address is the settlement transaction (`getSignaturesForAddress`).
-- Batch quote vault went 600,000,000 → 0 (exact-in fully consumed); base vault received 19,453,340,776,307 raw units.
-- Devnet-binary settlement: `5KrrDACsRCJwVZDJv9kNehkugRwXJvhNP3EMKSHc9YM7J99sQtrXycLpDBYsEJVcqXCwv5r29pvkhXjsKZMYKjNd`.
+**Simulation:** done first.
 
-Claims (1:2:3): Alice 3,242,223,462,717 · Bob 6,484,446,925,435 · Carol 9,726,670,388,153. All are exact floors. 2 raw units of dust were burned permissionlessly after all three claims.
-Refunds (expired batch, cancelled by an unrelated wallet): Alice 0.05, Bob 0.10, Carol 0.15 wSOL, exactly 1:1.
+| | CU | Size | Account keys |
+|---|---|---|---|
+| Mainnet binary | 204,171 | 814 of 1,232 bytes | 21 (no ALT needed) |
+| Devnet binary | 227,186 | 814 bytes | 21 |
 
-## All transactions (mainnet DBC binary run)
+Devnet-binary settlement signature: `3WkJBN6Ft71Lqc4VjxgDprjFRo22uD9yVAcuep7F5RHft8nVoWbD3wM57nekW3Fnz7smqsTHRrjwgVpyri6BSoPr`.
 
-Each `ATTACK` was sent with `skipPreflight`, landed on-chain as a failed transaction, and the test asserted the specific error.
+**Batch and pool:**
+- quote spent: 600,000,000 of 600,000,000. The quote vault went to 0.
+- base received: 19,453,340,776,307.
+- `min_base_out` = floor(600,000,000 × 30e12 / 1e9) = 18,000,000,000,000. It is computed on-chain from the actual final total.
+- Opening fee measured from the pool's fee counters: 6,000,000 lamports, exactly 1%. The committed ceiling was 100 bps.
+- Pool state: `has_swap=1`; `creator` = the committed creator (transferred via CPI); config and base mint as committed.
 
-| Step | Result | Signature |
-|---|---|---|
-| dbc.create_config (SDK) | OK | `rcxVV9z8T2eM9bvWpJBKUYVMMa5MZR8SfTeGjkXQ9YgNT8VGCGGRSE53a6fNmyesg3njazRXbjD8wgMkg462mhh` |
-| initialize_batch main | OK | `3Gd1P8dztdAH4yxHGYQMo7pG9Yvot3CZCrcji5NCFJLkUF9G1BVGz71zGtpBS5e43j5fsPKDmhcExbdztXQBD2cS` |
-| initialize_batch expiring | OK | `HFoLb9AxQpZiFg6o9guZex6HSdURaCFbSeSE5vLu62mHn9ySr3SJ2X2C8E5urSzosW9Sa71EtGryUFtJKfYZC4V` |
-| initialize_batch slippage (min_base_out = u64::MAX/2) | OK | `8NZMwQAkFsQUtMb3DH6WCK94Bx6wxXQ4Gs18H5SfVZkzFHAWYVAeZjybLWFYAn2AkTm1uyZ3jbkc86iJKk3kpyA` |
-| ATTACK re-initialize main batch with new terms | FAILED (account already in use) | `2RByf1Hh6Qdf8CiRPMAU794bu4C7rdqUNCMLyBLFQzokUXgNYWmWifGWZdnaKp4xdvs5uoLGFWKbGm2otksfL7QU` |
-| ATTACK initialize_batch with non-DBC config | FAILED (InvalidDbcConfig) | `2J1csYVTw88EE9ugv5TnDMWdyQHxSBSZRnkxkNPHToiZCZipjVh43UBfprKGXmzzWvbUEwK1jv8bA7nibhUvnb1F` |
-| ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold | FAILED (BadTerms) | `iKoAN5VXvPGnj4FfaVrV3r4DRAPyn2HKc1FDHDuaeQXxiZCA7xUtRcEV41BztpeGyna2Aiqo11kwKBcc4jrKV43` |
-| wrap 1 SOL | OK | `5rBAbvaY9oSKkGoKZ2SVPNBXgM2LzxvsZVExaZu9WaZeTxbXtpbRPMtuv3EB27sNovbHwkWLuf6efJu69G4RAtwP` |
-| wrap 1 SOL | OK | `4zMpjH5ewBbU2RaqkV2N3Tai99qLBSJKez5YjDxsQrQR676gUdUxPqNSmyTjo6DMmjZ3gAQaDqhRVhWzJbocmCja` |
-| wrap 1 SOL | OK | `6762JFZPWRM8dP7bEPeYSqsS8ig4hAagZn9YWyi6w2mNWRhhBWQCuVCP7NzWApcmPN3bb9AZ7gYudk5SHd1zZzBu` |
-| deposit alice 0.15 (main) | OK | `4o368isN4BcHUZX3uFdKoAthcRSz467jB1mu3nwD1UR66AGxRQkyCMMEE3K7KfJeXTLf3L7ZAJta9dyDvoBJmQf3` |
-| withdraw alice 0.05 before close (main) | OK | `3dQJeJUK3zV1KFVkhNcG9SwYNRQgxFVUpGJUcXX9yzPUnCUjvGXJBwuwsMBhmeA9YfPPoMgJ2AqLUuK1di7p4Smc` |
-| deposit bob 0.2 (main) | OK | `3msUxgZeWk8SkhL7V2NoQjYxcd4exm9yRgKgVHX7qJtvof39m33WdK1bufvcdF5N2u8MSiX1Qy2RmUqUJMEC5Bjs` |
-| deposit carol 0.3 (main) | OK | `H2dpco2f4oxU2vLAGjim6HuDQm8JweyGgwtA96FuLgjDLxNfYSfLsUerUJMUKzMdsxG8crj5uSvp9gaUkBR8pBG` |
-| deposit alice 0.05 (expiring) | OK | `3mbhwtSMBDwgqcoQPn8H8q9iFu1SuFk5KHyXHT812zxvg2fG5THmsMUpBSyBAtDY9HKNfYvDgPcdy7w7nPRMCFvS` |
-| deposit bob 0.1 (expiring) | OK | `2xJ3GE8H7ZAbYM3oSCuLcCrnABpo2NCg5h1FtY5iYmJTh7jfw3DHMe9PjdXaotpRpQHNTTAQE4HzqkbpRKwsSSn4` |
-| deposit carol 0.15 (expiring) | OK | `3hZZj4VuqLnfRbqZgmoHHCjdZnvucDcXmNcXPFB6zLR8xhtwcZSRyvsApUvaCcMUyHT42T6xwgk1KwvKbfbxEFD` |
-| deposit alice 0.1 (slippage) | OK | `5hKze2S4Vb7ftTPTUQiD4yaaaJB5hw5LGQ2M7V8EnYnJ6Go5NWg8eWv4sJhGP1UbNoMYcvzoXMcvoayNqeNVh4Am` |
-| ATTACK refund before cancellation | FAILED (NotCancelled) | `3Dd3LtvJPbH1uJ8dv2zPy9V6CJJNrPZLF5HPGS2fZXHfjxPRBSLEcdrKm9q6ZPjocpLd3Dro8HzxaQvQR33N4fKJ` |
-| ATTACK cancel_expired before expiry | FAILED (NotExpired) | `rW5vG6uB3r8pDS3rteuH18kH5VEG9h3SsZzS49qB39pC1gWYt4nHT6zoFg1Zoz4sWxLFN4KnV5kHEz997bX2mYG` |
-| ATTACK carol exceeds per-wallet cap | FAILED (WalletCapExceeded) | `616TGnxJkfwgSBuzjYtxfi7iDcWnREYZcuphM37Sx6p2QQgFL6ZuhGXVGJimufEeaGyCUQJ4q9kt14gSm6ua9ujW` |
-| ATTACK eve withdraws from alice's contribution | FAILED (ConstraintSeeds) | `2XeE8V2zDLFEFLNqMvrjbKLd4QHUGLkBjjQ1gwbAoTaV8Q29SWEHNwagNDFrukmVyC8Y1natqagJrFvwokkeAGaL` |
-| ATTACK creator SPL-transfers out of PDA quote vault | FAILED (owner does not match) | `2CazypCZBFVnk2jLa4qZkvzPqzgAJjF1oPDY55cRLM2kNyE7YLeFytmovtnRBknJ1jBhzjPXEyuM5yGVdsWTkj62` |
-| ATTACK execute_batch before closes_at (with real pool init) | FAILED (NotInSettlementWindow) | `25MZ4iJYBuYrTuiZmEZXghYS8BLHEAD5JDG3EXda8prfceu1MUTGT3DPt8z9Rti5xEzFwz7CNMPZQcgnwoMgJMKL` |
-| ATTACK execute_batch without pool init | FAILED (AccountNotInitialized) | `352X1rEpDHswGEV3tt9uX4ys8c58Z9iWKj6xGxype9KNepZQbwJuMrHYd4q2cyYMp3Fko6sMz6w2oU3SfY8QhcFf` |
-| wrap eve 1 SOL | OK | `4fb5GberYU9uRDkePcxbcGtLxR4tAchfvfo155FxHLe1jVb42YAaB3D4ULpLM7Y9PYpPA2ZqvYDbukqL9sNEjvCV` |
-| ATTACK init -> eve swap2 first buy -> execute_batch | FAILED (PoolNotCreatedAtomically) | `5mHgYN6rjSZJMZ2xYYSQsabSNzcCriM5H7GEAQKTXTWYyXpccwjEF1nXT32WtRnuzWCJb4oEAGTfP6bQeT4PgYna` |
-| ATTACK init uncommitted pool -> execute_batch against it | FAILED (ConstraintAddress) | `3aXMrfU56RiSJJoDn6qgZujs1CFU1UzUHTAvdZ2Zk5wUYjAvkAkmrbyhjaDF9gzbtSyAbV4Bt5WY3941y37nRDob` |
-| settlement tx (slippage batch) init + execute_batch | FAILED (ExceededSlippage) | `4N9RPJN1DQNU1rtBGV7m2vyo8zxoRm4HwrEpiuNfyZ42GRtVJwK7YAv5Zo9k8eCtam3oAzzEE1Saa7SobkG7y5Kh` |
-| SETTLEMENT init_pool + execute_batch | OK | `4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y` |
-| ATTACK replay execute_batch alone | FAILED (account already in use) | `46BsE9Ckaez1TVMwLRWRLHyikhXAizAsZKtbmZr6LtrAd6xByZwTjvzVAVzEc6Z7h4CfvZPCDjmsQuRpfE7g9zi4` |
-| ATTACK replay full settlement tx (new blockhash) | FAILED (account already in use) | `5k5SBzhKZ8g2uSj7vytmAmv7ULpMgPP2bj2kz5Wh59XodQ3hAQ9qDryVR1m5gnCRw28Gk77cBuRNukFpJ3NAwpG` |
-| ATTACK creator SPL-transfers out of PDA base vault | FAILED (owner does not match) | `72aEXjqydBxsXwCEBsyRxVikUiUfyRefwTdP8oabHCo1Hmcoj5fmdzFbxLgHhhYLaHTx19pPpBDPF8NvT2236iG` |
-| ATTACK eve claims alice's share | FAILED (ConstraintSeeds) | `3mHjexwPdPy4GUxGU1n1GuAdiGsprTCiTyFkHRieFkC9EEDGYAsbJnSPdvjMQmGLWTmHAdFZ46wcwd8cv5evC4c4` |
-| ATTACK eve claims without contribution | FAILED (AccountNotInitialized) | `64XaeHyvgUxGYj9ubpxUdRRV6zPeeq6HwTqmteYj1dro67fLyUrKGQLbD1b52LUc8ZwQ3F5YhkgS53weCfS1Rm36` |
-| ATTACK burn_dust before all claims | FAILED (ClaimsOutstanding) | `4EsnJXzSHxBajoh3qAxeMCdUv11cyK7NzCitDWoUdFzNqme3WLrbKXh9rXbKSEENmw1hGHym3FZ5Znt228jjZSVC` |
-| claim carol | OK | `zN3s5yuuuJd1fTLVFLrt5eZCz19DyNqXii9bWv4SsC8mCuyEPksTTZFFEgY1f4x3v68Ni8mQZbmPGRCaM8EfKXS` |
-| claim alice | OK | `3peNJvfowb1fjctbRHyTRTXDas3a74jWwM4bQppiNMg8sthdTNEhYX8m9xvgV5sEV2iD2nZk5JbtSTHcrZB4qctW` |
-| claim bob | OK | `5M173WMtxrVjJygxxDzGq8FbCtvtLH3ayoUXWc8rp2XYqjdZ1sztcZdQjcTR3yaEt9baSw5cSBjRAC9mt4JGeLbP` |
-| ATTACK alice double-claims | FAILED (AlreadyClaimed) | `5pd1sWQTjLa6h5bieusvwAVnrMtT3e5G2ke5ojthKwiiCCoiTv95cfdGV2gjtSXUAjfGMoi3wYukWDeR4VMtTSw7` |
-| burn_dust (permissionless, after all claims) | OK | `2ghzGYQhwTFpvB5Jj6mK1DzacushbvYCKGhAq37WZEC9bw5JPY9Rp4L77naXVooJm77Detk6pecQ59WNWDA29Mff` |
-| ATTACK execute_batch after expiry | FAILED (NotInSettlementWindow) | `4YZuYCCRhY37XnBrQVXpFBKzbWEfjV26pGir7ExNBrQsQYbBJenD376PJTUFNspbEaJQtZxhQa34yw99KjWiXJSX` |
-| cancel_expired by eve (permissionless) | OK | `2f3V1NAj7NGMLo6QKXWAHwkKjDasbQRvusUrim41TRj7UKwQB58SQ8HcodUqBiptnxwMKVX7xRfySFswXNMrukP9` |
-| ATTACK eve refunds alice's deposit to eve | FAILED (ConstraintSeeds) | `3pdd9KM8JYB2RqA4GhTmgwG3myZwqchaMLK6kh5MuTEjzkjRZ2rGnjYhJVnwFdPx1Ad3Bz73A4mFpyjKDjZrYcti` |
-| ATTACK alice refunds into eve's token account | FAILED (ConstraintTokenOwner) | `4C55wvyJDCHFPPqNt1xh8XyL9BX68CLswBxhDbwWEoAcqxAe4S4vifMRJC9jTrnqan8eaAo7KyFKtva3v6xaP4zG` |
-| refund bob | OK | `3V1xD43owXi8cBTAMinvT7Nk6wsvT2psvFtonEgCy3bdEotp4paWWYe2UfDkCxf6DTSF7JmcNLTnXvHotLacFdMi` |
-| refund alice | OK | `5CoJV8bjRwMaKybB1AxT57EXanXzSafjKLowq4XpC7tb9FCcrayr6rVc1gQaHh3MmmsoabsNqJtKFqwimbyD6mfr` |
-| refund carol | OK | `3VBNmUujPv7uEKrrpwBCX9P34zSsNFcFENJhMHJJ8PUYk3nPtxKAttzKLnyPju9as5pPFyLQHqK4G8LFrmY9PVQK` |
-| ATTACK bob double-refund | FAILED (AlreadyRefunded) | `4BeM6hQCBKba5f2ZwetTPq59Wwc7bJwArQKN5KuXYWuRqjL3263i2ftW6C7ZCwagUSRjcXMXGFJhemxofqLppAf3` |
+**Lamports:**
+- Settler net: +28,458,040 lamports. That is the 0.05 SOL bounty minus the rent for mint, pool, vaults and metadata.
+- Creator lamport change during settlement: 0.
+
+**Pool history:** the only successful transactions that touched the pool address are the settlement and the attacker's lamport donation.
+
+**Claims (1:2:3):** each claim is an exact floor.
+
+| Participant | Raw units |
+|---|---|
+| Alice | 3,242,223,462,717 |
+| Bob | 6,484,446,925,435 |
+| Carol | 9,726,670,388,153 |
+
+2 units of dust were burned permissionlessly after the last claim.
+
+**Refunds:** both batches recovered without the creator.
+- Abandoned batch (nobody settled): cancelled by eve after expiry. Alice got back 0.05, Bob 0.10 and Carol 0.15 wSOL, exactly 1:1. The 0.05 SOL bounty went back to the creator.
+- Underfunded batch (min raise not met): Bob got back his 0.10.
 
 ## How the guarantees are enforced
 
-- **Atomic and fresh pool:** `execute_batch` must be a top-level instruction (`get_stack_height()==1`, and the current instruction's program is EqualStart). The instruction *immediately before it* must be DBC `initialize_virtual_pool_with_spl_token`, with accounts[0,3,4,5] equal to the committed config, base mint, wSOL and pool. DBC `init`s the pool, so that instruction fails if the pool already exists. Defence in depth: the pool account's owner, discriminator, config, base mint and vaults must match, and `has_swap==0 && quote_reserve==0`.
-- **Committed config:** `initialize_batch` requires the DBC config to be DBC-owned, have quote mint = wSOL, SPL token type, base fee mode ≠ RateLimiter, `enable_first_swap_with_min_fee == 0`, and `max_pool_quote_in < migration_quote_threshold`. The pool address is derived on-chain from config + base mint and stored.
-- **Output verification:** the program compares vault balances before and after. The quote spent must equal the batch total exactly (no partial fill), and the base received must be ≥ `min_base_out` (DBC also enforces `amount_1`).
-- **No privileged withdrawal:** funds only move via participant-signed `withdraw` (before close), `claim`, `refund`, the single PDA-signed swap, and `burn_dust`. The creator has no authority after initialization.
-- **Deadlines** come only from the `Clock` sysvar. Arithmetic uses checked ops, and claims use u128 intermediates.
+- **Permissionless, atomic, fresh pool:** described in the section above. In addition, after DBC init, the program checks the pool's owner, discriminator, config, base mint and vault addresses, and requires `has_swap==0 && quote_reserve==0`.
+- **Settlement inputs:** the settler supplies only accounts, and each is pinned:
+  - `batch.creator`, `batch.pool`, `batch.base_mint`, `batch.base_vault` and the config are fixed by address.
+  - DBC re-derives its own PDAs, and Metaplex re-derives the metadata PDA.
+  - Nothing the settler passes changes the price, the amount or who receives the tokens.
+- **Opening fee vs. committed ceiling (`max_opening_fee_bps`):** checked twice.
+  1. Before deposits, `initialize_batch` requires `cliff_fee_numerator × 10_000 ≤ max_opening_fee_bps × 1e9`. Every DBC base-fee schedule starts at the cliff fee, and the pool activates in the settling instruction.
+  2. After the swap, `settle` reads the pool's `total_trading_*_fee + total_protocol_*_fee` and requires `fee × 10_000 ≤ bps × gross`. These counters are all zero before the swap because the pool is new, and this check covers the dynamic fee too. Arithmetic is u128.
+- **Minimum output from the actual total:** the creator commits `min_base_per_sol` (a minimum average price).
+  - `settle` computes `min_out = max(1, floor(total_quote × min_base_per_sol / 1e9))` in checked u128.
+  - It passes `min_out` to DBC and re-checks it against the base vault's actual balance change.
+  - `initialize_batch` rejects terms where this overflows at `max_pool_quote_in`.
+- **Other config rules:** the DBC config must be DBC-owned, use wSOL as quote, use SPL token type, not use the RateLimiter fee mode, have `enable_first_swap_with_min_fee == 0`, use a collect-fee mode of 0 or 1, and have `max_pool_quote_in < migration_quote_threshold`.
+- **No privileged withdrawal:** funds move only via:
+  - participant-signed `withdraw` (before close), `claim` and `refund`
+  - the PDA-signed swap
+  - permissionless `burn_dust`
+  - bounty lamports, which go only to the settler or back to the committed creator.
+- **Creator abandonment:** the creator's only action is `initialize_batch`.
+  - From then on anyone can settle (between close and expiry) or cancel (after expiry).
+  - Refunds are participant-signed and pay only to the participant's own wSOL account.
+- **Deadlines** come only from `Clock`. All arithmetic is checked.
 
-Deviations from `CHAIN_FEASIBILITY.md`, all deliberate:
-- Batch seeds are `[b"batch", creator, launch_id]`, not `[b"batch", launch_id]`, so nobody can squat another creator's launch id.
-- The base vault is a PDA `init`ed inside `execute_batch`, because the base mint doesn't exist until ix1.
-- There is no separate `min_raise` cancel path; an under-raised batch expires and refunds.
+**Deliberate deviations from `CHAIN_FEASIBILITY.md`:**
+- The base mint is a batch PDA, not a creator-chosen keypair, so there are no vanity mints.
+- The batch PDA is the DBC creator inside `settle`. The role is handed to the committed creator in the same instruction.
+- Batch seeds include the creator.
+- The base vault is the batch PDA's ATA, created in `settle`.
 
-## Remaining security concerns (not solved by this prototype)
+## All transactions (mainnet DBC binary run, `evidence/localnet-v2-dbc-mainnet-binary.json`)
 
-1. **Creator liveness/griefing.** The settlement needs the creator's signature and the base-mint keypair. A creator can refuse to settle, or create the committed pool in a separate transaction to make settlement impossible. Funds are never lost: the batch expires and anyone can trigger refunds. But snipers would then trade a pool the participants expected to open first.
-2. **First buyer pays the starting fee.** The batch is the first trade, so with a fee scheduler (anti-sniper decaying fee) it pays the highest fee. The config's fees are visible and committed, but `initialize_batch` does not cap the fee level. `min_base_out` is the only economic guard, and it is an absolute amount fixed at init, not scaled to the final raise.
-3. **Pinned DBC byte offsets.** EqualStart reads `VirtualPool` and `PoolConfig` fields at offsets from IDL 0.2.1. DBC is upgradeable by Meteora: a layout change could make these checks misread. Discriminator and owner checks fail closed, but field moves inside the same discriminator would not. Re-verify on every DBC upgrade.
-4. **Trust in DBC with the PDA signature.** While the batch PDA signs `swap2`, DBC could move any token account that PDA controls. The before/after deltas bound this: the quote vault loses exactly the total, and the base vault is freshly created. Still, a malicious DBC upgrade is outside this design's control.
-5. **EqualStart upgrade authority.** Unless the program is deployed immutable, or the upgrade authority is locked with a disclosed process, the escrow is not trustless. Not audited.
-6. **Rent and residuals.** Contribution, vault and batch accounts are never closed, so rent is not reclaimed. wSOL donated directly to a quote vault is stranded. Participants must unwrap wSOL themselves.
-7. **Sybil.** Per-wallet caps are trivially bypassed with more wallets.
-8. **Same-transaction buys after settlement.** The batch is guaranteed the *first* buy. The creator, who builds the settlement transaction, can append their own buy right after `execute_batch` in the same transaction (second-buyer advantage).
-9. **Not tested on public devnet.** The faucet was rate-limited and `keys/deployer.json` has 0 SOL. Localnet uses the identical DBC bytecode, but a public run would add independently checkable signatures.
+Every `ATTACK` was sent with `skipPreflight` so it landed on-chain as a failed transaction, and the test asserted the specific error. The `GRIEF` donation succeeds on purpose: settlement must still work after it, and it does.
+
+| Step | Result | Signature |
+|---|---|---|
+| dbc.create_config good (flat 1%) (SDK) | OK | `5kfFzY29oXzUonijxiU5dxQCxShPguXNjgqmfDpBjom5HcFkMdWQExhdzD3eDnSDV8CHbB1QZSUGRhhkGtT5ULZd` |
+| dbc.create_config high-fee (5% -> 1%) (SDK) | OK | `xjcAUWvkSc913SyNzeAQ2C1v1UyE3rJCXGdKSZVzf4rqzda88VYjJVUmPf7gjB7CR4V6v3ADJ5dNKHMhis97iUy` |
+| dbc.create_config first-swap-min-fee (SDK) | OK | `5zA82pQJ7wZrriCDyPWBZ6iqNdFGdz7rP2PRhVKwZXHhkZCYiQGXM6WBFBvT2h5U3eo4Phj1oGxh4C6f4Ly3aGiS` |
+| initialize_batch main | OK | `5o1oq8ysqEinx2t7yp1atVVWNtM1fN6iigLULjWLM5DzhZTu9LqmsNn5CxFNLMC6erX6QFU1J9NGMw3Ctb9noany` |
+| initialize_batch abandoned | OK | `4H2XnLmY1BtJhGL3mhHGd3djRuKRKg2SsS88Q8R4MtC5R98rsHRp6bBh3zGsUfugFAXtEmixSkrLWYmQpQkrktc3` |
+| initialize_batch slippage (min 1e18 base per SOL) | OK | `57yNtLPkCJB1GAvTARfMDjTsTnNkUSrqUt64iJSwrhPYgvYwQGq36voUYcGg7ZS5nRtYZVjnsAaUDH61GtLSBe7z` |
+| initialize_batch underfunded (min raise 0.5 SOL) | OK | `fQQLUZLHR22aZ1mUtBoAnYZ5518SqTyXtD6Kdk1gbq3X8L1H58yyfuEN1xeYFDcgLLzX4J5cMU6R67Bdnn475zJ` |
+| ATTACK re-initialize main batch with new terms | FAILED (already in use) | `5AekMT2NEeNwUuDib51jtZXJnAhtDH164ErBZVMrrinWEFyiYXtmdKukjRCdc4nPppNpY5bhDZFfz7EfLWpCyUCh` |
+| ATTACK initialize_batch with non-DBC config | FAILED (InvalidDbcConfig) | `5FEvpKPMULjbTJb1A42KKXQjyycFyncfWLLSsgUeVSMBSxqpiAhfkFFj13LPPkNzfa2iL9CtPSU44YmnXG7eiVJE` |
+| ATTACK initialize_batch with first-swap-min-fee config | FAILED (InvalidDbcConfig) | `5JRURzQ3LFTp4drxc4gGXrbjPSvf6NynqN9Vu3mvLcT7wukU1JTYK9aQmRN6ZbbAVy35A59apcpTdK6dybMcWx83` |
+| ATTACK initialize_batch: config opening fee 5% > committed 1% | FAILED (OpeningFeeTooHigh) | `5ZPip3EatmtP1SrgLq2evBZFzHa2diarqXF9CcRw2PwyWqck7HwAo6AR81gxjgkBLX4RNyDGz3VitFXzsJiLopvr` |
+| ATTACK initialize_batch with max_pool_quote_in >= DBC migration threshold | FAILED (BadTerms) | `5boUZF4JF3GJBFYi5meyDPfBTmsBCgHu4V6K48TatEvA1UfM4MEYC1X6z6jcxG52eGH9EWxHND25GpjdPNpQFcpr` |
+| ATTACK initialize_batch: min_base_per_sol overflows u64 at max raise | FAILED (Overflow) | `4fA5kjfYU26QCvSDowtuqevQRdZ2ayra7R4VGormQm4zf27pHZebCp4aTNURBLovapukipMUsePj7sYgjv8xANey` |
+| ATTACK initialize_batch with expiry before close | FAILED (BadDeadlines) | `47kzmNkd9MWyjrM47rCCfPPvmTg4hEbAURDVyMucqYecRxpv5bdttgwBqyQfC6FeK4PUA8JDL8aNJfnU2aRt46Dw` |
+| wrap 0.7 SOL | OK | `49DGvwHoGkhvJg3jdcWQdXRsWH9DSN5zmWmWzx5G8Xo2Vf7zNA2Mh1gFUkGJTJ8k6HmfE8titab7qoKiA24D6Yst` |
+| wrap 0.7 SOL | OK | `5VjryGtzoLtBimTKM1itTmMvMfp2dbChLCeQPrawmVLNUAZBBwA9RtvamEeHxb1rrVvxQuF3JyMAKeBi7RrAd8n8` |
+| wrap 0.7 SOL | OK | `4WV5dWbs3feZozH3i3e7LUPHszP9b33kE3v4FkPgcxP81KdF7epqZW5CqZseAJPEtgAhcWd8B48vVfwpYa7L6aTD` |
+| wrap eve 0.01 SOL | OK | `xj5YevimNF29oSKfb6xHHjDo5bpYu4pVwgwJxH445UEo7Wy9q1UmRwU9nWRjqQC3S7TAVzNzWi8iMXhGjmSvuZe` |
+| deposit alice 0.15 (main) | OK | `4xa6dNDGbWGPiR5AAx9NnehxEWscz9UhYwfCg1VC186Lkz2VNBwTFvQk9dTTfg7hYn2zpo7Rz4RyAdNmd6GM4p1Q` |
+| withdraw alice 0.05 before close (main) | OK | `2BbXBUPcEwvXXMaZiW2byQ1WXwmPWs7XVLbY8ph8mWYsCd9JHuZGjiPPzx5gMrteb7t7RMUfDuXi9X4sykJHKiEZ` |
+| deposit bob 0.2 (main) | OK | `128FHcceZWAHzqutENKWeYxnWAVxZbM32joTBfb562zYmALtPCvoo95D2jufL89mERqZyrYrZ8wyoC5T3Kmnzkda` |
+| deposit carol 0.3 (main) | OK | `eQcK65VtMm3Qr7HV9Apeh7jQLrj2GfeFVa5JUqvjvBHUwwAB6fCfhrUZfdJrb4tWNn5CGS2yg1U5UXbaXBmWPG8` |
+| deposit alice 0.05 (abandoned) | OK | `21BQJLa7sCGpFvUyxUiywrzYjzkTFAmpQ3gGjUs3sMAQtdFtZAsq8CNEUt1b4TdFF6fEwdG5hYq3LaU4ECyx1uEV` |
+| deposit bob 0.1 (abandoned) | OK | `4SAb9MDVwXeY3K9i3jiYykoBmAehR32omyM1KvbqLE3eRHkMJBS5av7B4uJ5PxP3zoHeaX3hV7NKouvT8ZprQdwt` |
+| deposit carol 0.15 (abandoned) | OK | `4vFXNy2MTkqfweRAVK5grVbxJNUvy3tqgoFPAucJbtKytr1RR7Criq2Vwi2yufmgdqwrYs4Jiwh2aNugfkqntPiQ` |
+| deposit alice 0.1 (slippage) | OK | `3L9ZGmZiAD9Zy8LkMHLoPn9SeLGa93bFci2oAWPz7FbvB2v3zCm6BnLYLWSZNgFvL1siVfdPAopVKGo5LkSETdvr` |
+| deposit bob 0.1 (underfunded) | OK | `4M3M4MHEErw754uWco7gcu9Tub7AdN4ZetChvhNJQtP6HKkZ3ccD9TF8giEmmzh9u7wGYKBSauFjPVcQMWqYDoj4` |
+| ATTACK refund before cancellation | FAILED (NotCancelled) | `5vsXFjYTdBeEhWEhbKcs9AbCmF2cgniUVRhaPUP3BC2xqijdpRsb5nzNeY46QYXe4HvrVaZ72cELQmgkEKdUzSZq` |
+| ATTACK cancel_expired before expiry | FAILED (NotExpired) | `46J8gUCkZ87QQSrozULLQbEKBGTvNJjwWtygoAF6N4ttkjHw9CHmqtvM8DYzEx1aNHXah2V998usteBrx3L911p1` |
+| ATTACK carol exceeds per-wallet cap | FAILED (WalletCapExceeded) | `4XRCv4rjmww6U8xhUd23zZ1bjLK25H74FyGW1oKCHh1KJ8wKjHRppeb7nuCVV8uoVSSP2X5oy6Hq87BaiFtAbiLo` |
+| ATTACK eve withdraws from alice's contribution | FAILED (ConstraintSeeds) | `5WLi59GbQc18HFWh9jvDBk4FfuGh2keDoazJFhpokJWvtTFVH5uS8ws8rYfoUshKGPX3JjCNqLujseRmmQujHMDR` |
+| ATTACK creator SPL-transfers out of PDA quote vault | FAILED (owner does not match) | `5DS72zPSkDtDcuo4jobu92AHsbcxsxFjKh1j7LtJNTXh23S7oecDRcZxMC9uMjfGzvH6RgJuWjkYzzjpi6XRyo8z` |
+| ATTACK settle before closes_at | FAILED (NotInSettlementWindow) | `59d7YDgUHWrDjQG8EbCRAvJj9uiUH47km9T4e6sQjKs1cCG1HppyN7Qc1tD9c6hwEtTWPWHh6uh5upEBSYx9GS5h` |
+| ATTACK deposit after closes_at | FAILED (DepositClosed) | `5RsJkAEa97MAmSrVXuhDGgXiXsVy5TkcDB9Jb7dHtVe7yJndzjTugZ5qqD6fTbM4hSFGJXFQUHQk5nFqW5qYHTVN` |
+| ATTACK eve creates the committed DBC pool directly (front-run) | FAILED (unauthorized signer) | `5Kmtah56s9nooGAdGRBuwbfozL52U7XeBp4cEnzJgrSeTBvj7CEGJvuromhgciy3YokzRkijpAKtojhvmMrGKzMW` |
+| GRIEF eve pre-funds mint, pool, vaults and metadata addresses | OK | `3ZPoFkdWbWn78rjc9spDyT8kKgFTePAUtDibfvMD4ThQ2TsJ5AHmJxnfyQTicb9hQV8HeYV3DuzYPTGpYedLYEgW` |
+| ATTACK settle naming eve as the creator (steal DBC creator role) | FAILED (ConstraintAddress) | `2Ho6TstTjfhR6ux4L6gDofb1wevVoGR2GLnWJbj9ximjZq7jkfv2EEMd5VZzX6kM1zwF9XxZoy8H7AXZ3tm9a6VP` |
+| ATTACK settle routing the buy into eve's token account | FAILED (ConstraintAddress) | `66Vkm2n1RwEX3u9uT9K1AaHoJstUwPg7Rifr9R2rj21MJBvRopwnTpW2kAMYCQNBUdvNeASpQJxC9c8wsrFFeWnX` |
+| ATTACK settle underfunded batch (min raise not met) | FAILED (MinRaiseNotMet) | `bimCPBX9v1LPwvSRpd93ChBNevgJmNMvK61MomDLthYaFiA7hj6HAXUPpuGxsCY5JFmiDERt9KU5wqR5TBJY9QA` |
+| settle slippage batch | FAILED (ExceededSlippage) | `27tKwK1wKotfukgdChpxQ8jAz8wd6SEwyW9w74KC1fgdfoZud7CjyF66LXN8bsdmcsTJp9LCxjcPHVeD3XVHYWAE` |
+| SETTLEMENT settle by eve (permissionless) | OK | `4h2pcxNw5FETH2JT2EVjvx4uueGuK417JKFWMv2AQP6WqM64Cnyyj6UPaEmb293vMjzEpGLJkuvzioBtoEnCnVzW` |
+| ATTACK replay settle | FAILED (NotOpen) | `45q5XAPBgovZMYRoCmz6y1Peq57fuTaRwXhzCXpJJZRPYazrjYXSdrLDR8t696FHtSU51RUmpyFHSyGz4QiPYn3e` |
+| ATTACK creator SPL-transfers out of PDA base vault | FAILED (owner does not match) | `4u7CnagkKbU7iRBDUsRvb5F5WpDgKmPQVeB9Nm3iSTxeJyhZN2jbtqFjEMwpWGaY8WtXhBSeaULP7ivCu3qrXP8K` |
+| ATTACK eve claims alice's share | FAILED (ConstraintSeeds) | `hzCtN6sfGLtt8yzT6c1anPRzEi2QxE8pHY7Zhbv4GGiwdiEzzfv8UYZDaPZiLH6oXJt9KMo2sreqNUFqp2pucjg` |
+| ATTACK eve claims without contribution | FAILED (AccountNotInitialized) | `4cpn62T1GCri1gVUgpEB5JHq7mGFmhuU8U8Rra56rW6TtAKLcxe7fGV2S5SCsGKRVZhzqqikCcZM1voxbZyVHT5u` |
+| ATTACK burn_dust before all claims | FAILED (ClaimsOutstanding) | `642WY8KLGiu4p3wWvepYocH7AvaFFg79PnrVXm91LsKbXrzhGvFGRPCXjjS4GDLvStr4b8SiRN91jeCnsY8T5aT` |
+| claim carol | OK | `qGDjYqEgh8nW6udnUFMGZFZydwNjBE5ASeQZwK3ngLFpnyormdLSQyxVdyKBpRc2Lwqi6P86h8cp2ZWXfpxbjxG` |
+| claim alice | OK | `5rFcqKMCJ3B2DjRbz3GsULtwyFJdsigR8oDYszx8zyqqMsbtvaFsrfwM4gS393M1DwF4U8D5v43Gfr5wh123gP1L` |
+| claim bob | OK | `51TYZpg7pSqrdjHnKp1mabgkVAasXb5S9ZVjycspNWiLtyLyvAUQuC8JRgte2BrFuv9QK9bKukcXLfkWUsHMCDQh` |
+| ATTACK alice double-claims | FAILED (AlreadyClaimed) | `5qnR9VsFc7C4GTjqHic5kC3YEPXABhjbyZFoTumKxB7QtFdxKCWN8CcxUs3eJUm8bbby5GxnqjJ8i7yT6xQtcE9M` |
+| burn_dust (permissionless, after all claims) | OK | `3dHXVtDxtGkum69gihTQ7hbgbUKApuSV6HgrR73TVG7Jtqn7V8REaghVbC5mpRyP8ELf6uc6pEt7b8RUWfb94hvf` |
+| ATTACK settle after expiry | FAILED (NotInSettlementWindow) | `3spvjsKHSVECmxpoQwbho3GoBD5ztdnmZ6VjsJdHG1dB5mwgdqdKARBJTvF4SE9f1V2D9YNPAP9htZLw9TxKcbpY` |
+| ATTACK cancel_expired sending bounty to eve | FAILED (ConstraintAddress) | `ewHxhQ5fX42pnTb1CY1hKPuQi68iuwPe37mAtQpuWN51nkxSHwn8nKX1ptXCXTCLvsmFA9LdiFWTStraxq2bDHW` |
+| cancel_expired abandoned by eve (permissionless) | OK | `3HWgxnRALxo57k7dW9RS4Zc4bkw4xPeyqFJrK6YfMEXqW5RBfTy2qgMKAPPkufe23yb5R2G2rYko1rqybJhrRYox` |
+| ATTACK cancel_expired twice | FAILED (NotOpen) | `AgbDrzJwvG5HQYvsg8n5pk6QgYnFJB322Hkwk4cFmz5zULTX4K69MfWgXFhXVeXyL3vcbcwY6a7rXrcFo65fgfX` |
+| ATTACK eve refunds alice's deposit to eve | FAILED (ConstraintSeeds) | `4oq6zmRwK15bAXTnApwbrSLb3CAuRWh6HhraUmAijLbqZHwudueWfwJCV5FL8UCcni8kXFCKTp9h2M4bRiQzGc83` |
+| ATTACK alice refunds into eve's token account | FAILED (ConstraintTokenOwner) | `D6DK1RDifCKuqdrrLo8XJHYnNip9i55czVpY93qaghN8DsR29iS8VAYxFt8wxyvntzpC337Qci7XzUk3TPZYJM4` |
+| refund bob | OK | `4wBSr7vT38XSnFGdfqUhvFVbfT8qwADZSUdhtMfkw35yyjN2goARUfz2QYL9rQC8jjkyz6vsVjwcqU6bgp7CVtfr` |
+| refund alice | OK | `Rsz8AGeVwFtXSgdRY9oDAxEJQWUgtF1Mu4MnpAP92CDW3ErJf1QeQ8wrBqMB91xnVqNfXPz8RZGZwbv5Jen9N3w` |
+| refund carol | OK | `5AJ79seEC21gu3ijBQrjn8j5fc3uKw3TFMrTjoFjJjNLd5KUS8fWKqrk9wjnA7RsuFLvnCCsa7o1JXfBYmGzLK5m` |
+| ATTACK bob double-refund | FAILED (AlreadyRefunded) | `3AW4CWDBd36PZnEDtWDBZNwWbXvSzXXmWw5jt8rNwkmU9WcamEsVQJtXRCLVcPvDxXeSLYfo83yk38NTZeZXPo5S` |
+| cancel_expired underfunded by eve | OK | `2AWaCiJnMqZkLrYRT4hiw3V4mMWkUcGLAGNHqD13MXLnqoPuPADgZhc5Mmf1729xKVeFGP517LXL6uYq7Fqa5L1r` |
+| refund bob (underfunded) | OK | `VtpvK9PnbLk4CMnG8MjmAcj87VgQdNtweyvnXeE6hoNVHWKCDBauWqJEYo6hvVPkCCK16VAQZNKPpPXoH7YiZLW` |
+
+## Adversarial coverage (what each case proves)
+
+| Threat | Test | Result |
+|---|---|---|
+| Creator abandonment | `main` settled by eve, creator inactive; `abandoned` never settled | settled without creator / refunded 1:1 after expiry, bounty back to creator |
+| Front-running the pool | eve calls DBC init directly for the committed mint | `Cross-program invocation with unauthorized signer` (mint is an EqualStart PDA) |
+| Address pre-funding (DoS) | eve sends lamports to the mint, pool, both DBC vaults, the batch ATA and the metadata PDA | settlement still succeeds |
+| Unauthorized settlement inputs | eve names herself as creator / routes tokens to her ATA | `ConstraintAddress` |
+| Premature / late settlement | before `closes_at`, after `expires_at` | `NotInSettlementWindow` |
+| Min raise not met | settle underfunded batch | `MinRaiseNotMet`, later refunded |
+| Replay | settle twice, cancel twice | `NotOpen` |
+| Double claim / refund | | `AlreadyClaimed` / `AlreadyRefunded` |
+| Claim/refund someone else's deposit | | `ConstraintSeeds` / `ConstraintTokenOwner` |
+| Invalid configs | non-DBC account, first-swap-min-fee config, 5% cliff vs 1% ceiling, cap ≥ migration threshold | `InvalidDbcConfig` / `OpeningFeeTooHigh` / `BadTerms` |
+| Bad terms | `min_base_per_sol` overflows at max raise; expiry before close; re-initialization | `Overflow` / `BadDeadlines` / already in use |
+| Slippage | output below `min_base_per_sol` floor | DBC `ExceededSlippage`; pool and mint creation roll back, deposits intact |
+| Vault theft | creator transfers from either PDA vault | Token program `owner does not match` |
+
+## Verified vs. unverified
+
+**Passed on a real ledger:** `solana-test-validator` 4.3.0, running the exact DBC bytecode from mainnet, and separately the bytecode from devnet, plus Metaplex Token Metadata.
+- Everything in the two tables above, 10/10 test groups on each binary.
+- The offchain accounting tests still pass (`npm test`, 12/12).
+
+**Not verified yet:**
+- Public devnet deployment and explorer links. Blocked on funding; see "Reproduce".
+- Configs with `collect_fee_mode = OutputToken`, dynamic fee enabled, or a non-zero `pool_creation_fee`. The code handles them, but no test uses one.
+- Fee-scheduler configs at real settlement time. Tests use a flat 1% config for settlement and check the 5% config only at initialize.
+- Token-2022 base tokens are rejected by design and not supported.
+- Behaviour under a future DBC upgrade.
+
+## Remaining security concerns
+
+1. **Pinned DBC layout.** EqualStart hard-codes DBC discriminators, account orders and `VirtualPool`/`PoolConfig` byte offsets from IDL 0.2.1. Meteora can upgrade DBC. Owner and discriminator checks fail closed, but a field moved inside the same struct would be misread. These must be re-verified on every DBC upgrade, ideally with a CI job that diffs the deployed IDL.
+2. **Trust in DBC with the PDA signature.** During the CPIs, the batch PDA signs as DBC's creator and swap payer. The before/after checks bound the damage: the quote vault loses exactly the total, base output is at least the minimum, and the creator role is checked after transfer. A malicious DBC upgrade is still out of EqualStart's control.
+3. **EqualStart upgrade authority.** On devnet it will be the throwaway deployer key. Calling this trustless requires an immutable deploy or a disclosed multisig with a timelock. Not audited.
+4. **Settlement economics.** The settler pays rent (about 0.0215 SOL) plus any DBC `pool_creation_fee` and is repaid by the creator's bounty.
+   - With a zero bounty, or a config whose creation fee exceeds the bounty, settling costs money. Settlement then relies on a participant paying for it; otherwise the batch expires and refunds.
+   - The program doesn't require `bounty ≥ pool_creation_fee` yet.
+5. **Metadata update authority.** If the DBC config sets `CreatorUpdateAuthority`, the update authority becomes the batch PDA, which has no instruction to use it. The metadata is then effectively frozen. The tests use `Immutable`.
+6. **Same-transaction buys after settlement.** Deferred as you asked. Because the settler can be anyone, anyone can append a buy right after `settle`. That is the "normal trading after the opening batch" case and cannot come before the batch buy, so I found no exploit that a scan would prevent.
+7. **Rent and residuals.** Batch, contribution and vault accounts are never closed. wSOL donated to a quote vault is stranded.
+8. **Sybil.** Per-wallet caps are bypassed with more wallets.
 
 ## Reproduce
 
 ```bash
-# toolchain: Agave 4.3.0, Rust stable, anchor-cli 1.2.1 (cargo install anchor-cli --version 1.2.1 --locked), Node 22
+# toolchain: Agave 4.3.0, Rust stable, anchor-cli 1.2.1, Node 22
 cd onchain && npm install && anchor build
-scripts/localnet.sh &                       # DBC_SO=../fixtures/dbc_devnet.so to use the devnet build
+scripts/localnet.sh &                       # DBC_SO=../fixtures/dbc_devnet.so for the devnet build
 EVIDENCE_NAME=run.json NODE_OPTIONS=--no-experimental-strip-types \
   npx ts-mocha -p ./tsconfig.json -t 1000000 tests/equalstart.ts
+
+# public devnet (needs ~7 devnet SOL at `solana address -k ../keys/deployer.json`)
+scripts/devnet.sh                           # deploys, runs the same suite, writes evidence/devnet-run.{json,txt} with explorer links
 ```
 
-Files: `onchain/programs/equalstart/src/lib.rs` (program), `onchain/tests/equalstart.ts` (onchain tests), `evidence/localnet-dbc-{mainnet,devnet}-binary.{json,txt}` (signatures, full logs, CU, balances).
+Earlier proof (creator-signed, two-instruction settlement):
+- Commit `204524f`.
+- Evidence in `evidence/localnet-dbc-{mainnet,devnet}-binary.*`.
+- Settlement `4E5mGR7EW3PRGZuv5NJQdxUMGDpNrXXuB9GTRTanJe19KfWMfUEyadz46fByRfzke9ryyC6LUQg9LFv8sbgsqJ5y`.
