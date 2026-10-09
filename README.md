@@ -14,6 +14,8 @@ Nobody can trade ahead of the batch. Everyone in it gets the same average price 
 
 | What | Where |
 |---|---|
+| Live app (devnet; explore without a wallet) | https://equalstart.vercel.app |
+| Submission: architecture diagram, video script | [`SUBMISSION.md`](SUBMISSION.md) |
 | Public devnet run (10/10), with explorer links for every deposit, the settlement, the claims, the refunds and each rejected attack | [`VERIFICATION.md`](VERIFICATION.md) |
 | Settlement transaction (devnet), signed by a wallet with no role in the launch | [`3mPebdq9…`](https://explorer.solana.com/tx/3mPebdq9aesrtS28sEaRJqXjMwM54BkXbotfGugknUVVQUwUdo46s2iXtubUWojGGy5VRaLnJgb2wccHSbatkN7t?cluster=devnet) |
 | Program (devnet) | [`6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j`](https://explorer.solana.com/address/6m6BShPDaXgQG71YSKZ2rgM9hfLVYhm3QSv3Z2TnPX1j?cluster=devnet); the deployed bytes match the local build |
