@@ -216,3 +216,38 @@ h3 { font-size: 0.95rem; margin: 0 0 10px; }
 .activity li.rejected .act-name { color: var(--danger); }
 .act-err { margin-left: 8px; font-size: 0.78rem; background: var(--danger-soft); color: var(--danger); padding: 1px 6px; border-radius: 6px; }
 @media (max-width: 640px) { .activity li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* ---- race animation ---- */
+.race { background: var(--surface-2); border-radius: var(--radius); padding: 14px 14px 10px; margin: 16px 0; }
+.race-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.race-mode { font-weight: 700; font-size: 0.85rem; padding: 3px 10px; border-radius: 999px; transition: background 0.4s, color 0.4s; }
+.race-mode.seq { background: var(--warn-soft); color: var(--warn); }
+.race-mode.eq { background: var(--accent-soft); color: var(--accent); }
+.race-replay { height: 32px; padding: 0 12px; font-size: 0.85rem; }
+.race svg { display: block; width: 100%; height: auto; margin-top: 6px; overflow: visible; }
+.race-axis { stroke: var(--border); stroke-width: 2; }
+.race-axis-label { fill: var(--muted); font-size: 12px; }
+.race-bar { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), fill-opacity 0.6s, stroke-opacity 0.6s; }
+.race-bar.seq { fill: var(--warn); stroke: var(--warn); stroke-width: 2; stroke-opacity: 0; }
+.race-bar.eq { fill: var(--accent); transition-delay: 0s, 0.2s, 0s; }
+.race-g.in .race-bar { transform: scaleY(1); }
+.race-g text { opacity: 0; transition: opacity 0.5s 0.5s; font-variant-numeric: tabular-nums; }
+.race-g.in text { opacity: 1; }
+.race-value { fill: var(--text); font-size: 15px; font-weight: 700; }
+.race-name { fill: var(--muted); font-size: 12px; }
+.race-inside { fill: var(--accent-text); font-size: 13px; font-weight: 700; }
+.race-g.ghost .race-bar { fill-opacity: 0.08; stroke-opacity: 0.6; stroke-dasharray: 5 4; }
+.race-g.ghost .race-value { opacity: 0; transition-delay: 0s; }
+.race-g.batch .race-value, .race-g.batch .race-inside { opacity: 0; }
+.race-g.batch.split .race-value, .race-g.batch.split .race-inside { opacity: 1; transition-delay: 0.1s; }
+.race-g.split .eq1 { fill-opacity: 0.8; }
+.race-g.split .eq2 { fill-opacity: 0.62; }
+.race-level { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 5; opacity: 0; transition: opacity 0.5s 0.3s; }
+.race-level.in { opacity: 1; }
+.race-caption { min-height: 3em; margin: 6px 0 0; font-size: 1rem; font-weight: 600; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .race-bar, .race-g text, .race-level, .race-mode { transition: none !important; } }
+
+.race-page { max-width: 980px; margin: 0 auto; }
+.race-page h1 { margin-bottom: 4px; }
+.race-page .race { padding: 20px 24px 16px; }
+.race-page .race-caption { font-size: 1.3rem; min-height: 2.6em; }

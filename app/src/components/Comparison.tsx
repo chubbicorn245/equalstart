@@ -1,5 +1,6 @@
 import { useState } from "react";
 import comparison from "../lib/comparison.json" with { type: "json" };
+import { Race } from "./Race.tsx";
 
 type Scenario = keyof typeof comparison;
 const SCENARIOS: { key: Scenario; label: string }[] = [
@@ -33,6 +34,8 @@ export function Comparison() {
         whoever lands first gets the best price, and in practice that's a bot. With EqualStart, their SOL becomes a single
         first buy and each person receives the same tokens per SOL.
       </p>
+
+      <Race key={key} data={data} />
 
       <div className="compare-grid">
         <div>

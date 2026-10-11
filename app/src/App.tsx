@@ -7,10 +7,12 @@ import { PROGRAM_ID, explorerAddress } from "./lib/equalstart.ts";
 import { LaunchList } from "./components/LaunchList.tsx";
 import { CreateLaunch } from "./components/CreateLaunch.tsx";
 import { LaunchPage } from "./components/LaunchPage.tsx";
+import { RacePage } from "./components/RacePage.tsx";
 
 function Routes() {
   const route = useRoute();
   if (route === "/create") return <CreateLaunch />;
+  if (route === "/race") return <RacePage />;
   const m = route.match(/^\/launch\/([1-9A-HJ-NP-Za-km-z]{32,44})$/);
   if (m) {
     try {

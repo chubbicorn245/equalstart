@@ -58,11 +58,23 @@ If nobody settles before expiry, anyone can cancel the launch and every particip
 
 ## 90-second video script
 
-| Time | On screen | Narration |
+**Approach:** show the problem, the trick and the proof. Never show wallet switching on screen.
+- Record the narration first, then cut the screen footage to fit it.
+- Narration is about 205 words, which is a comfortable pace for 90 seconds.
+- Burn in captions, since many judges watch muted.
+
+**Before recording:**
+- Use a browser window of about 1280×800, with the bookmarks bar hidden.
+- Open the race at https://equalstart.vercel.app/#/race. It plays on load; press **R** to replay it.
+- For the deposit montage, set up three Chrome profiles, each with Phantom on one account, and tile them side by side.
+
+| Time | On screen | Narration (words) |
 |---|---|---|
-| 0:00–0:12 | Home page hero | "When a token launches on a bonding curve, buyers go in one after another, and every buy raises the price for the next. The first wallet in, usually a bot, gets the best price. EqualStart makes the first price everyone's price." |
-| 0:12–0:27 | Comparison chart: toggle demo → 20× | "We measured this against Meteora's real bonding-curve program. Three buyers going in one after another each pay a worse price than the one before. At 20× the size, the third buyer gets about a third fewer tokens per SOL than the first. Through EqualStart, all three get exactly the same tokens per SOL." |
-| 0:27–0:45 | How-it-works diagram | "Participants deposit SOL into an on-chain escrow before the token exists. The token's mint belongs to our program, so nobody can create the pool early. When deposits close, one instruction creates the Meteora pool and spends the whole batch as its very first trade. No one can get in ahead of it." |
-| 0:45–1:05 | Demo launch page: progress, committed terms, then the Settle row in the activity feed → Solana Explorer | "Here's a live devnet launch. The terms are locked when the launch is created: minimum raise, wallet cap, maximum fee and minimum price. Settlement was signed by a wallet that had nothing to do with the launch. Anyone can trigger it, and they earn a small bounty. Here it is on Explorer: pool creation and the batch buy in one transaction." |
-| 1:05–1:20 | Allocation bar and table, then Claim in Phantom | "Each wallet's share of the tokens equals its share of the SOL. Everyone claims independently. If a launch is never settled, anyone can cancel it after the deadline and every depositor gets a full refund." |
-| 1:20–1:30 | Footer / VERIFICATION.md | "It's on devnet now, with every transaction, including rejected attacks, linked in our verification record. It's unaudited, and it needs an independent review before it goes anywhere near mainnet. EqualStart: everyone gets the first price." |
+| 0:00–0:10 | `#/race` playing: three orange bars land one after another; caption "Going first was worth 51% more tokens per SOL" | "Three people buy the same new token, one after another. The first one gets fifty-one percent more tokens per SOL than the last. Just for being first." (27) |
+| 0:10–0:16 | Same shot: the bars collapse into one green level at 24.3M each | "EqualStart turns all three buys into one. Same price for everyone." (11) |
+| 0:16–0:22 | Home page hero, slow zoom on "Everyone gets the first price." | "On a real launch, first in line is usually a bot. We remove the line." (14) |
+| 0:22–0:40 | How-it-works diagram, highlighting each step as it's named | "Buyers deposit SOL into an on-chain escrow before the token exists. The token's mint is owned by our program, so nobody can create the trading pool early. When deposits close, one instruction creates the Meteora pool and spends the whole batch as its very first trade. There's no gap to jump into." (52) |
+| 0:40–0:48 | Three tiled browser windows, each depositing at 4× speed, with captions "0.3 SOL", "0.2 SOL", "0.1 SOL" | "Here it is live on devnet. Three wallets, three deposits, one batch." (12) |
+| 0:48–1:05 | Solana Explorer, [settle tx `3UZ6nanj…`](https://explorer.solana.com/tx/3UZ6nanjMmX5T651n5LAXMHB9rFjHyJaZw1pPUyXJjiUP2Y8Zfvst991EWU7htXvojPQpQXXr5vJTeE1HbmHPhEB?cluster=devnet): zoom on the signer, then on the inner Meteora instructions (pool creation, then the swap) | "Settlement was signed by a wallet that never deposited. Anyone can press the button, and they earn a small bounty, so the launch never depends on the creator. Inside one transaction, the pool is born and the batch buys. Nothing gets in between." (42) |
+| 1:05–1:17 | Demo launch page: the allocation bar and table, every row "claimed" | "Each wallet's share of the tokens matches its share of the SOL, to the smallest unit. If nobody settles in time, everyone gets a full refund." (27) |
+| 1:17–1:30 | VERIFICATION.md scrolling, then the logo and URL | "Every transaction, including rejected attacks, is in our verification record. It's unaudited and devnet only for now. EqualStart: everyone gets the first price." (24) |
