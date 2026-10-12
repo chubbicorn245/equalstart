@@ -110,7 +110,7 @@ This also tests the live URL with Phantom, which the earlier run didn't cover. Y
 3. [ ] **Account Input(s)** (about 5 s): zoom on the row tagged **Fee Payer / Signer**, `715B3S…qVyF`. That's the Settler, which appears in no deposit.
    - Optional proof: a split-second cut to the launch page's allocation table, showing 715B… isn't listed.
 4. [ ] **Program Instruction Logs** (about 8 s; scroll to the bottom of the page): this is the money shot. It shows the nesting:
-   - `EqualStart: Instruction: Settle`
+   - `Instruction: Settle`, under our program. Explorer may label it "Unknown Program (6m6BSh…)"; caption it "EqualStart" in the editor.
    - inside it, `InitializeVirtualPoolWithSplToken` (pool created)
    - then `Swap2` (the batch buy)
    - then `TransferPoolCreator`
