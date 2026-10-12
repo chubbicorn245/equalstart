@@ -58,11 +58,11 @@ Every shot is recorded separately, so you can redo one without redoing the rest.
 1. [ ] Scroll to the top.
 2. [ ] Record 6 s without moving, then add a slow zoom on "Everyone gets the first price." in the editor.
 
-## Shot 4: How it works (0:22–0:40)
+## Shot 4: How it works (0:22–0:37)
 
 **URL:** the home page, scrolled to "How it works" (or click the **How it works** button in the hero).
 
-**Narration:** "Buyers deposit SOL… There's no gap to jump into." (the longest slot, 18 s)
+**Narration:** "Buyers deposit SOL… makes the whole batch its very first trade." (15 s)
 
 1. [ ] Frame the four step cards plus the green "One transaction · signed only by the settler" box.
 2. [ ] Slowly move the cursor to each item as it's named, holding about 3 s on each:
@@ -70,9 +70,9 @@ Every shot is recorded separately, so you can redo one without redoing the rest.
    - in the green box, **1 create pool**, especially its "mint & creator are EqualStart PDAs" line
    - **2 swap whole batch**
    - card 3, **Settle**
-3. [ ] Hold on the whole green box for the last 3 s, while "no gap to jump into" is said.
+3. [ ] Hold on the whole green box for the last 3 s, while "its very first trade" is said.
 
-## Shot 5: Three wallets, one batch (0:40–0:48)
+## Shot 5: Three wallets, one batch (0:37–0:45)
 
 **Narration:** "Here it is live on devnet. Three wallets, three deposits, one batch."
 
@@ -99,17 +99,21 @@ This also tests the live URL with Phantom, which the earlier run didn't cover. Y
 2. [ ] Scroll slowly through the **Activity** feed, which shows the three deposits by three wallets, then the settle.
 3. [ ] Change the narration to "Here's a live devnet launch: three wallets, three deposits, one batch."
 
-## Shot 6: The proof, on Explorer (0:48–1:05). This is the climax.
+## Shot 6: The proof, on Explorer (0:45–1:05). This is the climax.
 
 **URL:** https://explorer.solana.com/tx/3UZ6nanjMmX5T651n5LAXMHB9rFjHyJaZw1pPUyXJjiUP2Y8Zfvst991EWU7htXvojPQpQXXr5vJTeE1HbmHPhEB?cluster=devnet
 
-**Narration:** "Settlement was signed by a wallet that never deposited… Nothing gets in between."
+**Narration:** "This is Meteora's own bonding-curve program, the same one used on mainnet, not a mock. Settlement was signed by a wallet that never deposited… Nothing gets in between."
 
 1. [ ] Before recording, load the page and wait until "Result: Success" shows. Then reload it so it's cached.
-2. [ ] **Overview** (about 4 s): zoom on **Result: Success**.
-3. [ ] **Account Input(s)** (about 5 s): zoom on the row tagged **Fee Payer / Signer**, `715B3S…qVyF`. That's the Settler, which appears in no deposit.
+2. [ ] **Real Meteora, not a mock** (about 4 s, while "Meteora's own bonding-curve program… not a mock" is said): zoom on the Meteora DBC program address `dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN`.
+   - Where to find it: in **Program Instruction Logs**, or in the account list, where Explorer may show it as "Meteora Dynamic Bonding Curve" or "Unknown Program (dbcij3…)".
+   - Add the caption "Meteora DBC: same program ID as mainnet". The same address is Meteora's live mainnet program (checked 2026-10-11).
+   - Optional: a 1 s cut to https://explorer.solana.com/address/dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN (no `?cluster` = mainnet) showing it's an executable program there.
+3. [ ] **Overview** (about 2 s): zoom on **Result: Success**.
+4. [ ] **Account Input(s)** (about 5 s): zoom on the row tagged **Fee Payer / Signer**, `715B3S…qVyF`. That's the Settler, which appears in no deposit.
    - Optional proof: a split-second cut to the launch page's allocation table, showing 715B… isn't listed.
-4. [ ] **Program Instruction Logs** (about 8 s; scroll to the bottom of the page): this is the money shot. It shows the nesting:
+5. [ ] **Program Instruction Logs** (about 7 s; scroll to the bottom of the page): this is the money shot. It shows the nesting:
    - `Instruction: Settle`, under our program. Explorer may label it "Unknown Program (6m6BSh…)"; caption it "EqualStart" in the editor.
    - inside it, `InitializeVirtualPoolWithSplToken` (pool created)
    - then `Swap2` (the batch buy)
@@ -151,7 +155,7 @@ This also tests the live URL with Phantom, which the earlier run didn't cover. Y
 - [ ] **Music** at about −25 dB under the voice. Fade it out over the last 2 s.
 - [ ] **Text overlays:**
   - Shot 1: "+51% for going first"
-  - Shot 6: "Signer: never deposited" and "1 instruction: create pool → buy"
+  - Shot 6: "Meteora DBC: same program ID as mainnet", "Signer: never deposited" and "1 instruction: create pool → buy"
 - [ ] **Final length:** 85–90 s, and never over 90.
 - [ ] **Watch it on mute.** It must make sense from the captions alone.
 - [ ] **Export:** 1080p MP4. Upload to YouTube as Unlisted, or to Loom. Check that the link plays in a logged-out window, then paste it into `[VIDEO]` in `submission-form.md`.
