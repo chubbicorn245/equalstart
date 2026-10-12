@@ -64,12 +64,18 @@ Every shot is recorded separately, so you can redo one without redoing the rest.
 
 **Narration:** "Buyers deposit SOL… makes the whole batch its very first trade." (15 s)
 
-1. [ ] Frame the four step cards plus the green "One transaction · signed only by the settler" box.
+Nothing here is clickable, and nothing needs to be. The "How it works" button in the hero only scrolls down. This shot is all framing plus slow cursor movement.
+
+The section has two parts:
+- **The numbered list** (1 Commit, 2 Deposit, 3 Settle, 4 Claim or refund).
+- **The diagram below it:** a dashed outline titled "One transaction · signed only by the settler (any wallet)". Inside is the **green-bordered box**, "EqualStart `settle`", holding three small boxes numbered 1 create pool → 2 swap whole batch → 3 hand creator role.
+
+1. [ ] Frame the numbered list plus the diagram.
 2. [ ] Slowly move the cursor to each item as it's named, holding about 3 s on each:
-   - card 2, **Deposit**
-   - in the green box, **1 create pool**, especially its "mint & creator are EqualStart PDAs" line
-   - **2 swap whole batch**
-   - card 3, **Settle**
+   - list item 2, **Deposit**
+   - small box 1, **create pool**, especially its "mint & creator are EqualStart PDAs" line
+   - small box 2, **swap whole batch**
+   - list item 3, **Settle**
 3. [ ] Hold on the whole green box for the last 3 s, while "its very first trade" is said.
 
 ## Shot 5: Three wallets, one batch (0:37–0:45)
