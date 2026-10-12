@@ -3,7 +3,7 @@
 <p align="center">A permissionless fair-opening mechanism for <a href="https://docs.meteora.ag/developer-guides/dbc">Meteora Dynamic Bonding Curve</a> launches on Solana.</p>
 
 <p align="center">
-  <a href="https://superteam.fun/earn/hackathon/crypto-worlds-fair/"><img alt="Meteora DBC Hackathon" src="https://img.shields.io/badge/Meteora-DBC%20Hackathon-7C3AED?style=for-the-badge" /></a>
+  <a href="https://superteam.fun/earn/listing/meteora-dbc/"><img alt="Meteora DBC track" src="https://img.shields.io/badge/Meteora-DBC%20Hackathon-7C3AED?style=for-the-badge" /></a>
   <a href="https://superteam.fun/earn/hackathon/crypto-worlds-fair/"><img alt="Crypto World's Fair 2026" src="https://img.shields.io/badge/Crypto%20World%27s%20Fair-2026-1F2937?style=for-the-badge" /></a>
   <a href="https://equalstart.vercel.app"><img alt="Live demo on Solana devnet" src="https://img.shields.io/badge/Live%20Demo-Devnet-14B8A6?style=for-the-badge" /></a>
 </p>
@@ -125,6 +125,6 @@ See [`ONCHAIN_RESULTS.md`](ONCHAIN_RESULTS.md) for detailed security notes.
 ---
 <p align="center">
   <strong>Built for the 2026 Crypto World's Fair</strong><br />
-  <a href="https://superteam.fun/earn/hackathon/crypto-worlds-fair/">Meteora: Best use of Dynamic Bonding Curve (DBC)</a><br />
+  <a href="https://superteam.fun/earn/listing/meteora-dbc/">Meteora: Best use of Meteora's Dynamic Bonding Curve (DBC)</a><br />
   <sub>Fairer opening participation, powered by Meteora DBC.</sub>
 </p>
