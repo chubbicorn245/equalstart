@@ -116,6 +116,9 @@ The app uses **devnet by default**; for localnet, set `VITE_CLUSTER=localnet` an
 - **Upgrade authority:** A throwaway key currently controls the devnet program. A production release needs an explicit multisig/timelock or revoked-upgrade strategy.
 - **Meteora dependency:** The implementation relies on DBC instruction layouts and account offsets from IDL `0.2.1`. A future DBC upgrade could invalidate these assumptions. The DBC program is part of the settlement trust boundary; balance checks limit but cannot eliminate the resulting risk.
 - **Scope:** Per-wallet caps are not Sybil resistance, and equalized opening pricing does not guarantee token value or liquidity.
+- **Deposits can be locked until expiry (fix before mainnet).** The program doesn't cap the settlement window, and there's no exit between close and expiry. If a launch can't settle (minimum raise missed, or an unreachable minimum price), deposits are refundable only after expiry, which the creator chooses. The app caps new launches at 7 days and warns on launches with longer windows. Planned program fix: allow cancellation as soon as deposits close if the minimum raise wasn't met, and cap the window on-chain.
+- **Last-second withdrawal griefing (fix before mainnet).** Withdrawals are allowed until deposits close, so someone can fill the batch to crowd others out, then withdraw just before close. Nothing is lost, but the batch can miss its minimum or open small. Planned fix: stop withdrawals some time before close.
+- **Creator-chosen curve settings.** Participants rely on the DBC config the creator picked (supply, vesting, fee split, pool creation fee). The launch page links it and shows the pool creation fee, which whoever settles pays.
 
 See [`ONCHAIN_RESULTS.md`](ONCHAIN_RESULTS.md) for detailed security notes.
 

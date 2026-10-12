@@ -188,12 +188,14 @@ export async function fetchActivity(connection: Connection, batch: PublicKey, la
   });
 }
 
-/** The settlement is the first successful transaction on the pool address (the pool cannot exist before it). */
+/**
+ * Fallback for the settlement signature: the oldest successful transaction on the pool address (the pool cannot
+ * exist before it). Only the newest 1000 signatures are fetched, so on a pool with more trades this is wrong;
+ * the UI prefers the activity feed's labelled Settle transaction.
+ */
 export async function findSettlementSignature(connection: Connection, pool: PublicKey): Promise<string | null> {
   const sigs = await connection.getSignaturesForAddress(pool, { limit: 1000 });
   const ok = sigs.filter((s) => !s.err);
-  // A lamport donation to the pool address can precede settlement; those never invoke EqualStart, so
-  // prefer a signature the snapshot labels as Settle, else the oldest successful one.
   return ok.length ? ok[ok.length - 1].signature : null;
 }
 

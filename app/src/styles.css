@@ -152,6 +152,7 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 .notice-pending { background: var(--info-soft); }
 .notice-done { background: var(--accent-soft); }
 .notice-error { background: var(--danger-soft); color: var(--danger); }
+.notice-warn { background: var(--warn-soft); color: var(--warn); }
 
 /* ---- presentation additions ---- */
 .banner { background: var(--warn-soft); color: var(--warn); text-align: center; font-size: 0.85rem; padding: 6px 16px; }

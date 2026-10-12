@@ -12,6 +12,8 @@ import { TxNotice } from "./TxNotice.tsx";
 
 type DbcInfo = Awaited<ReturnType<typeof readDbcConfig>>;
 
+const MAX_SETTLE_MINUTES = 7 * 24 * 60;
+
 function parsePubkey(s: string): PublicKey | null {
   try {
     return new PublicKey(s.trim());
@@ -70,6 +72,8 @@ export function CreateLaunch() {
     }
     if (!(Number(f.depositMinutes) > 0)) p.push("Deposit window must be positive.");
     if (!(Number(f.settleMinutes) > 0)) p.push("Settlement window must be positive.");
+    // The program doesn't bound this yet; a long window locks deposits if the launch can't settle.
+    else if (Number(f.settleMinutes) > MAX_SETTLE_MINUTES) p.push("Settlement window is at most 7 days: if the launch can't settle, deposits stay locked until it ends.");
     if (!cap || cap.isZero()) p.push("Per-wallet cap must be positive.");
     if (!min || min.isZero()) p.push("Minimum raise must be positive.");
     if (!max || (min && max.lt(min))) p.push("Cap must be at least the minimum raise.");
@@ -147,7 +151,11 @@ export function CreateLaunch() {
           <fieldset>
             <legend>Batch terms</legend>
             <label>Deposit window (minutes)<input value={f.depositMinutes} onChange={set("depositMinutes")} inputMode="decimal" /></label>
-            <label>Settlement window (minutes)<input value={f.settleMinutes} onChange={set("settleMinutes")} inputMode="decimal" /></label>
+            <label>
+              Settlement window (minutes)
+              <input value={f.settleMinutes} onChange={set("settleMinutes")} inputMode="decimal" />
+              <span className="hint">Max 7 days. If the launch can't settle, deposits are refundable only after this window ends.</span>
+            </label>
             <label>Per-wallet cap (SOL)<input value={f.perWalletCap} onChange={set("perWalletCap")} inputMode="decimal" /></label>
             <label>Minimum raise (SOL)<input value={f.minRaise} onChange={set("minRaise")} inputMode="decimal" /></label>
             <label>Batch cap (SOL)<input value={f.maxRaise} onChange={set("maxRaise")} inputMode="decimal" /></label>

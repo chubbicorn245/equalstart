@@ -233,6 +233,9 @@ Every `ATTACK` was sent with `skipPreflight` so it landed on-chain as a failed t
 6. **Same-transaction buys after settlement.** Deferred as you asked. Because the settler can be anyone, anyone can append a buy right after `settle`. That is the "normal trading after the opening batch" case and cannot come before the batch buy, so I found no exploit that a scan would prevent.
 7. **Rent and residuals.** Batch, contribution and vault accounts are never closed. wSOL donated to a quote vault is stranded.
 8. **Sybil.** Per-wallet caps are bypassed with more wallets.
+9. **Unbounded lock until expiry.** `initialize_batch` only requires `expires_at > closes_at`, and between `closes_at` and `expires_at` there is no exit: `withdraw` stops at close and `cancel_expired` needs expiry. If `settle` cannot succeed (`MinRaiseNotMet`, or `min_base_per_sol` unreachable), deposits are locked until a creator-chosen expiry. Fix before mainnet: let anyone cancel once `closes_at` has passed with `total_quote < min_raise`, and require `expires_at - closes_at <= MAX_SETTLEMENT_WINDOW`. The app caps new launches at 7 days and warns on longer ones.
+10. **Withdraw-before-close griefing.** `withdraw` is allowed until `closes_at`. An attacker can fill the batch up to `max_pool_quote_in` to crowd out others, then withdraw at the last moment so the batch misses `min_raise` or opens small. No funds are at risk. Fix before mainnet: a withdrawal cutoff before `closes_at`, or no withdrawals.
+11. **wSOL rent after deposit.** The app's deposit leaves the participant's (empty) wSOL ATA open, holding about 0.002 SOL of rent; withdraw and refund close it.
 
 ## Reproduce
 

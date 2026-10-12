@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import type BNType from "bn.js";
 import BN from "bn.js";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
@@ -18,6 +19,7 @@ import {
   type Activity,
   type ContributionRow,
   minBaseOut,
+  readDbcConfig,
   refundIxs,
   settleIxs,
   stageOf,
@@ -31,6 +33,9 @@ import { Progress } from "./Progress.tsx";
 import { TxNotice } from "./TxNotice.tsx";
 import { ActivityFeed, Allocation, Timeline } from "./LaunchDetails.tsx";
 import snapshot from "../lib/activity-snapshot.json" with { type: "json" };
+
+/** Longer than this between close and expiry gets a warning: deposits can be locked that long if settling fails. */
+const LONG_SETTLEMENT_WINDOW = 7 * 24 * 3600;
 
 const ACTIVITY_SNAPSHOT = snapshot as Record<string, { instruction: string; signer: string; error?: string }>;
 
@@ -70,6 +75,11 @@ export function LaunchPage({ address }: { address: PublicKey }) {
     if (batch?.phase === "settled") findSettlementSignature(connection, batch.pool).then(setPoolSettleSig, () => {});
   }, [connection, batch?.phase, batch?.pool]);
   const settleSig = activity?.find((a) => a.ok && a.instruction === "Settle")?.signature ?? poolSettleSig;
+  // The creator picks the DBC config; its pool creation fee is paid by whoever settles.
+  const [config, setConfig] = useState<{ poolCreationFee: BNType; migrationQuoteThreshold: BNType } | null>(null);
+  useEffect(() => {
+    if (batch) readDbcConfig(connection, batch.dbcConfig).then(setConfig, () => {});
+  }, [connection, batch?.dbcConfig.toBase58()]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const { state, send, reset } = useSend(afterTx);
 
@@ -106,6 +116,13 @@ export function LaunchPage({ address }: { address: PublicKey }) {
             </div>
           </section>
 
+          {batch.phase === "open" && batch.expiresAt - batch.closesAt > LONG_SETTLEMENT_WINDOW && (
+            <p className="notice notice-warn" role="note">
+              Long settlement window: if this launch can't settle, deposits stay locked until {dateTime(batch.expiresAt)} (
+              {duration(batch.expiresAt - batch.closesAt)} after deposits close).
+            </p>
+          )}
+
           <TxNotice state={state} onDismiss={reset} />
 
           {stage === "settled" && <SettlementResult batch={batch} settleSig={settleSig} />}
@@ -118,14 +135,14 @@ export function LaunchPage({ address }: { address: PublicKey }) {
                 <WalletMultiButton />
               </div>
             ) : (
-              <Position batch={batch} stage={stage} mine={mine} me={publicKey} send={send} pending={state.status === "pending"} minMet={minMet} />
+              <Position batch={batch} stage={stage} mine={mine} me={publicKey} send={send} pending={state.status === "pending"} minMet={minMet} creationFee={config?.poolCreationFee ?? null} />
             )}
           </section>
           <Allocation batch={batch} rows={rows} />
         </div>
 
         <aside className="col-side">
-          <Commitments batch={batch} />
+          <Commitments batch={batch} config={config} />
         </aside>
       </div>
       <div className="col-full">
@@ -146,7 +163,7 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 type SendFn = ReturnType<typeof useSend>["send"];
 
-function Position({ batch, stage, mine, me, send, pending, minMet }: { batch: Batch; stage: ReturnType<typeof stageOf> | null; mine: Contribution | null; me: PublicKey; send: SendFn; pending: boolean; minMet: boolean }) {
+function Position({ batch, stage, mine, me, send, pending, minMet, creationFee }: { batch: Batch; stage: ReturnType<typeof stageOf> | null; mine: Contribution | null; me: PublicKey; send: SendFn; pending: boolean; minMet: boolean; creationFee: BNType | null }) {
   const program = useProgram();
   const [amount, setAmount] = useState("0.1");
   const deposited = mine?.amount ?? new BN(0);
@@ -178,7 +195,7 @@ function Position({ batch, stage, mine, me, send, pending, minMet }: { batch: Ba
           </div>
           <p className="hint">
             You can add up to {sol(room)} SOL more. Withdrawals are allowed until deposits close. Your SOL is wrapped and held by
-            the program, never by the creator.
+            the program, never by the creator. If the launch can't settle, you can get a full refund after {dateTime(batch.expiresAt)}.
           </p>
         </>
       )}
@@ -189,7 +206,8 @@ function Position({ batch, stage, mine, me, send, pending, minMet }: { batch: Ba
             <>
               <p>
                 Deposits are closed. <strong>Anyone</strong> can settle now: one transaction creates the pool and makes the batch
-                buy before anyone else can trade. The settler receives the {sol(batch.settlerBounty)} SOL bounty (rent costs ≈0.022 SOL).
+                buy before anyone else can trade. The settler receives the {sol(batch.settlerBounty)} SOL bounty and pays ≈0.022 SOL in rent
+                {creationFee && !creationFee.isZero() ? <> plus this curve's <strong>{sol(creationFee)} SOL pool creation fee</strong></> : null}.
               </p>
               <button className="button primary" disabled={pending} onClick={() => send("Settle", () => settleIxs(program, batch, me))}>
                 Settle launch
@@ -270,7 +288,7 @@ function SettlementResult({ batch, settleSig }: { batch: Batch; settleSig: strin
   );
 }
 
-function Commitments({ batch }: { batch: Batch }) {
+function Commitments({ batch, config }: { batch: Batch; config: { poolCreationFee: BNType; migrationQuoteThreshold: BNType } | null }) {
   const link = (k: PublicKey) => (
     <a href={explorerAddress(k, CLUSTER)} target="_blank" rel="noreferrer"><code>{short(k)}</code></a>
   );
@@ -287,6 +305,8 @@ function Commitments({ batch }: { batch: Batch }) {
         <dt>Opening fee ceiling</dt><dd>{(batch.maxOpeningFeeBps / 100).toFixed(2)}%</dd>
         <dt>Min. tokens per SOL</dt><dd>{tokens(batch.minBasePerSol, 0)}</dd>
         <dt>Settler bounty</dt><dd>{batch.phase === "open" ? `${sol(batch.settlerBounty)} SOL` : batch.phase === "settled" ? "paid to settler" : "returned to creator"}</dd>
+        {config && <><dt>Pool creation fee (paid by settler)</dt><dd>{sol(config.poolCreationFee)} SOL</dd></>}
+        {config && <><dt>Curve graduates at</dt><dd>{sol(config.migrationQuoteThreshold)} SOL</dd></>}
         <dt>Creator</dt><dd>{link(batch.creator)}</dd>
         <dt>Escrow (batch)</dt><dd>{link(batch.address)}</dd>
         <dt>DBC config</dt><dd>{link(batch.dbcConfig)}</dd>
