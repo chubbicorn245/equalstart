@@ -17,3 +17,7 @@ app/dist/
 .env
 !.env.example
 submission-form.md
+
+# video footage (too large for git)
+video/*.mov
+video/*.mp4
